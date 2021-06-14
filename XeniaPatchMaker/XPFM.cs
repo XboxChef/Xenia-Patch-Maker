@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,7 @@ namespace XeniaPatchMaker
 
         private void XPFM_Load(object sender, EventArgs e)
         {
+            this.Text = "Xenia Patch Maker By TeddyHammer ( Version: " + Application.ProductVersion+ " )";
             groupBox3.AllowDrop = true;
             groupBox3.DragDrop += new DragEventHandler(BropBox_DragDrop);
         }
@@ -56,18 +58,26 @@ namespace XeniaPatchMaker
         private void XEXInfo_Click(object sender, EventArgs e)
         {
             //
-            if (OutPut.Text.Contains(string.Empty))
+            if (HashKey.TextLength > 10)
             {
-                OutPut.Text = "title_name = \"" + TitleName.Text + "\"" +
-    Environment.NewLine + "title_id = \"" + TitleId.Text + "\"" +
-    Environment.NewLine + "hash = \"" + HashKey.Text + "\"" +
-    Environment.NewLine + "#media_id = \"" + MediaId.Text + "\"" +
-    Environment.NewLine; 
+                if (OutPut.Text.Contains(string.Empty))
+                {
+                    OutPut.Text = "title_name = \"" + TitleName.Text + "\"" +
+        Environment.NewLine + "title_id = \"" + TitleId.Text + "\"" +
+        Environment.NewLine + "hash = \"" + HashKey.Text + "\"" +
+        Environment.NewLine + "#media_id = \"" + MediaId.Text + "\"" +
+        Environment.NewLine;
+                }
+                else
+                {
+                    MessageBox.Show("Output Must Be Empty Else Tool Is Disabled");
+                } 
             }
             else
             {
-                MessageBox.Show("Output Must Be Empty Else Tool Is Disabled");
+                MessageBox.Show("Must Drop Log File");
             }
+
         }
 
         private void IsOn_CheckedChanged(object sender, EventArgs e)
@@ -85,27 +95,23 @@ namespace XeniaPatchMaker
         private void AddPokeHeader_Click(object sender, EventArgs e)
         {
             //Safe Guard For Users TO Make Sure Format Is Correct At All Times
-            if (TitleId.TextLength > 0)
+            if (OutPut.Text.Contains("[[patch]]"))
             {
-                if (DoesHaveSecond.Checked == true)
+                if (ProvideSizeType.Text == "")
                 {
-                    //If True Writes Both
-                    OutPut.AppendText("    [[patch." + ProvideSizeType.Text + "]]" +
-    Environment.NewLine + "        address = " + textBox9.Text +
-    Environment.NewLine + "        value = " + textBox10.Text +
-    Environment.NewLine);
-                    OutPut.AppendText("    [[patch." + ProvideSizeType.Text + "]]" +
-Environment.NewLine + "        address = " + textBox9.Text +
-Environment.NewLine + "        value = " + textBox10.Text +
-Environment.NewLine);
+                    //If False it will only Write One
+                    OutPut.AppendText("    [[patch." + "be32" + "]]" +
+    Environment.NewLine + "        address = " + PatchAddress.Text +
+    Environment.NewLine + "        value = " + PatchValue.Text +
+    Environment.NewLine); 
                 }
                 else
                 {
                     //If False it will only Write One
                     OutPut.AppendText("    [[patch." + ProvideSizeType.Text + "]]" +
-Environment.NewLine + "        address = " + textBox9.Text +
-Environment.NewLine + "        value = " + textBox10.Text +
-Environment.NewLine);
+    Environment.NewLine + "        address = " + PatchAddress.Text +
+    Environment.NewLine + "        value = " + PatchValue.Text +
+    Environment.NewLine);
                 }
             }
             else
@@ -119,34 +125,28 @@ Environment.NewLine);
             PatchName.Text = string.Empty;
             Desc.Text = string.Empty;
             Authors.Text = string.Empty;
+            IsOn.Checked = false;
         }
 
-        private void SecondPatch_CheckedChanged(object sender, EventArgs e)
-        {
-
-            if (DoesHaveSecond.Checked == true)
-            {
-                DoesHaveSecond.Text = "Enabled";
-            }
-            else
-            {
-                DoesHaveSecond.Text = "Disabled";
-            }
-        }
 
         private void AddPatchHeader_Click(object sender, EventArgs e)
         {
             //Safe Guard For Users TO Make Sure Format Is Correct At All Times
-            if (TitleId.TextLength > 0)
+            if (OutPut.Text.Contains("#media_id ="))
             {
                 //writes the line with user's input
-                OutPut.AppendText("[[patch]]" +
+                OutPut.AppendText(Environment.NewLine + "[[patch]]" +
         Environment.NewLine + "    name = \"" + PatchName.Text + "\"" +
         Environment.NewLine + "    desc = \"" + Desc.Text + "\"" +
         Environment.NewLine + "    author = \"" + Authors.Text + "\"" +
         Environment.NewLine + "    is_enabled = " + IsOn.Text + "\"" +
-        Environment.NewLine); 
+        Environment.NewLine + Environment.NewLine); 
             }
+            else
+            {
+                MessageBox.Show("Main Header Must Be Made First (Please Write XEX Info)");
+            }
+
         }
         private string GetTitleId(string Placeholder, string Start, string End, int length)
         {
@@ -171,7 +171,7 @@ Environment.NewLine);
 
         private void button9_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Warning", "This Will Delete Current Output", MessageBoxButtons.OKCancel);
+            DialogResult dialogResult = MessageBox.Show("This Will Delete Current Output", "Warning", MessageBoxButtons.OKCancel);
             if (dialogResult == DialogResult.OK)
             {
                 OutPut.Text = "TeddyHammer - Aka Serenity Project Manager/Owner, " +
@@ -187,21 +187,58 @@ Environment.NewLine);
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            using (SaveFileDialog dialog = new SaveFileDialog()
+
+            if (OutPut.TextLength > 30)
             {
-                CheckFileExists = true,
-                DereferenceLinks = true,
-                Filter = "Xenia Patch File(*.patch;) |*.patch;| All files(*.*) | *.*",
-                Title = "Save Patch File..."
-            })
-            {
-                if (dialog.ShowDialog() == DialogResult.OK)
+
+                using (SaveFileDialog dialog = new SaveFileDialog()
                 {
-                   
-                }
+                    DereferenceLinks = true,
+                    Filter = "Xenia Patch File(*.patch;) |*.patch;| All files(*.*) | *.*",
+                    Title = "Save Patch File...",
+                    FileName = TitleId.Text + " - " + TitleName.Text,
+                    CheckPathExists = false,
+                    CheckFileExists = false
+
+                })
+
+
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        // If the file name is not an empty string open it for saving.
+                        if (dialog.FileName != "")
+                        {
+                            //// Saves the Image via a FileStream created by the OpenFile method.
+                            //System.IO.FileStream fs = (System.IO.FileStream)dialog.OpenFile();
+
+                            FileStream fParameter = new FileStream(dialog.FileName, FileMode.Create, FileAccess.Write);
+                            StreamWriter m_WriterParameter = new StreamWriter(fParameter);
+                            m_WriterParameter.BaseStream.Seek(0, SeekOrigin.End);
+                            m_WriterParameter.Write(OutPut.Text);
+                            m_WriterParameter.Flush();
+                            m_WriterParameter.Close();
+                            fParameter.Close();
+                            MessageBox.Show("File Was Created - "+Environment.NewLine + dialog.FileName);
+                        }
+                    }
+                
+            }
+            else
+            {
+                MessageBox.Show("Must Have Something To Be Saved Otherwise It Won't Work");
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OutPut.Text = string.Empty;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            PatchValue.Text = string.Empty;
+            PatchAddress.Text = string.Empty;
         }
     }
 }
