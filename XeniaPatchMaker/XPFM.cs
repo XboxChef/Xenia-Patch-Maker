@@ -25,9 +25,9 @@ namespace XeniaPatchMaker
         {
             string[] fileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             Data = string.Join("", fileList);
-            TitleId.Text = GetTitleId(System.IO.File.ReadAllText(Data), "Media ID:", "Title ID:", 0);
+            TitleId.Text = GetTitleID(System.IO.File.ReadAllText(Data), "Title ID:", "Savegame ID:", 0);
             HashKey.Text = GetHashKey(System.IO.File.ReadAllText(Data), "Module hash: ", " for default", 0);
-            MediaId.Text = GetMediaId(System.IO.File.ReadAllText(Data), "Title ID:", "Savegame ID:", 0);
+            MediaId.Text = GetMediaID(System.IO.File.ReadAllText(Data), "Media ID:", "Title ID:", 0);
         }
 
         private void XPFM_Load(object sender, EventArgs e)
@@ -139,7 +139,7 @@ namespace XeniaPatchMaker
         Environment.NewLine + "    name = \"" + PatchName.Text + "\"" +
         Environment.NewLine + "    desc = \"" + Desc.Text + "\"" +
         Environment.NewLine + "    author = \"" + Authors.Text + "\"" +
-        Environment.NewLine + "    is_enabled = " + IsOn.Text + "\"" +
+        Environment.NewLine + "    is_enabled = " + IsOn.Text +
         Environment.NewLine + Environment.NewLine); 
             }
             else
@@ -148,14 +148,14 @@ namespace XeniaPatchMaker
             }
 
         }
-        private string GetTitleId(string Placeholder, string Start, string End, int length)
+        private string GetMediaID(string Placeholder, string Start, string End, int length)
         {
             int x = Placeholder.LastIndexOf(Start/*"Title ID:"*/) + Start.Length + 1;
             length = Placeholder.IndexOf(End/*"Savegame ID:"*/) - x;
             string s = Placeholder.Substring(x, length);
             return String.Concat(s.Where(c => !Char.IsWhiteSpace(c)));
         }
-        private string GetMediaId(string Placeholder, string Start, string End, int length)
+        private string GetTitleID(string Placeholder, string Start, string End, int length)
         {
             int x = Placeholder.LastIndexOf(Start/*"Title ID:"*/) + Start.Length + 1;
             length = Placeholder.IndexOf(End/*"Savegame ID:"*/) - x;
@@ -176,7 +176,8 @@ namespace XeniaPatchMaker
             {
                 OutPut.Text = "TeddyHammer - Aka Serenity Project Manager/Owner, " +
             Environment.NewLine + "Etokapa - Sending Logs Instead Of Nudes," +
-            Environment.NewLine + "Billy Blueberry - Emotional Support :P";
+            Environment.NewLine + "Billy Blueberry - Emotional Support :P" +
+            Environment.NewLine + "Boma - Bug Reporting";
             }
             else if (dialogResult == DialogResult.Cancel)
             {
