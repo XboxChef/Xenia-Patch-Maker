@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.IO;
 using System.Windows.Forms;
 using static XeniaPatchMaker.Util.PatchUtil;
@@ -6,7 +7,7 @@ namespace XeniaPatchMaker
 {
     public partial class XPFM : Form
     {
-        #region String PlaceHolders
+        #region PlaceHolders
         public static string CurrentFullPath { get; set; }
 
         public static string CurrentFullName { get; set; }
@@ -23,8 +24,7 @@ namespace XeniaPatchMaker
             this.Text = "Xenia Patch Maker By TeddyHammer ( Version: " + Application.ProductVersion + " )";
             ProvideSizeType.Text = "be32";
             groupBox3.AllowDrop = true;
-            groupBox3.DragDrop += new DragEventHandler(BropBox_DragDrop);
-        } 
+        }
         #endregion
 
         #region Header Info Input
@@ -136,17 +136,20 @@ namespace XeniaPatchMaker
         #region Functions
         private void BropBox_DragDrop(object sender, DragEventArgs e)
         {
-            Data = File.ReadAllText(string.Join("", CurrentFullPath));
-            FileInfo fi = new FileInfo(CurrentFullPath);
+
             try
             {
+                Data = File.ReadAllText(string.Join("", CurrentFullPath));
+                FileInfo fi = new FileInfo(CurrentFullPath);
                 //File Requirement: Must Be Larger Than 2kb
                 if (fi.Length > 20000)
                 {
+
                     TitleId.Text = GetTitleID(Data, "Title ID:", "Savegame ID:", 0);
                     HashKey.Text = GetHashKey(Data, "Module hash: ", " for default", 0);
                     MediaId.Text = GetMediaID(Data, "Media ID:", "Title ID:", 0);
-                    TitleNameInput = TitleId.Text;
+                    TitleName.Text = GetTitle(File.ReadAllText(Application.StartupPath + "\\DB.txt"), TitleId.Text,Environment.NewLine, 0);
+                    
                 }
                 else
                 {
@@ -172,17 +175,7 @@ namespace XeniaPatchMaker
                 CurrentFullPath = Path.GetFullPath(CurrentFile[0]);
                 //Sets FullName Path
                 CurrentFullName = Path.GetFileName(CurrentFile[0]);
-                //File Requirement: Name Must Match
-                if (CurrentFullName == "xenia.log")
-                {
-                    // Allow this.
-                    e.Effect = DragDropEffects.Copy;
-                }
-                else
-                {
-                    // Don't allow any other drop.
-                    e.Effect = DragDropEffects.None;
-                }
+                e.Effect = DragDropEffects.Copy;
 
             }
             else
@@ -301,7 +294,8 @@ namespace XeniaPatchMaker
                     OutPut.Text = File.ReadAllText(dialog.FileName);
 
                 }
-        } 
+        }
         #endregion
+
     }
 }

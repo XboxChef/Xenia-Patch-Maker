@@ -68,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Util\PatchUtil.cs" />
-    <Compile Include="Util\TitleIds.cs" />
     <Compile Include="XPFM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,10 +88,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="..\..\..\..\Desktop\DB.json">
-      <Link>DB.json</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -108,6 +103,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DB.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="patch.ico" />
   </ItemGroup>
   <ItemGroup>

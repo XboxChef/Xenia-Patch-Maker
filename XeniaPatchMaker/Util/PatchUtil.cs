@@ -11,10 +11,26 @@ namespace XeniaPatchMaker.Util
 
     public static class PatchUtil
     {
-        
 
 
 
+        public static string GetTitle(string Placeholder, string Start, string End, int length)
+        {
+            try
+            {
+                int x = Placeholder.LastIndexOf(Start/*"Title ID:"*/) + Start.Length + 3;
+                length = Placeholder.IndexOf(End/*"Savegame ID:"*/);
+                string s = Placeholder.Substring(x, length);
+                //////////////////////////////////////////////
+                int xx = s.IndexOf("{}");
+                string q = Placeholder.Substring(x, xx - 1);
+                return q;
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
         public static string GetMediaID(string Placeholder, string Start, string End, int length)
         {
             try

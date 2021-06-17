@@ -63,8 +63,8 @@ namespace XeniaPatchMaker
             this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -408,17 +408,6 @@ namespace XeniaPatchMaker
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Patch Controls";
             // 
-            // button9
-            // 
-            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button9.Location = new System.Drawing.Point(6, 75);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(150, 23);
-            this.button9.TabIndex = 24;
-            this.button9.Text = "About And Contributors";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.Credit_Click);
-            // 
             // button3
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -429,6 +418,17 @@ namespace XeniaPatchMaker
             this.button3.Text = "Load Patch File";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.LoadPatchFile_Click);
+            // 
+            // button9
+            // 
+            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button9.Location = new System.Drawing.Point(6, 75);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(150, 23);
+            this.button9.TabIndex = 24;
+            this.button9.Text = "About And Contributors";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.Credit_Click);
             // 
             // XPFM
             // 
