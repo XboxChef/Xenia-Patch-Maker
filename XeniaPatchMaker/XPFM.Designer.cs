@@ -349,7 +349,7 @@ namespace XeniaPatchMaker
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Drop Xenia Log Here:";
-            this.groupBox3.DragDrop += new System.Windows.Forms.DragEventHandler(this.BropBox_DragDrop);
+            this.groupBox3.DragDrop += new System.Windows.Forms.DragEventHandler(this.DropBox_DragDrop);
             this.groupBox3.DragEnter += new System.Windows.Forms.DragEventHandler(this.DropBox_DragEnter);
             // 
             // groupBox4

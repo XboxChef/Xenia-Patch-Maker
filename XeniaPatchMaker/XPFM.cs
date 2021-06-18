@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.IO;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
+using XeniaPatchMaker.Util;
 using static XeniaPatchMaker.Util.PatchUtil;
 namespace XeniaPatchMaker
 {
@@ -134,7 +136,7 @@ namespace XeniaPatchMaker
         #endregion
 
         #region Functions
-        private void BropBox_DragDrop(object sender, DragEventArgs e)
+        private void DropBox_DragDrop(object sender, DragEventArgs e)
         {
 
             try
@@ -148,7 +150,15 @@ namespace XeniaPatchMaker
                     TitleId.Text = GetTitleID(Data, "Title ID:", "Savegame ID:", 0);
                     HashKey.Text = GetHashKey(Data, "Module hash: ", " for default", 0);
                     MediaId.Text = GetMediaID(Data, "Media ID:", "Title ID:", 0);
-                    TitleName.Text = GetTitle(File.ReadAllText(Application.StartupPath + "\\DB.txt"), TitleId.Text,Environment.NewLine, 0);
+
+                    // Deserialize the DB XML file
+                    var titleDB = TitleDB.XmlDeserialize(File.ReadAllText(Path.Combine(Application.StartupPath, "DB.xml"), Encoding.UTF8));
+
+                    // Locate the TitleEntry by the given TitleID and pull out the Title.
+                    // If a TitleEntry is not found, the null propagation operator will fall on the "string.Empty" side of the ??s preventing a crash.
+                    TitleName.Text = titleDB.Titles.FirstOrDefault(t => t.ID.ToLower() == TitleId.Text.ToLower())?.Title ?? string.Empty;
+
+                    //TitleName.Text = GetTitle(File.ReadAllText(Application.StartupPath + "\\DB.txt"), TitleId.Text,Environment.NewLine, 0);
                     
                 }
                 else
