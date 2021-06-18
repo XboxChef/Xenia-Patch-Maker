@@ -67,7 +67,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Util\IXmlSerializable.cs" />
     <Compile Include="Util\PatchUtil.cs" />
+    <Compile Include="Util\TitleEntry.cs" />
+    <Compile Include="Util\TitleDB.cs" />
     <Compile Include="XPFM.cs">
       <SubType>Form</SubType>
     </Compile>
