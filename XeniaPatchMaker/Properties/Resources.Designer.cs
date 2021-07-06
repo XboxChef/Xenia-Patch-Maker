@@ -8,9 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace XeniaPatchMaker.Properties
-{
+namespace XeniaPatchMaker.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -18,52 +19,94 @@ namespace XeniaPatchMaker.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("XeniaPatchMaker.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Asset_1 {
+            get {
+                object obj = ResourceManager.GetObject("Asset 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
+        ///&lt;titleDB&gt;
+        ///	&lt;titles&gt;
+        ///		&lt;title id=&quot;584107EC&quot; title=&quot;Bankshot Billiards 2&quot; /&gt;
+        ///		&lt;title id=&quot;454107DB&quot; title=&quot;Battlefield 2 MC&quot; /&gt;
+        ///		&lt;title id=&quot;534307D9&quot; title=&quot;Battlestations: Midway&quot; /&gt;
+        ///		&lt;title id=&quot;584107D2&quot; title=&quot;Bejeweled 2&quot; /&gt;
+        ///		&lt;title id=&quot;415607D1&quot; title=&quot;Call of Duty 2&quot; /&gt;
+        ///		&lt;title id=&quot;415607E1&quot; title=&quot;Call of Duty 3&quot; /&gt;
+        ///		&lt;title id=&quot;415607E6&quot; title=&quot;Call of Duty 4: Modern Warfare&quot; /&gt;
+        ///		&lt;title id=&quot;584107F2&quot; title=&quot;Astropop&quot; /&gt;
+        ///		&lt;title id=&quot;545407D4&quot; tit [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DB {
+            get {
+                return ResourceManager.GetString("DB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minimize_icon_29 {
+            get {
+                object obj = ResourceManager.GetObject("minimize-icon-29", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap x_1152114_1280 {
+            get {
+                object obj = ResourceManager.GetObject("x-1152114_1280", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

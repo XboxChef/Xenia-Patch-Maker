@@ -8,15 +8,23 @@ namespace XeniaPatchMaker
 {
     static class Program
     {
+        static XPM xPFM;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new XPFM());
+            if (xPFM == null)
+            {
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                xPFM = new XPM();
+                Application.Run(xPFM);
+            }
+
+
         }
     }
 }
