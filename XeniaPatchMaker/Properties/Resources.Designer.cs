@@ -89,25 +89,5 @@ namespace XeniaPatchMaker.Properties {
                 return ResourceManager.GetString("DB", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap minimize_icon_29 {
-            get {
-                object obj = ResourceManager.GetObject("minimize-icon-29", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap x_1152114_1280 {
-            get {
-                object obj = ResourceManager.GetObject("x-1152114_1280", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

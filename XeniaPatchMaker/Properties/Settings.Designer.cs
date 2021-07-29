@@ -8,21 +8,249 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace XeniaPatchMaker.Properties
-{
+namespace XeniaPatchMaker.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color title_name {
+            get {
+                return ((global::System.Drawing.Color)(this["title_name"]));
+            }
+            set {
+                this["title_name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color title_id {
+            get {
+                return ((global::System.Drawing.Color)(this["title_id"]));
+            }
+            set {
+                this["title_id"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color hash {
+            get {
+                return ((global::System.Drawing.Color)(this["hash"]));
+            }
+            set {
+                this["hash"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color media_id {
+            get {
+                return ((global::System.Drawing.Color)(this["media_id"]));
+            }
+            set {
+                this["media_id"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color patchHeader {
+            get {
+                return ((global::System.Drawing.Color)(this["patchHeader"]));
+            }
+            set {
+                this["patchHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color name {
+            get {
+                return ((global::System.Drawing.Color)(this["name"]));
+            }
+            set {
+                this["name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color desc {
+            get {
+                return ((global::System.Drawing.Color)(this["desc"]));
+            }
+            set {
+                this["desc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color author {
+            get {
+                return ((global::System.Drawing.Color)(this["author"]));
+            }
+            set {
+                this["author"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color is_enabled {
+            get {
+                return ((global::System.Drawing.Color)(this["is_enabled"]));
+            }
+            set {
+                this["is_enabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color patchTypeHeader {
+            get {
+                return ((global::System.Drawing.Color)(this["patchTypeHeader"]));
+            }
+            set {
+                this["patchTypeHeader"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color address {
+            get {
+                return ((global::System.Drawing.Color)(this["address"]));
+            }
+            set {
+                this["address"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color value {
+            get {
+                return ((global::System.Drawing.Color)(this["value"]));
+            }
+            set {
+                this["value"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color title_nameInput {
+            get {
+                return ((global::System.Drawing.Color)(this["title_nameInput"]));
+            }
+            set {
+                this["title_nameInput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color title_idInput {
+            get {
+                return ((global::System.Drawing.Color)(this["title_idInput"]));
+            }
+            set {
+                this["title_idInput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color hashinput {
+            get {
+                return ((global::System.Drawing.Color)(this["hashinput"]));
+            }
+            set {
+                this["hashinput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color media_idInput {
+            get {
+                return ((global::System.Drawing.Color)(this["media_idInput"]));
+            }
+            set {
+                this["media_idInput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color nameInput {
+            get {
+                return ((global::System.Drawing.Color)(this["nameInput"]));
+            }
+            set {
+                this["nameInput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color descInput {
+            get {
+                return ((global::System.Drawing.Color)(this["descInput"]));
+            }
+            set {
+                this["descInput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color authorInput {
+            get {
+                return ((global::System.Drawing.Color)(this["authorInput"]));
+            }
+            set {
+                this["authorInput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color addressInput {
+            get {
+                return ((global::System.Drawing.Color)(this["addressInput"]));
+            }
+            set {
+                this["addressInput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color valueInput {
+            get {
+                return ((global::System.Drawing.Color)(this["valueInput"]));
+            }
+            set {
+                this["valueInput"] = value;
             }
         }
     }

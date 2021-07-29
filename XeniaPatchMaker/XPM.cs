@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,12 @@ namespace XeniaPatchMaker
     {
         #region PlaceHolders
         Settings settings { get; set; }
+        public static ValueConverter valueConverter { get; set; }
         public static string CurrentFullPath { get; set; }
-
         public static string CurrentFullName { get; set; }
-
         public static string Data { get; set; }
+        public static string Data_Holder { get; set; }
+
         #endregion
 
         #region Initialize
@@ -35,7 +37,10 @@ namespace XeniaPatchMaker
                     fs.Write(author, 0, author.Length);
                 }
             }
-            Text = "Xenia Patch Maker By TeddyHammer ( Version: " + Application.ProductVersion + " )";
+            IsOn.ForeColor = Color.Red;
+            Version.Caption = "Version: " + Application.ProductVersion;
+            Text = "Xenia Patch Maker By TeddyHammer";
+           
         }
 
         #endregion
@@ -143,8 +148,7 @@ namespace XeniaPatchMaker
         public void GetAllTypes()
         {
 
-            FileInfo fi = new FileInfo(CurrentFullPath);
-
+                FileInfo fi = new FileInfo(CurrentFullPath);
                 //File Requirement: Must Be Larger Than 2kb
                 if (fi.Length > 20000)
                 {
@@ -251,15 +255,7 @@ namespace XeniaPatchMaker
         }
 
 
-        /// <summary>
-        /// Condition Checker
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        private bool IsNullOrEmpty(string s)
-        {
-            return (s == null || s == string.Empty) ? true : false;
-        } 
+
         #endregion
 
         #region Controls
@@ -310,7 +306,14 @@ namespace XeniaPatchMaker
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            OutPut.Text = string.Empty;
+            if (!IsNullOrEmpty(OutPut.Text))
+            {
+                OutPut.Text = string.Empty; 
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void LoadPatchFile_Click(object sender, EventArgs e)
@@ -330,6 +333,7 @@ namespace XeniaPatchMaker
                 {
 
                     OutPut.Text = File.ReadAllText(dialog.FileName);
+
 
                 }
         }
@@ -353,99 +357,101 @@ namespace XeniaPatchMaker
             settings = null;
             Show();
         }
-
         private void OutPut_TextChanged(object sender, EventArgs e)
         {
 
-            try
+            //by defualt
+            CheckKeyword("[[patch]]", Color.FromArgb(74, 139, 197), 0);
+            //by defualt
+            CheckKeyword("hash =", Color.Coral, 0);
+            //by defualt
+            if (OutPut.Text.Contains("false"))
             {
-
-                CheckKeyword("[[patch]]", Color.FromArgb(74, 139, 197), 0);
-                CheckKeyword("\"", Color.FromArgb(214, 136, 82), 0);
-                CheckKeyword("title_name =", Color.FromArgb(214, 136, 82), 0);
-                CheckKeyword("title_id =", Color.FromArgb(214, 136, 82), 0);
-                CheckKeyword("hash =", Color.FromArgb(214, 136, 82), 0);
-                CheckKeyword("#media_id =", Color.FromArgb(214, 136, 82), 0);
-                CheckKeyword("[[patch." + "be32" + "]]", Color.FromArgb(214, 136, 82), 0);
-                CheckKeyword("address = ", Color.FromArgb(214, 136, 82), 0);
-                CheckKeyword("value = ", Color.FromArgb(214, 136, 82), 0);
-                CheckKeyword(" name = ", Color.FromArgb(214, 136, 82), 0);
-                CheckKeyword(" desc = ", Color.FromArgb(214, 136, 82), 0);
-                CheckKeyword(" author = ", Color.FromArgb(214, 136, 82), 0);
-                CheckKeyword(" is_enabled = ", Color.FromArgb(214, 136, 82), 0);
-                if(!IsNullOrEmpty(TitleName.Text))
-                {
-                    CheckKeyword(TitleName.Text, Color.Green, 0);
-                }    
-                else if(!IsNullOrEmpty(TitleId.Text))
-                {
-                    CheckKeyword(TitleId.Text, Color.Green, 0);
-                }
-                else if(!IsNullOrEmpty(HashKey.Text))
-                {
-                    CheckKeyword(HashKey.Text, Color.Green, 0);
-                }
-                else if (!IsNullOrEmpty(MediaId.Text))
-                {
-                    CheckKeyword(MediaId.Text, Color.Green, 0);
-                }
-
-                else if (!IsNullOrEmpty(IsOn.Text))
-                {
-                    CheckKeyword(IsOn.Text, Color.Green, 0);
-                }
-
-                else if (!IsNullOrEmpty(Authors.Text))
-                {
-                    CheckKeyword(Authors.Text, Color.Green, 0);
-                }
-
-                else if (!IsNullOrEmpty(PatchName.Text))
-                {
-                    CheckKeyword(PatchName.Text, Color.Green, 0);
-                }
-
-                else if (!IsNullOrEmpty(Desc.Text))
-                {
-                    CheckKeyword(Desc.Text, Color.Green, 0);
-                }
-
-                else if (!IsNullOrEmpty(PatchAddress.Text))
-                {
-                    CheckKeyword(PatchAddress.Text, Color.Green, 0);
-                }
-
-                else if (!IsNullOrEmpty(PatchValue.Text))
-                {
-                    CheckKeyword(PatchValue.Text, Color.Green, 0);
-                }
-
-                else if (!IsNullOrEmpty(oxadd.Text))
-                {
-                    CheckKeyword(oxadd.Text, Color.Green, 0);
-                }
-
-                else if (!IsNullOrEmpty(oxvalue.Text))
-                {
-                    CheckKeyword(oxvalue.Text, Color.Green, 0);
-                }
-
-                else if (!IsNullOrEmpty(ProvideSizeType.Text))
-                {
-                    CheckKeyword(ProvideSizeType.Text, Color.Green, 0);
-                }
-                else
-                {
-                    return;
-                }
-
+                CheckKeyword("is_enabled = false".Substring(2), Color.Red, 0);
             }
-            catch
+            if (OutPut.Text.Contains("true"))
             {
-                
+                CheckKeyword("is_enabled = true".Substring(2), Color.Green, 0);
+            }
+            CheckKeyword(" is_enabled = ", Color.FromArgb(126, 59, 188), 0);
+            //by defualt
+            CheckKeyword("[[patch." + "be32" + "]]", Color.FromArgb(72, 74, 170), 0);
+            CheckKeyword("\"", Color.Red, 0);
+            CheckKeyword("title_name =", Color.Yellow, 0);
+            CheckKeyword("title_id =", Color.Cyan, 0);
+            CheckKeyword("#media_id =", Color.FromArgb(0, 175, 0), 0);
+
+            CheckKeyword("address = ", Color.FromArgb(214, 136, 82), 0);
+            CheckKeyword("value = ", Color.FromArgb(214, 136, 82), 0);
+            CheckKeyword(" name = ", Color.FromArgb(214, 136, 82), 0);
+            CheckKeyword(" desc = ", Color.FromArgb(214, 136, 82), 0);
+            CheckKeyword(" author = ", Color.FromArgb(214, 136, 82), 0);
+            //Checks User Input's Then Changes Color
+            if (!IsNullOrEmpty(TitleName.Text))
+            {
+                CheckKeyword(TitleName.Text, Color.Green, 0);
+            }
+            else if (!IsNullOrEmpty(TitleId.Text))
+            {
+                CheckKeyword(TitleId.Text, Color.Green, 0);
+            }
+            else if (!IsNullOrEmpty(HashKey.Text))
+            {
+                CheckKeyword(HashKey.Text, Color.Green, 0);
+            }
+            else if (!IsNullOrEmpty(MediaId.Text))
+            {
+                CheckKeyword(MediaId.Text, Color.Green, 0);
             }
 
+            else if (!IsNullOrEmpty(IsOn.Text))
+            {
+                CheckKeyword(IsOn.Text, Color.Green, 0);
+            }
 
+            else if (!IsNullOrEmpty(Authors.Text))
+            {
+                CheckKeyword(Authors.Text, Color.Green, 0);
+            }
+
+            else if (!IsNullOrEmpty(PatchName.Text))
+            {
+                CheckKeyword(PatchName.Text, Color.Green, 0);
+            }
+
+            else if (!IsNullOrEmpty(Desc.Text))
+            {
+                CheckKeyword(Desc.Text, Color.FromArgb(214, 136, 82), 0);
+            }
+
+            else if (!IsNullOrEmpty(PatchAddress.Text))
+            {
+                CheckKeyword(PatchAddress.Text, Color.Green, 0);
+            }
+
+            else if (!IsNullOrEmpty(PatchValue.Text))
+            {
+                CheckKeyword(PatchValue.Text, Color.Green, 0);
+            }
+
+            else if (!IsNullOrEmpty(oxadd.Text))
+            {
+                CheckKeyword(oxadd.Text, Color.Green, 0);
+            }
+
+            else if (!IsNullOrEmpty(oxvalue.Text))
+            {
+                CheckKeyword(oxvalue.Text, Color.Green, 0);
+            }
+
+            else if (!IsNullOrEmpty(ProvideSizeType.Text))
+            {
+                CheckKeyword(ProvideSizeType.Text, Color.Green, 0);
+            }
+            else
+            {
+                return;
+            }
         }
         private void CheckKeyword(string word, Color color, int startIndex)
         {
@@ -490,6 +496,59 @@ namespace XeniaPatchMaker
         {
             OutPut.ForeColor = richEditControl1.Appearance.Text.ForeColor;
             OutPut.BackColor = richEditControl1.Views.SimpleView.BackColor;
+        }
+
+        private void XPM_Load(object sender, EventArgs e)
+        {
+            Hide();
+        }
+
+        private void XPM_Shown(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            if (valueConverter == null)
+            {
+                valueConverter = new ValueConverter();
+                valueConverter.Show();
+            }
+            else
+            {
+                valueConverter.Focus();
+
+
+            }
+        }
+
+        private void IsOn_Toggled(object sender, EventArgs e)
+        {
+            if (IsOn.IsOn)
+            {
+                IsOn.ForeColor = Color.LightGreen;
+            }
+            else
+            {
+                IsOn.ForeColor = Color.Red;
+            }
+        }
+
+        private void AddressMath_Click(object sender, EventArgs e)
+        {
+            //We Have To Make Sure We Separate Both Buttons into there own thread
+            if(sender.Equals(MinusButton))
+            {
+                //when minus is clicked the address is grabbed and stored
+                //the address then uses hex math to subtract 4 bytes
+
+            }
+            else if (sender.Equals(PlusButton))
+            {
+                //when adding is clicked the address is grabbed and stored
+                //the address then uses hex math to Add 4 bytes
+            }
         }
     }
 }

@@ -11,7 +11,15 @@ namespace XeniaPatchMaker.Util
 
     public static class PatchUtil
     {
-
+        /// <summary>
+        /// Condition Checker
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsNullOrEmpty(string s)
+        {
+            return (s == null || s == string.Empty) ? true : false;
+        }
         public static string GetMediaID(string Placeholder, string Start, string End, int length)
         {
             try

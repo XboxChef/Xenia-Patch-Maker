@@ -51,7 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Asset 1.ico</ApplicationIcon>
+    <ApplicationIcon>patch.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Costura, Version=5.3.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -266,6 +266,12 @@
     <Compile Include="Util\PatchUtil.cs" />
     <Compile Include="Util\TitleEntry.cs" />
     <Compile Include="Util\TitleDB.cs" />
+    <Compile Include="ValueConverter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ValueConverter.Designer.cs">
+      <DependentUpon>ValueConverter.cs</DependentUpon>
+    </Compile>
     <Compile Include="XPM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +283,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValueConverter.resx">
+      <DependentUpon>ValueConverter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XPM.resx">
       <DependentUpon>XPM.cs</DependentUpon>
@@ -306,8 +315,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\minimize-icon-29.png" />
-    <None Include="Resources\x-1152114_1280.png" />
     <None Include="Resources\Asset 1.png" />
     <EmbeddedResource Include="Properties\DB.xml" />
     <Content Include="Asset 1.ico" />

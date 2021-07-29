@@ -8,7 +8,7 @@ namespace XeniaPatchMaker
 {
     static class Program
     {
-        static XPM xPFM;
+        public static XPM xPFM;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
