@@ -26,6 +26,7 @@ namespace XeniaPatchMaker
                 //use the creation on the main Form To have More Control
                 MainForm = new XPM();
                 Application.Run(MainForm);
+                MainForm.Hide();
             }
 
 

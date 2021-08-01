@@ -17,5 +17,16 @@ namespace XeniaPatchMaker
         {
             InitializeComponent();
         }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Settings_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.Default.DisableDesc = DisableDesc.Checked;
+
+        }
     }
 }

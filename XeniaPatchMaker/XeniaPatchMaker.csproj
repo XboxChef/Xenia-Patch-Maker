@@ -284,6 +284,8 @@
     </Compile>
     <Compile Include="Util\IXmlSerializable.cs" />
     <Compile Include="Util\PatchUtil.cs" />
+    <Compile Include="Util\SettingsEntry.cs" />
+    <Compile Include="Util\SettingsDB.cs" />
     <Compile Include="Util\TitleEntry.cs" />
     <Compile Include="Util\TitleDB.cs" />
     <Compile Include="ValueConverter.cs">

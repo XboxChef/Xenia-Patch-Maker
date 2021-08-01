@@ -39,13 +39,13 @@ namespace XeniaPatchMaker.Util
 
         internal static void CheckUpdates()
         {
-            string uptodate = string.Empty;
             UpdateChecker checker = new UpdateChecker("TeddyHammer", "XeniaPatchMaker");
-            checker.CheckUpdate(locked: UpdateType.Major).ContinueWith(continuation =>
+            checker.CheckUpdate(locked: UpdateType.Patch).ContinueWith(continuation =>
             {
                 if (continuation.Result != UpdateType.None)
                 {
                     var result = new UpdateNotifyDialog(checker).ShowDialog();
+                    
                     if (result == DialogResult.Yes)
                     {
                         checker.DownloadAsset("XeniaPatchMaker.exe");

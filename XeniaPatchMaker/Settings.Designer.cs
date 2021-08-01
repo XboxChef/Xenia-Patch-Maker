@@ -34,6 +34,7 @@ namespace XeniaPatchMaker
             this.GeneralTab = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+            this.DisableDesc = new DevExpress.XtraEditors.CheckEdit();
             this.WriteInfo = new DevExpress.XtraEditors.CheckEdit();
             this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
             this.UpdateTab = new DevExpress.XtraTab.XtraTabPage();
@@ -44,13 +45,13 @@ namespace XeniaPatchMaker
             this.AboutTab = new DevExpress.XtraTab.XtraTabPage();
             this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
             this.InfoTab = new DevExpress.XtraTab.XtraTabPage();
-            this.checkEdit4 = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.GeneralTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
             this.xtraTabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DisableDesc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WriteInfo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
             this.UpdateTab.SuspendLayout();
@@ -61,7 +62,6 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             this.AboutTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -98,12 +98,21 @@ namespace XeniaPatchMaker
             // 
             // xtraTabPage4
             // 
-            this.xtraTabPage4.Controls.Add(this.checkEdit4);
+            this.xtraTabPage4.Controls.Add(this.DisableDesc);
             this.xtraTabPage4.Controls.Add(this.WriteInfo);
             this.xtraTabPage4.Controls.Add(this.checkEdit2);
             this.xtraTabPage4.Name = "xtraTabPage4";
             this.xtraTabPage4.Size = new System.Drawing.Size(702, 306);
             this.xtraTabPage4.Text = "General";
+            // 
+            // DisableDesc
+            // 
+            this.DisableDesc.Location = new System.Drawing.Point(10, 53);
+            this.DisableDesc.Name = "DisableDesc";
+            this.DisableDesc.Properties.AllowFocused = false;
+            this.DisableDesc.Properties.Caption = "Disable Description";
+            this.DisableDesc.Size = new System.Drawing.Size(129, 19);
+            this.DisableDesc.TabIndex = 2;
             // 
             // WriteInfo
             // 
@@ -201,15 +210,6 @@ namespace XeniaPatchMaker
             this.InfoTab.Size = new System.Drawing.Size(704, 333);
             this.InfoTab.Text = "Information";
             // 
-            // checkEdit4
-            // 
-            this.checkEdit4.Location = new System.Drawing.Point(10, 53);
-            this.checkEdit4.Name = "checkEdit4";
-            this.checkEdit4.Properties.AllowFocused = false;
-            this.checkEdit4.Properties.Caption = "Disable Description";
-            this.checkEdit4.Size = new System.Drawing.Size(129, 19);
-            this.checkEdit4.TabIndex = 2;
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,12 +223,15 @@ namespace XeniaPatchMaker
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Settings_FormClosed);
+            this.Load += new System.EventHandler(this.Settings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.GeneralTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
             this.xtraTabControl2.ResumeLayout(false);
             this.xtraTabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DisableDesc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WriteInfo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
             this.UpdateTab.ResumeLayout(false);
@@ -239,7 +242,6 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             this.AboutTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,6 +262,6 @@ namespace XeniaPatchMaker
         private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
         public DevExpress.XtraEditors.CheckEdit WriteInfo;
         private DevExpress.XtraEditors.CheckEdit checkEdit3;
-        public DevExpress.XtraEditors.CheckEdit checkEdit4;
+        public DevExpress.XtraEditors.CheckEdit DisableDesc;
     }
 }

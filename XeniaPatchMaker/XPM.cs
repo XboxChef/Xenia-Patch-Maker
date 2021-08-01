@@ -20,6 +20,7 @@ namespace XeniaPatchMaker
         public static string CurrentFullPath { get; set; }
         public static string CurrentFullName { get; set; }
         public static string Data { get; set; }
+        public static bool UpdaterShown { get; set; }
 
         #endregion
 
@@ -45,13 +46,14 @@ namespace XeniaPatchMaker
         }
         private void XPM_Load(object sender, EventArgs e)
         {
+
             if (Program.Load == null)
             {
 
                 Program.Load = new Loading_Screen();
                 Program.Load.FormClosed += FormType_FormClosed;  //Add event Handler to cleanup after form closes
             }
-            Hide();
+            Program.MainForm.Hide();
             Program.Load.ShowDialog(this); //Show Form assigning this form as the forms owner
         }
         #endregion
@@ -158,34 +160,21 @@ namespace XeniaPatchMaker
         /// </summary>
         public void GetAllTypes()
         {
+            ///improving from what we have
+            ///
+            TitleId.Text = GetTitleID(Data, "Title ID:", "Savegame ID:", 0);
+            HashKey.Text = GetHashKey(Data, "Module hash: ", " for default", 0);
+            MediaId.Text = GetMediaID(Data, "Media ID:", "Title ID:", 0);
+            // Deserialize the DB XML file
+            var titleDB = TitleDB.XmlDeserialize(File.ReadAllText(Path.Combine(Application.StartupPath, "DB.xml"), Encoding.UTF8));
 
-                FileInfo fi = new FileInfo(CurrentFullPath);
-                //File Requirement: Must Be Larger Than 2kb
-                if (fi.Length > 20000)
-                {
-
-                    ///improving from what we have
-                    ///
-                    TitleId.Text = GetTitleID(Data, "Title ID:", "Savegame ID:", 0);
-                    HashKey.Text = GetHashKey(Data, "Module hash: ", " for default", 0);
-                    MediaId.Text = GetMediaID(Data, "Media ID:", "Title ID:", 0);
-                    // Deserialize the DB XML file
-                    var titleDB = TitleDB.XmlDeserialize(File.ReadAllText(Path.Combine(Application.StartupPath, "DB.xml"), Encoding.UTF8));
-
-                    // Locate the TitleEntry by the given TitleID and pull out the Title.
-                    // If a TitleEntry is not found, the null propagation operator will fall on the "string.Empty" side of the ??s preventing a crash.
-                    TitleName.Text = titleDB.Titles.FirstOrDefault(t => t.ID.ToLower() == TitleId.Text.ToLower())?.Title ?? string.Empty;
-                    Data = string.Empty; //make sure string is empty
-                    CurrentFullName = string.Empty;//make sure string is empty
-                    CurrentFullPath = string.Empty; //make sure string is empty
-                    return;
-
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect File Size. " + "(" + "File Size = " + fi.Length + ")" + "Must Be Larger Than 2kb");//great check since some logs are plain wrong
-                }
-
+            // Locate the TitleEntry by the given TitleID and pull out the Title.
+            // If a TitleEntry is not found, the null propagation operator will fall on the "string.Empty" side of the ??s preventing a crash.
+            TitleName.Text = titleDB.Titles.FirstOrDefault(t => t.ID.ToLower() == TitleId.Text.ToLower())?.Title ?? string.Empty;
+            Data = string.Empty; //make sure string is empty
+            CurrentFullName = string.Empty;//make sure string is empty
+            CurrentFullPath = string.Empty; //make sure string is empty
+            return;
         }
         /// <summary>
         /// Use for Various Forms Where Data Needs To be Transfered
@@ -400,10 +389,19 @@ namespace XeniaPatchMaker
             {
                 Program.Load = null;
             }
+            else if (sender.GetType().FullName == "XeniaPatchMaker.Loading_Screen")
+            {
+                
+                if (UpdaterShown == true)
+                {
+                    Program.MainForm.Show();
+                }
+                else
+                Program.MainForm.Hide();
+            }
             else
             {
                 Program.Settings = null;
-                Show();
             }
 
 

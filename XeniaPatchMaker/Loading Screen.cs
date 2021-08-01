@@ -22,7 +22,7 @@ namespace XeniaPatchMaker
 
         private void Loading_Screen_Shown(object sender, EventArgs e)
         {
-            PatchUtil.CheckUpdates();
+
             timer1.Interval = 3000;
             
             timer1.Start();
@@ -36,7 +36,9 @@ namespace XeniaPatchMaker
         {
             labelStatus.Text = "Starting...";
             Program.Load.Close();
-            Program.MainForm.Show();
+            Program.MainForm.Hide();
+            PatchUtil.CheckUpdates();
+            timer1.Stop();
         }
     }
 }

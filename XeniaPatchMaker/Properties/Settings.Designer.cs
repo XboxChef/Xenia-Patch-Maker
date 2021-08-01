@@ -253,5 +253,17 @@ namespace XeniaPatchMaker.Properties {
                 this["valueInput"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DisableDesc {
+            get {
+                return ((bool)(this["DisableDesc"]));
+            }
+            set {
+                this["DisableDesc"] = value;
+            }
+        }
     }
 }
