@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace XeniaPatchMaker
 {
-    public partial class ValueConverter : DevExpress.XtraEditors.XtraForm
+    public partial class ValueConverter : XtraForm
     {
         public ValueConverter()
         {
@@ -23,7 +23,7 @@ namespace XeniaPatchMaker
             try
             {
                 ConvertedValue.Text = BitConverter.ToInt32(BitConverter.GetBytes((float)Convert.ToDouble(StringValue.Text)), 0).ToString("X").ToUpper();
-                XPM.Data_Holder = ConvertedValue.Text;
+                Program.MainForm.Data_Between(ConvertedValue.Text);
                 return;
 
             }
@@ -36,9 +36,16 @@ namespace XeniaPatchMaker
 
         private void simpleButton6_Click(object sender, EventArgs e)
         {
-            ConvertedValue.Text = int.Parse(StringValue.Text).ToString("x").ToUpper();
-            XPM.Data_Holder = ConvertedValue.Text;
-            return;
+            try
+            {
+                ConvertedValue.Text = int.Parse(StringValue.Text).ToString("x").ToUpper();
+                Program.MainForm.Data_Between(ConvertedValue.Text);
+                return;
+            }
+            catch
+            {
+
+            }
 
         }
 
@@ -54,7 +61,7 @@ namespace XeniaPatchMaker
 
         private void ValueConverter_FormClosing(object sender, FormClosingEventArgs e)
         {
-            XPM.valueConverter = null;
+            Program.valueConverter = null;
         }
 
         private void ConvertedValue_TextChanged(object sender, EventArgs e)

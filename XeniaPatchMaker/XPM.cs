@@ -15,19 +15,20 @@ namespace XeniaPatchMaker
     public partial class XPM : XtraForm
     {
         #region PlaceHolders
-        Settings settings { get; set; }
-        public static ValueConverter valueConverter { get; set; }
+        
+        
         public static string CurrentFullPath { get; set; }
         public static string CurrentFullName { get; set; }
         public static string Data { get; set; }
-        public static string Data_Holder { get; set; }
 
         #endregion
 
         #region Initialize
         public XPM()
         {
-            InitializeComponent();
+
+                InitializeComponent();
+
             if (!File.Exists(Path.Combine(Application.StartupPath, "DB.xml")))
             {
                 // Create a new file     
@@ -38,11 +39,21 @@ namespace XeniaPatchMaker
                 }
             }
             IsOn.ForeColor = Color.Red;
-            Version.Caption = "Version: " + Application.ProductVersion;
+           Version.Caption = "Version: " + Application.ProductVersion;
             Text = "Xenia Patch Maker By TeddyHammer";
-           
-        }
 
+        }
+        private void XPM_Load(object sender, EventArgs e)
+        {
+            if (Program.Load == null)
+            {
+
+                Program.Load = new Loading_Screen();
+                Program.Load.FormClosed += FormType_FormClosed;  //Add event Handler to cleanup after form closes
+            }
+            Hide();
+            Program.Load.ShowDialog(this); //Show Form assigning this form as the forms owner
+        }
         #endregion
 
         #region Header Info Input
@@ -177,6 +188,19 @@ namespace XeniaPatchMaker
 
         }
         /// <summary>
+        /// Use for Various Forms Where Data Needs To be Transfered
+        /// </summary>
+        /// <param name="Input"></param>
+        public void Data_Between(string Input)
+        {
+            //Check if User Has Checkbox Checked...
+            if (!UseType.Checked)
+            {
+                PatchValue.Text = Input;
+            }
+        }
+
+        /// <summary>
         /// Holds Data And Sends It To Correct Locations
         /// </summary>
         /// <param name="sender"></param>
@@ -184,26 +208,66 @@ namespace XeniaPatchMaker
         private void DropBox_DragDrop(object sender, DragEventArgs e)
         {
             Data = File.ReadAllText(string.Join("", CurrentFullPath));
-            if (sender.Equals(DropLog))
+            if (Path.GetFileName(CurrentFullName).Contains(".log"))
             {
-                //if it's greater or equal than value
-                if (Data.Length >= 4600)
+                //makes log shorter
+                Data.Substring(0, Data.IndexOf("Savegame ID:"));
+                GetAllTypes();
+                if(Program.Settings.WriteInfo.Checked)
                 {
-                    Data.Substring(0, Data.IndexOf("Savegame ID:")); //makes log shorter
-                    GetAllTypes();
-                    return;
+                    if (HashKey.Text.Length > 10)
+                    {
+                    EmptyString:
+                        if (IsNullOrEmpty(OutPut.Text))
+                        {
+                            OutPut.AppendText("title_name = \"" + TitleName.Text + "\"");
+                            OutPut.AppendText(Environment.NewLine);
+                            OutPut.AppendText("title_id = \"" + TitleId.Text + "\"");
+                            OutPut.AppendText(Environment.NewLine);
+                            OutPut.AppendText("hash = \"" + HashKey.Text + "\"");
+                            OutPut.AppendText(Environment.NewLine);
+                            OutPut.AppendText("#media_id = \"" + MediaId.Text + "\"");
+                            OutPut.AppendText(Environment.NewLine);
+                            return;
+                        }
+                        else
+                        {
+                            OutPut.Text = string.Empty;
+                            goto EmptyString;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Must Drop Log File");
+                    }
                 }
-                else
-                {
-                    GetAllTypes();
-                    return;
-                } 
             }
-            else
+            else if(Path.GetFileName(CurrentFullName).Contains(".patch"))
             {
-                OutPut.Text = Data;
+                string data = Data;
+                if (!IsNullOrEmpty(TitleName.Text) && !IsNullOrEmpty(TitleId.Text) && !IsNullOrEmpty(HashKey.Text) && !IsNullOrEmpty(MediaId.Text))
+                {
+                    DialogResult dialogResult = MessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        //do something
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //do something else
+                    }
+                }
+                if (IsNullOrEmpty(TitleName.Text) && IsNullOrEmpty(TitleId.Text) && IsNullOrEmpty(HashKey.Text) && IsNullOrEmpty(MediaId.Text))
+                {
+                    string getdataheader = Data.Substring(Data.IndexOf("title_name = \"".ToLower()), Data.IndexOf("\n\n"));
+                    TitleName.Text = getdataheader.Substring(0, Data.IndexOf("\"\n")).Remove(0,14);
+
+                    TitleId.Text = getdataheader.Substring(data.IndexOf("title_id = \""), Data.IndexOf("\"\n"));//title_id = "
+                }
+                OutPut.Text = data;
                 return;
             }
+            
 
 
 
@@ -220,32 +284,19 @@ namespace XeniaPatchMaker
                 CurrentFullPath = Path.GetFullPath(CurrentFile[0]);
                 //Sets FullName Path
                 CurrentFullName = Path.GetFileName(CurrentFile[0]);
-                if (sender.Equals(PatchDrop))
+                if (Path.GetFileName(CurrentFile[0]).Contains(".patch"))
                 {
-                    if (Path.GetFileName(CurrentFile[0]).Contains(".patch"))
-                    {
-                        e.Effect = DragDropEffects.Copy;
-                    }
-                    else
-                    {
-                        // Don't allow any other drop.
-                        e.Effect = DragDropEffects.None;
-                    }
+                    e.Effect = DragDropEffects.Copy;
                 }
-                if (sender.Equals(DropLog))
+                else if (Path.GetFileName(CurrentFile[0]).Contains(".log"))
                 {
-                    if (Path.GetFileName(CurrentFile[0]).Contains(".log"))
-                    {
-                        e.Effect = DragDropEffects.Copy;
-                    }
-                    else
-                    {
-                        // Don't allow any other drop.
-                        e.Effect = DragDropEffects.None;
-                    }
+                    e.Effect = DragDropEffects.Copy;
                 }
-
-
+                else
+                {
+                    // Don't allow any other drop.
+                    e.Effect = DragDropEffects.None;
+                }
             }
             else
             {
@@ -260,7 +311,19 @@ namespace XeniaPatchMaker
 
         #region Controls
 
-        private void Save_Click(object sender, EventArgs e)
+        private void ClearOutput_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!IsNullOrEmpty(OutPut.Text))
+            {
+                OutPut.Text = string.Empty;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void SavePatchFile_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
             if (OutPut.TextLength > 30)
@@ -304,19 +367,7 @@ namespace XeniaPatchMaker
 
         }
 
-        private void Clear_Click(object sender, EventArgs e)
-        {
-            if (!IsNullOrEmpty(OutPut.Text))
-            {
-                OutPut.Text = string.Empty; 
-            }
-            else
-            {
-                return;
-            }
-        }
-
-        private void LoadPatchFile_Click(object sender, EventArgs e)
+        private void LoadPatchFile_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
             using (OpenFileDialog dialog = new OpenFileDialog()
@@ -339,32 +390,35 @@ namespace XeniaPatchMaker
         }
         #endregion
 
-        private void AboutAndSettings_Click(object sender, EventArgs e)
+        public void FormType_FormClosed(object sender, FormClosedEventArgs e)
         {
-
-            if (settings == null)
+            if (sender.GetType().FullName == "XeniaPatchMaker.ValueConverter")
             {
-                settings = new Settings();
-                settings.FormClosed += Settings_FormClosed;  //Add event Handler to cleanup after form closes
+                Program.valueConverter = null;
+            } 
+            if (sender.GetType().FullName == "XeniaPatchMaker.XPM")
+            {
+                Program.Load = null;
             }
-            Hide();
-            settings.ShowDialog(this);  //Show Form assigning this form as the forms owner
+            else
+            {
+                Program.Settings = null;
+                Show();
+            }
 
 
         }
-        public  void Settings_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            settings = null;
-            Show();
-        }
+
+
         private void OutPut_TextChanged(object sender, EventArgs e)
         {
-
-            //by defualt
+            //fix while writing you get glitches
+            
+            //by default
             CheckKeyword("[[patch]]", Color.FromArgb(74, 139, 197), 0);
-            //by defualt
+            //by default
             CheckKeyword("hash =", Color.Coral, 0);
-            //by defualt
+            //by default
             if (OutPut.Text.Contains("false"))
             {
                 CheckKeyword("is_enabled = false".Substring(2), Color.Red, 0);
@@ -374,7 +428,7 @@ namespace XeniaPatchMaker
                 CheckKeyword("is_enabled = true".Substring(2), Color.Green, 0);
             }
             CheckKeyword(" is_enabled = ", Color.FromArgb(126, 59, 188), 0);
-            //by defualt
+            //by default
             CheckKeyword("[[patch." + "be32" + "]]", Color.FromArgb(72, 74, 170), 0);
             CheckKeyword("\"", Color.Red, 0);
             CheckKeyword("title_name =", Color.Yellow, 0);
@@ -453,74 +507,13 @@ namespace XeniaPatchMaker
                 return;
             }
         }
-        private void CheckKeyword(string word, Color color, int startIndex)
-        {
-            string outsource = OutPut.Text;
-            if (OutPut.Text.Contains(word))
-            {
-                int index = -1;
-                int selectStart = OutPut.SelectionStart;
 
-                while ((index = OutPut.Text.IndexOf(word, (index + 1))) != -1)
-                {
-                    OutPut.Select((index + startIndex), word.Length);
-                    OutPut.SelectionColor = color;
-                    OutPut.Select(selectStart, 0);
-                    OutPut.SelectionColor = Color.White;
-                }
-            }
-        }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://www.youtube.com/watch?v=6n3pFFPSlW4");
-        }
-
-        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
-        {
-            if(checkEdit1.Checked == true)
-            {
-                PatchValue.Text = "60000000";
-                oxvalue.Enabled = false;
-                PatchValue.Enabled = false;
-            }
-            else
-            {
-                PatchValue.Text = "";
-                oxvalue.Enabled = true;
-                PatchValue.Enabled = true;
-            }
-        }
 
         private void richEditControl1_ForeColorChanged(object sender, EventArgs e)
         {
             OutPut.ForeColor = richEditControl1.Appearance.Text.ForeColor;
             OutPut.BackColor = richEditControl1.Views.SimpleView.BackColor;
-        }
-
-        private void XPM_Load(object sender, EventArgs e)
-        {
-            Hide();
-        }
-
-        private void XPM_Shown(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void simpleButton6_Click(object sender, EventArgs e)
-        {
-            if (valueConverter == null)
-            {
-                valueConverter = new ValueConverter();
-                valueConverter.Show();
-            }
-            else
-            {
-                valueConverter.Focus();
-
-
-            }
         }
 
         private void IsOn_Toggled(object sender, EventArgs e)
@@ -538,17 +531,75 @@ namespace XeniaPatchMaker
         private void AddressMath_Click(object sender, EventArgs e)
         {
             //We Have To Make Sure We Separate Both Buttons into there own thread
-            if(sender.Equals(MinusButton))
+            if (sender.Equals(MinusButton))
             {
-                //when minus is clicked the address is grabbed and stored
-                //the address then uses hex math to subtract 4 bytes
-
+                if(!IsNullOrEmpty(PatchAddress.Text))
+                {
+                    //when minus is clicked the address is grabbed and stored
+                    //the address then uses hex math to subtract 4 bytes
+                    int decValue = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) - 4;
+                    PatchAddress.Text = decValue.ToString("X");
+                }
+                return;
             }
             else if (sender.Equals(PlusButton))
             {
-                //when adding is clicked the address is grabbed and stored
-                //the address then uses hex math to Add 4 bytes
+                if (!IsNullOrEmpty(PatchAddress.Text))
+                {
+                    //when adding is clicked the address is grabbed and stored
+                    //the address then uses hex math to Add 4 bytes
+                    int decValue = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) + 4;
+                    PatchAddress.Text = decValue.ToString("X");
+                }
+                return;
             }
         }
+
+
+        private void Types_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (UseType.Checked == true)
+            {
+                PatchValue.Text = Types.Text;
+                oxvalue.Enabled = false;
+                PatchValue.Enabled = false;
+            }
+            else
+            {
+                PatchValue.Text = "";
+                oxvalue.Enabled = true;
+                PatchValue.Enabled = true;
+            }
+        }
+
+        private void FormOpen_Click(object sender, EventArgs e)
+        {
+            if (sender.GetType().FullName == "DevExpress.XtraEditors.SimpleButton")
+            {
+                if (Program.valueConverter == null)
+                {
+                    Program.valueConverter = new ValueConverter();
+                    Program.valueConverter.FormClosed += FormType_FormClosed;  //Add event Handler to cleanup after form closes
+                }
+                Program.valueConverter.ShowDialog(this); //Show Form assigning this form as the forms owner
+            }
+
+        }
+
+        private void BarManagerFormOpen_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (sender.GetType().FullName == "DevExpress.XtraBars.BarManager")
+            {
+                if (Program.Settings == null)
+                {
+                    Program.Settings = new Settings();
+                    Program.Settings.FormClosed += FormType_FormClosed;  //Add event Handler to cleanup after form closes
+                }
+                Hide();
+                Program.Settings.ShowDialog(this);  //Show Form assigning this form as the forms owner
+            }
+        }
+
+
     }
 }

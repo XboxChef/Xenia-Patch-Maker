@@ -46,7 +46,7 @@ namespace XeniaPatchMaker
             this.simpleButton6.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
             this.simpleButton6.Appearance.Options.UseForeColor = true;
             this.simpleButton6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton6.Location = new System.Drawing.Point(0, 65);
+            this.simpleButton6.Location = new System.Drawing.Point(0, 85);
             this.simpleButton6.Name = "simpleButton6";
             this.simpleButton6.Size = new System.Drawing.Size(378, 23);
             this.simpleButton6.TabIndex = 40;
@@ -77,7 +77,7 @@ namespace XeniaPatchMaker
             this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
             this.simpleButton1.Appearance.Options.UseForeColor = true;
             this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton1.Location = new System.Drawing.Point(0, 42);
+            this.simpleButton1.Location = new System.Drawing.Point(0, 62);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(378, 23);
             this.simpleButton1.TabIndex = 42;
@@ -110,7 +110,7 @@ namespace XeniaPatchMaker
             this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
             this.simpleButton2.Appearance.Options.UseForeColor = true;
             this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton2.Location = new System.Drawing.Point(0, 88);
+            this.simpleButton2.Location = new System.Drawing.Point(0, 108);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(378, 23);
             this.simpleButton2.TabIndex = 45;
@@ -121,7 +121,7 @@ namespace XeniaPatchMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 111);
+            this.ClientSize = new System.Drawing.Size(378, 131);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ConvertedValue);
             this.Controls.Add(this.simpleButton1);

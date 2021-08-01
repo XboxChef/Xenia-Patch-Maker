@@ -31,23 +31,37 @@ namespace XeniaPatchMaker
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.GeneralTab = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.WriteInfo = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
+            this.UpdateTab = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl3 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.AboutTab = new DevExpress.XtraTab.XtraTabPage();
+            this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
+            this.InfoTab = new DevExpress.XtraTab.XtraTabPage();
+            this.checkEdit4 = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
-            this.xtraTabPage1.SuspendLayout();
+            this.GeneralTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
-            this.xtraTabPage2.SuspendLayout();
+            this.xtraTabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WriteInfo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
+            this.UpdateTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl3)).BeginInit();
             this.xtraTabControl3.SuspendLayout();
+            this.xtraTabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            this.AboutTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -55,20 +69,21 @@ namespace XeniaPatchMaker
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.SelectedTabPage = this.GeneralTab;
             this.xtraTabControl1.Size = new System.Drawing.Size(706, 360);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
-            this.xtraTabPage2,
-            this.xtraTabPage3});
+            this.GeneralTab,
+            this.UpdateTab,
+            this.AboutTab,
+            this.InfoTab});
             // 
-            // xtraTabPage1
+            // GeneralTab
             // 
-            this.xtraTabPage1.Controls.Add(this.xtraTabControl2);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(704, 333);
-            this.xtraTabPage1.Text = "Main Settings";
+            this.GeneralTab.Controls.Add(this.xtraTabControl2);
+            this.GeneralTab.Name = "GeneralTab";
+            this.GeneralTab.Size = new System.Drawing.Size(704, 333);
+            this.GeneralTab.Text = "General Settings";
             // 
             // xtraTabControl2
             // 
@@ -79,27 +94,41 @@ namespace XeniaPatchMaker
             this.xtraTabControl2.Size = new System.Drawing.Size(704, 333);
             this.xtraTabControl2.TabIndex = 0;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage4,
-            this.xtraTabPage5});
+            this.xtraTabPage4});
             // 
             // xtraTabPage4
             // 
+            this.xtraTabPage4.Controls.Add(this.checkEdit4);
+            this.xtraTabPage4.Controls.Add(this.WriteInfo);
+            this.xtraTabPage4.Controls.Add(this.checkEdit2);
             this.xtraTabPage4.Name = "xtraTabPage4";
             this.xtraTabPage4.Size = new System.Drawing.Size(702, 306);
-            this.xtraTabPage4.Text = "xtraTabPage4";
+            this.xtraTabPage4.Text = "General";
             // 
-            // xtraTabPage5
+            // WriteInfo
             // 
-            this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(716, 324);
-            this.xtraTabPage5.Text = "xtraTabPage5";
+            this.WriteInfo.Location = new System.Drawing.Point(10, 28);
+            this.WriteInfo.Name = "WriteInfo";
+            this.WriteInfo.Properties.AllowFocused = false;
+            this.WriteInfo.Properties.Caption = "Write Xex Info When File Get\'s Dropped";
+            this.WriteInfo.Size = new System.Drawing.Size(215, 19);
+            this.WriteInfo.TabIndex = 1;
             // 
-            // xtraTabPage2
+            // checkEdit2
             // 
-            this.xtraTabPage2.Controls.Add(this.xtraTabControl3);
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(718, 351);
-            this.xtraTabPage2.Text = "Update Settings";
+            this.checkEdit2.Location = new System.Drawing.Point(10, 3);
+            this.checkEdit2.Name = "checkEdit2";
+            this.checkEdit2.Properties.AllowFocused = false;
+            this.checkEdit2.Properties.Caption = "Disable Output Color\'s";
+            this.checkEdit2.Size = new System.Drawing.Size(129, 19);
+            this.checkEdit2.TabIndex = 0;
+            // 
+            // UpdateTab
+            // 
+            this.UpdateTab.Controls.Add(this.xtraTabControl3);
+            this.UpdateTab.Name = "UpdateTab";
+            this.UpdateTab.Size = new System.Drawing.Size(704, 333);
+            this.UpdateTab.Text = "Update Settings";
             // 
             // xtraTabControl3
             // 
@@ -107,29 +136,79 @@ namespace XeniaPatchMaker
             this.xtraTabControl3.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl3.Name = "xtraTabControl3";
             this.xtraTabControl3.SelectedTabPage = this.xtraTabPage6;
-            this.xtraTabControl3.Size = new System.Drawing.Size(718, 351);
+            this.xtraTabControl3.Size = new System.Drawing.Size(704, 333);
             this.xtraTabControl3.TabIndex = 0;
             this.xtraTabControl3.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage6,
-            this.xtraTabPage7});
+            this.xtraTabPage6});
             // 
             // xtraTabPage6
             // 
+            this.xtraTabPage6.Controls.Add(this.checkEdit3);
+            this.xtraTabPage6.Controls.Add(this.checkEdit1);
             this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(716, 324);
-            this.xtraTabPage6.Text = "xtraTabPage6";
+            this.xtraTabPage6.Size = new System.Drawing.Size(702, 306);
+            this.xtraTabPage6.Text = "Update";
             // 
-            // xtraTabPage7
+            // checkEdit3
             // 
-            this.xtraTabPage7.Name = "xtraTabPage7";
-            this.xtraTabPage7.Size = new System.Drawing.Size(716, 326);
-            this.xtraTabPage7.Text = "xtraTabPage7";
+            this.checkEdit3.Location = new System.Drawing.Point(10, 28);
+            this.checkEdit3.Name = "checkEdit3";
+            this.checkEdit3.Properties.AllowFocused = false;
+            this.checkEdit3.Properties.Caption = "Check For Beta Updates";
+            this.checkEdit3.Size = new System.Drawing.Size(165, 19);
+            this.checkEdit3.TabIndex = 1;
             // 
-            // xtraTabPage3
+            // checkEdit1
             // 
-            this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(718, 351);
-            this.xtraTabPage3.Text = "About Us";
+            this.checkEdit1.Location = new System.Drawing.Point(10, 3);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.AllowFocused = false;
+            this.checkEdit1.Properties.Caption = "Disable Checking For Updates";
+            this.checkEdit1.Size = new System.Drawing.Size(165, 19);
+            this.checkEdit1.TabIndex = 0;
+            // 
+            // AboutTab
+            // 
+            this.AboutTab.Controls.Add(this.listBoxControl1);
+            this.AboutTab.Name = "AboutTab";
+            this.AboutTab.Size = new System.Drawing.Size(704, 333);
+            this.AboutTab.Text = "About Us";
+            // 
+            // listBoxControl1
+            // 
+            this.listBoxControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxControl1.Items.AddRange(new object[] {
+            "TeddyHammer - (aka Serenity Project Manager/Owner)",
+            "Etokapa - (Providing Useful Feedback Project Tester)",
+            "Billy Blueberry - (Emotional Support Also Being A Traitor! :) )",
+            "Boma - (Helping Find More Bug Fixes /Feature Request)",
+            "",
+            "IcySon55 - (Fixed The Naming Process) Improved The Database And Added XML.",
+            "",
+            "",
+            "Everyone is Welcome To Join This List i Cant Express How Much Of A Thanks I Wana " +
+                "Give To",
+            "These Contributions."});
+            this.listBoxControl1.Location = new System.Drawing.Point(0, 0);
+            this.listBoxControl1.Name = "listBoxControl1";
+            this.listBoxControl1.ShowFocusRect = false;
+            this.listBoxControl1.Size = new System.Drawing.Size(704, 333);
+            this.listBoxControl1.TabIndex = 0;
+            // 
+            // InfoTab
+            // 
+            this.InfoTab.Name = "InfoTab";
+            this.InfoTab.Size = new System.Drawing.Size(704, 333);
+            this.InfoTab.Text = "Information";
+            // 
+            // checkEdit4
+            // 
+            this.checkEdit4.Location = new System.Drawing.Point(10, 53);
+            this.checkEdit4.Name = "checkEdit4";
+            this.checkEdit4.Properties.AllowFocused = false;
+            this.checkEdit4.Properties.Caption = "Disable Description";
+            this.checkEdit4.Size = new System.Drawing.Size(129, 19);
+            this.checkEdit4.TabIndex = 2;
             // 
             // Settings
             // 
@@ -146,12 +225,21 @@ namespace XeniaPatchMaker
             this.Text = "Settings";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
-            this.xtraTabPage1.ResumeLayout(false);
+            this.GeneralTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
             this.xtraTabControl2.ResumeLayout(false);
-            this.xtraTabPage2.ResumeLayout(false);
+            this.xtraTabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.WriteInfo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
+            this.UpdateTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl3)).EndInit();
             this.xtraTabControl3.ResumeLayout(false);
+            this.xtraTabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            this.AboutTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -159,14 +247,19 @@ namespace XeniaPatchMaker
         #endregion
 
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraTab.XtraTabPage GeneralTab;
+        private DevExpress.XtraTab.XtraTabPage UpdateTab;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl3;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private DevExpress.XtraTab.XtraTabPage AboutTab;
+        private DevExpress.XtraTab.XtraTabPage InfoTab;
+        private DevExpress.XtraEditors.CheckEdit checkEdit2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
+        public DevExpress.XtraEditors.CheckEdit WriteInfo;
+        private DevExpress.XtraEditors.CheckEdit checkEdit3;
+        public DevExpress.XtraEditors.CheckEdit checkEdit4;
     }
 }
