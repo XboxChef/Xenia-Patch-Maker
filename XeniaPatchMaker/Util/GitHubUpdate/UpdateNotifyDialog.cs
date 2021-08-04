@@ -3,7 +3,7 @@ using System;
 using System.Windows.Forms;
 using XeniaPatchMaker;
 
-namespace GitHubUpdate
+namespace XeniaPatchMaker
 {
     public partial class UpdateNotifyDialog : XtraForm
     {
@@ -16,12 +16,18 @@ namespace GitHubUpdate
 
             InitializeComponent();
 
-            label1.Text = string.Format(label1.Text, checker.RepostoryName);
+            label1.Text = string.Format(label1.Text, checker.RepositoryName);
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UpdateNotifyDialog_Shown(object sender, EventArgs e)
+        {
+            Focus();
+            
         }
     }
 }

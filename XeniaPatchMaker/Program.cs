@@ -1,8 +1,11 @@
-﻿using System;
+﻿using XeniaPatchMaker;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using XeniaPatchMaker.Util;
 
 namespace XeniaPatchMaker
 {
@@ -18,18 +21,17 @@ namespace XeniaPatchMaker
         [STAThread]
         static void Main()
         {
+
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             if (MainForm == null)
             {
-
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                //use the creation on the main Form To have More Control
-                MainForm = new XPM();
-                Application.Run(MainForm);
-                MainForm.Hide();
+                //MainForm = new XPM();
+                Application.Run(MainForm = new XPM()); 
             }
 
-
         }
+
     }
 }

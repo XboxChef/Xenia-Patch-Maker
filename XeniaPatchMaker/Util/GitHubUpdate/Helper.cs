@@ -1,7 +1,7 @@
 ﻿using Semver;
 using System;
 
-namespace GitHubUpdate
+namespace XeniaPatchMaker
 {
     #region stolen code
     // https://github.com/octokit/octokit.net/blob/master/Octokit/Helpers/Ensure.cs

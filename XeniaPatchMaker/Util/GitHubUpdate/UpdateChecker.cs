@@ -4,8 +4,10 @@ using System.Linq;
 using Octokit;
 using Semver;
 using System.Threading.Tasks;
+using System.Net;
+using System.IO;
 
-namespace GitHubUpdate
+namespace XeniaPatchMaker
 {
     public enum UpdateType
     {
@@ -18,20 +20,20 @@ namespace GitHubUpdate
     public class UpdateChecker
     {
         private IReleasesClient _releaseClient;
-        internal GitHubClient Github;
+        internal GitHubClient GitHub;
 
         internal SemVersion CurrentVersion;
         internal string RepositoryOwner;
-        internal string RepostoryName;
+        internal string RepositoryName;
         internal Release LatestRelease;
 
         void Init(string owner, string name, SemVersion version)
         {
-            Github = new GitHubClient(new ProductHeaderValue(name + @"-UpdateCheck"));
-            _releaseClient = Github.Release;
+            GitHub = new GitHubClient(new ProductHeaderValue(name + @"-UpdateCheck"));
+            _releaseClient = GitHub.Release;
 
             RepositoryOwner = owner;
-            RepostoryName = name;
+            RepositoryName = name;
             CurrentVersion = version;
         }
 
@@ -58,7 +60,7 @@ namespace GitHubUpdate
 
         public async Task<UpdateType> CheckUpdate(UpdateType locked = UpdateType.None)
         {
-            var releases = await _releaseClient.GetAll(RepositoryOwner, RepostoryName);
+            var releases = await _releaseClient.GetAll(RepositoryOwner, RepositoryName);
 
             SemVersion lockedVersion;
             switch (locked)
@@ -107,20 +109,23 @@ namespace GitHubUpdate
             if (LatestRelease == null)
                 throw new InvalidOperationException();
 
-            return await Github.Miscellaneous.RenderRawMarkdown(LatestRelease.Body);
+            return await GitHub.Miscellaneous.RenderRawMarkdown(LatestRelease.Body);
         }
 
-        public /*async*/ void DownloadAsset(string assetname)
+        public /*async*/ void DownloadAsset(string Assetname)
         {
             // asset.Url is some api wizardry that we'll maybe use later
-            //var assets = await _releaseClient.GetAssets(RepositoryOwner, RepostoryName, LatestRelease.Id);
-            //var asset = assets.First(n => n.Name == assetname);
+            //var assets = await _releaseClient.GetAssets(RepositoryOwner, RepositoryName, LatestRelease.Id);
+            //var asset = assets.First(n => n.Name == asset name);
             
             // for now, do some ugly shit
             const string template = "https://github.com/{0}/{1}/releases/download/{2}/{3}";
-            var url = string.Format(template, RepositoryOwner, RepostoryName, LatestRelease.TagName, assetname);
-
-            System.Diagnostics.Process.Start(url);
+            var url = string.Format(template, RepositoryOwner, RepositoryName, LatestRelease.TagName, Assetname);
+            using (var client = new WebClient())
+            {
+                
+                client.DownloadFile(url, "XeniaPatchMakerUpdate.exe");
+            }
         }
     }
 }

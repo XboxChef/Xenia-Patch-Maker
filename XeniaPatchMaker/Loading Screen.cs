@@ -6,7 +6,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using XeniaPatchMaker.Util;
 
 namespace XeniaPatchMaker
 {
@@ -18,27 +17,22 @@ namespace XeniaPatchMaker
             this.labelCopyright.Text = "Copyright © 1998-" + DateTime.Now.Year.ToString();
         }
 
-        public static string UpToDate { get; internal set; }
+        #region Overrides
 
-        private void Loading_Screen_Shown(object sender, EventArgs e)
+        public override void ProcessCommand(Enum cmd, object arg)
         {
-
-            timer1.Interval = 3000;
-            
-            timer1.Start();
-
-
+            base.ProcessCommand(cmd, arg);
         }
 
+        #endregion
 
-
-        private void timer1_Tick(object sender, EventArgs e)
+        public enum SplashScreenCommand
         {
-            labelStatus.Text = "Starting...";
-            Program.Load.Close();
-            Program.MainForm.Hide();
-            PatchUtil.CheckUpdates();
-            timer1.Stop();
+        }
+
+        private void SplashScreen1_Shown(object sender, EventArgs e)
+        {
+        
         }
     }
 }

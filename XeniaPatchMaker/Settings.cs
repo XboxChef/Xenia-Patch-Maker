@@ -26,7 +26,6 @@ namespace XeniaPatchMaker
         private void Settings_FormClosed(object sender, FormClosedEventArgs e)
         {
             Properties.Settings.Default.DisableDesc = DisableDesc.Checked;
-
         }
     }
 }

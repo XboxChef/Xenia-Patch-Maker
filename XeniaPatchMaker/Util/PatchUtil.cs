@@ -1,4 +1,4 @@
-﻿using GitHubUpdate;
+﻿using XeniaPatchMaker;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -37,29 +37,6 @@ namespace XeniaPatchMaker.Util
             }
         }
 
-        internal static void CheckUpdates()
-        {
-            UpdateChecker checker = new UpdateChecker("TeddyHammer", "XeniaPatchMaker");
-            checker.CheckUpdate(locked: UpdateType.Patch).ContinueWith(continuation =>
-            {
-                if (continuation.Result != UpdateType.None)
-                {
-                    var result = new UpdateNotifyDialog(checker).ShowDialog();
-                    
-                    if (result == DialogResult.Yes)
-                    {
-                        checker.DownloadAsset("XeniaPatchMaker.exe");
-                    }
-                }
-                else
-                {
-                    Loading_Screen.UpToDate = "Up to date!";
-                }
-
-
-
-            });
-        }    
         /// <summary>
         /// Loads Patch Data Back To Textboxes
         /// </summary>

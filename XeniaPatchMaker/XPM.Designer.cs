@@ -30,6 +30,7 @@ namespace XeniaPatchMaker
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::XeniaPatchMaker.Loading_Screen), true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XPM));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,7 +38,7 @@ namespace XeniaPatchMaker
             this.label4 = new System.Windows.Forms.Label();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.GameInfoHeader = new DevExpress.XtraEditors.GroupControl();
             this.MediaId = new DevExpress.XtraEditors.TextEdit();
             this.HashKey = new DevExpress.XtraEditors.TextEdit();
             this.TitleId = new DevExpress.XtraEditors.TextEdit();
@@ -85,8 +86,8 @@ namespace XeniaPatchMaker
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.DropLog = new DevExpress.XtraEditors.GroupControl();
             this.OutPut = new System.Windows.Forms.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GameInfoHeader)).BeginInit();
+            this.GameInfoHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MediaId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HashKey.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TitleId.Properties)).BeginInit();
@@ -110,12 +111,16 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.DropLog)).BeginInit();
             this.SuspendLayout();
             // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 500;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.label1.Location = new System.Drawing.Point(9, 5);
+            this.label1.Location = new System.Drawing.Point(10, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 5;
@@ -126,7 +131,7 @@ namespace XeniaPatchMaker
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.label2.Location = new System.Drawing.Point(23, 30);
+            this.label2.Location = new System.Drawing.Point(24, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 6;
@@ -137,7 +142,7 @@ namespace XeniaPatchMaker
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.label3.Location = new System.Drawing.Point(35, 56);
+            this.label3.Location = new System.Drawing.Point(36, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 7;
@@ -148,7 +153,7 @@ namespace XeniaPatchMaker
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.label4.Location = new System.Drawing.Point(17, 82);
+            this.label4.Location = new System.Drawing.Point(18, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 8;
@@ -171,50 +176,51 @@ namespace XeniaPatchMaker
             this.simpleButton1.Text = "Write Xex Info";
             this.simpleButton1.Click += new System.EventHandler(this.XEXInfo_Click);
             // 
-            // groupControl1
+            // GameInfoHeader
             // 
-            this.groupControl1.Appearance.Options.UseForeColor = true;
-            this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
-            this.groupControl1.Controls.Add(this.label1);
-            this.groupControl1.Controls.Add(this.MediaId);
-            this.groupControl1.Controls.Add(this.HashKey);
-            this.groupControl1.Controls.Add(this.TitleId);
-            this.groupControl1.Controls.Add(this.TitleName);
-            this.groupControl1.Controls.Add(this.simpleButton1);
-            this.groupControl1.Controls.Add(this.label4);
-            this.groupControl1.Controls.Add(this.label3);
-            this.groupControl1.Controls.Add(this.label2);
-            this.groupControl1.Location = new System.Drawing.Point(26, 71);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.ShowCaption = false;
-            this.groupControl1.Size = new System.Drawing.Size(196, 152);
-            this.groupControl1.TabIndex = 21;
+            this.GameInfoHeader.Appearance.Options.UseForeColor = true;
+            this.GameInfoHeader.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
+            this.GameInfoHeader.AppearanceCaption.Options.UseForeColor = true;
+            this.GameInfoHeader.Controls.Add(this.label1);
+            this.GameInfoHeader.Controls.Add(this.MediaId);
+            this.GameInfoHeader.Controls.Add(this.HashKey);
+            this.GameInfoHeader.Controls.Add(this.TitleId);
+            this.GameInfoHeader.Controls.Add(this.TitleName);
+            this.GameInfoHeader.Controls.Add(this.simpleButton1);
+            this.GameInfoHeader.Controls.Add(this.label4);
+            this.GameInfoHeader.Controls.Add(this.label3);
+            this.GameInfoHeader.Controls.Add(this.label2);
+            this.GameInfoHeader.Location = new System.Drawing.Point(26, 71);
+            this.GameInfoHeader.Name = "GameInfoHeader";
+            this.GameInfoHeader.ShowCaption = false;
+            this.GameInfoHeader.Size = new System.Drawing.Size(196, 152);
+            this.GameInfoHeader.TabIndex = 21;
+            this.GameInfoHeader.Text = "Main Header";
             // 
             // MediaId
             // 
-            this.MediaId.Location = new System.Drawing.Point(72, 78);
+            this.MediaId.Location = new System.Drawing.Point(73, 99);
             this.MediaId.Name = "MediaId";
             this.MediaId.Size = new System.Drawing.Size(100, 20);
             this.MediaId.TabIndex = 24;
             // 
             // HashKey
             // 
-            this.HashKey.Location = new System.Drawing.Point(72, 52);
+            this.HashKey.Location = new System.Drawing.Point(73, 73);
             this.HashKey.Name = "HashKey";
             this.HashKey.Size = new System.Drawing.Size(100, 20);
             this.HashKey.TabIndex = 23;
             // 
             // TitleId
             // 
-            this.TitleId.Location = new System.Drawing.Point(72, 26);
+            this.TitleId.Location = new System.Drawing.Point(73, 47);
             this.TitleId.Name = "TitleId";
             this.TitleId.Size = new System.Drawing.Size(100, 20);
             this.TitleId.TabIndex = 22;
             // 
             // TitleName
             // 
-            this.TitleName.Location = new System.Drawing.Point(72, 2);
+            this.TitleName.Location = new System.Drawing.Point(73, 23);
             this.TitleName.Name = "TitleName";
             this.TitleName.Size = new System.Drawing.Size(100, 20);
             this.TitleName.TabIndex = 21;
@@ -233,9 +239,9 @@ namespace XeniaPatchMaker
             this.groupControl2.Controls.Add(this.Desc);
             this.groupControl2.Controls.Add(this.label15);
             this.groupControl2.Controls.Add(this.PatchName);
-            this.groupControl2.Location = new System.Drawing.Point(228, 71);
+            this.groupControl2.Location = new System.Drawing.Point(228, 60);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(196, 152);
+            this.groupControl2.Size = new System.Drawing.Size(196, 163);
             this.groupControl2.TabIndex = 22;
             this.groupControl2.Text = "Patch Info";
             // 
@@ -245,7 +251,7 @@ namespace XeniaPatchMaker
             this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
             this.simpleButton2.Appearance.Options.UseForeColor = true;
             this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton2.Location = new System.Drawing.Point(2, 127);
+            this.simpleButton2.Location = new System.Drawing.Point(2, 138);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(192, 23);
             this.simpleButton2.TabIndex = 25;
@@ -348,9 +354,9 @@ namespace XeniaPatchMaker
             this.groupControl3.Controls.Add(this.PatchValue);
             this.groupControl3.Controls.Add(this.PatchAddress);
             this.groupControl3.Controls.Add(this.richEditControl1);
-            this.groupControl3.Location = new System.Drawing.Point(430, 71);
+            this.groupControl3.Location = new System.Drawing.Point(430, 63);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(367, 152);
+            this.groupControl3.Size = new System.Drawing.Size(367, 160);
             this.groupControl3.TabIndex = 22;
             this.groupControl3.Text = "Patch Address";
             // 
@@ -403,7 +409,7 @@ namespace XeniaPatchMaker
             this.simpleButton6.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
             this.simpleButton6.Appearance.Options.UseForeColor = true;
             this.simpleButton6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton6.Location = new System.Drawing.Point(2, 104);
+            this.simpleButton6.Location = new System.Drawing.Point(2, 112);
             this.simpleButton6.Name = "simpleButton6";
             this.simpleButton6.Size = new System.Drawing.Size(363, 23);
             this.simpleButton6.TabIndex = 38;
@@ -492,7 +498,7 @@ namespace XeniaPatchMaker
             this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
             this.simpleButton3.Appearance.Options.UseForeColor = true;
             this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton3.Location = new System.Drawing.Point(2, 127);
+            this.simpleButton3.Location = new System.Drawing.Point(2, 135);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(363, 23);
             this.simpleButton3.TabIndex = 30;
@@ -698,6 +704,8 @@ namespace XeniaPatchMaker
             this.OutPut.TabIndex = 26;
             this.OutPut.Text = "";
             this.OutPut.TextChanged += new System.EventHandler(this.OutPut_TextChanged);
+            this.OutPut.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OutPut_KeyDown);
+            this.OutPut.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OutPut_KeyUp);
             // 
             // XPM
             // 
@@ -708,7 +716,7 @@ namespace XeniaPatchMaker
             this.Controls.Add(this.DropLog);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl3);
-            this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.GameInfoHeader);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -724,9 +732,10 @@ namespace XeniaPatchMaker
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xenia Patch Maker By TeddyHammer";
             this.Load += new System.EventHandler(this.XPM_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
+            this.Shown += new System.EventHandler(this.XPM_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.GameInfoHeader)).EndInit();
+            this.GameInfoHeader.ResumeLayout(false);
+            this.GameInfoHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MediaId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HashKey.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TitleId.Properties)).EndInit();
@@ -762,7 +771,7 @@ namespace XeniaPatchMaker
         private System.Windows.Forms.Label label4;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.GroupControl GameInfoHeader;
         private DevExpress.XtraEditors.TextEdit TitleName;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.GroupControl groupControl3;

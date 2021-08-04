@@ -34,7 +34,7 @@ namespace XeniaPatchMaker
             this.labelCopyright = new DevExpress.XtraEditors.LabelControl();
             this.labelStatus = new DevExpress.XtraEditors.LabelControl();
             this.peImage = new DevExpress.XtraEditors.PictureEdit();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
             this.SuspendLayout();
@@ -63,9 +63,9 @@ namespace XeniaPatchMaker
             this.labelStatus.Location = new System.Drawing.Point(24, 215);
             this.labelStatus.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(117, 13);
+            this.labelStatus.Size = new System.Drawing.Size(50, 13);
             this.labelStatus.TabIndex = 7;
-            this.labelStatus.Text = "Checking For Updates...";
+            this.labelStatus.Text = "Starting...";
             // 
             // peImage
             // 
@@ -83,9 +83,9 @@ namespace XeniaPatchMaker
             this.peImage.Size = new System.Drawing.Size(448, 200);
             this.peImage.TabIndex = 9;
             // 
-            // timer1
+            // defaultLookAndFeel1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
             // 
             // Loading_Screen
             // 
@@ -98,8 +98,8 @@ namespace XeniaPatchMaker
             this.Controls.Add(this.progressBarControl);
             this.Name = "Loading_Screen";
             this.Padding = new System.Windows.Forms.Padding(1);
-            this.Text = "Loading_Screen";
-            this.Shown += new System.EventHandler(this.Loading_Screen_Shown);
+            this.Text = "SplashScreen1";
+            this.Shown += new System.EventHandler(this.SplashScreen1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -113,6 +113,6 @@ namespace XeniaPatchMaker
         private DevExpress.XtraEditors.LabelControl labelCopyright;
         private DevExpress.XtraEditors.LabelControl labelStatus;
         private DevExpress.XtraEditors.PictureEdit peImage;
-        private System.Windows.Forms.Timer timer1;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
     }
 }

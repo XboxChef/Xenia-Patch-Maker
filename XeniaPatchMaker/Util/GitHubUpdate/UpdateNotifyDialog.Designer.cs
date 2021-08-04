@@ -1,4 +1,4 @@
-﻿namespace GitHubUpdate
+﻿namespace XeniaPatchMaker
 {
     partial class UpdateNotifyDialog
     {
@@ -67,6 +67,7 @@
             // 
             // buttonNo
             // 
+            this.buttonNo.DialogResult = System.Windows.Forms.DialogResult.No;
             this.buttonNo.Location = new System.Drawing.Point(214, 55);
             this.buttonNo.Name = "buttonNo";
             this.buttonNo.Size = new System.Drawing.Size(75, 23);
@@ -75,6 +76,7 @@
             // 
             // simpleButton1
             // 
+            this.simpleButton1.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.simpleButton1.Location = new System.Drawing.Point(295, 55);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
@@ -88,6 +90,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(374, 83);
             this.ControlBox = false;
             this.Controls.Add(this.boxReleaseNotes);
@@ -96,10 +99,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(320, 48);
             this.Name = "UpdateNotifyDialog";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update available!";
+            this.TopMost = true;
+            this.Shown += new System.EventHandler(this.UpdateNotifyDialog_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
