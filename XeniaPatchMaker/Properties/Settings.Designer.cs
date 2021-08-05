@@ -265,5 +265,113 @@ namespace XeniaPatchMaker.Properties {
                 this["DisableDesc"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool WriteInfo {
+            get {
+                return ((bool)(this["WriteInfo"]));
+            }
+            set {
+                this["WriteInfo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HideValueConverter {
+            get {
+                return ((bool)(this["HideValueConverter"]));
+            }
+            set {
+                this["HideValueConverter"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoDelete {
+            get {
+                return ((bool)(this["AutoDelete"]));
+            }
+            set {
+                this["AutoDelete"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DisableMessageBox {
+            get {
+                return ((bool)(this["DisableMessageBox"]));
+            }
+            set {
+                this["DisableMessageBox"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ColorDisabled {
+            get {
+                return ((bool)(this["ColorDisabled"]));
+            }
+            set {
+                this["ColorDisabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DefaultAuthors {
+            get {
+                return ((string)(this["DefaultAuthors"]));
+            }
+            set {
+                this["DefaultAuthors"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseDefaultAuthors {
+            get {
+                return ((bool)(this["UseDefaultAuthors"]));
+            }
+            set {
+                this["UseDefaultAuthors"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DisableValueConverter {
+            get {
+                return ((bool)(this["DisableValueConverter"]));
+            }
+            set {
+                this["DisableValueConverter"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DisableAuthors {
+            get {
+                return ((bool)(this["DisableAuthors"]));
+            }
+            set {
+                this["DisableAuthors"] = value;
+            }
+        }
     }
 }

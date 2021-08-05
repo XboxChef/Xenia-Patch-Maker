@@ -33,13 +33,14 @@
             this.boxReleaseNotes = new DevExpress.XtraEditors.CheckButton();
             this.buttonNo = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.Changes = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(2, 9);
+            this.label1.Location = new System.Drawing.Point(-5, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(196, 13);
             this.label1.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2, 22);
+            this.label2.Location = new System.Drawing.Point(-5, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(175, 13);
             this.label2.TabIndex = 1;
@@ -64,6 +65,7 @@
             this.boxReleaseNotes.Size = new System.Drawing.Size(75, 23);
             this.boxReleaseNotes.TabIndex = 7;
             this.boxReleaseNotes.Text = "What\'s new?";
+            this.boxReleaseNotes.CheckedChanged += new System.EventHandler(this.boxReleaseNotes_CheckedChanged);
             // 
             // buttonNo
             // 
@@ -84,6 +86,16 @@
             this.simpleButton1.Text = "Yes";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // Changes
+            // 
+            this.Changes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Changes.Location = new System.Drawing.Point(0, 66);
+            this.Changes.Name = "Changes";
+            this.Changes.Size = new System.Drawing.Size(360, 10);
+            this.Changes.TabIndex = 8;
+            this.Changes.Text = "";
+            this.Changes.Visible = false;
+            // 
             // UpdateNotifyDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -91,8 +103,9 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(374, 83);
+            this.ClientSize = new System.Drawing.Size(360, 76);
             this.ControlBox = false;
+            this.Controls.Add(this.Changes);
             this.Controls.Add(this.boxReleaseNotes);
             this.Controls.Add(this.buttonNo);
             this.Controls.Add(this.simpleButton1);
@@ -100,13 +113,15 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(390, 140);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(320, 48);
+            this.MinimumSize = new System.Drawing.Size(390, 140);
             this.Name = "UpdateNotifyDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update available!";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.UpdateNotifyDialog_Load);
             this.Shown += new System.EventHandler(this.UpdateNotifyDialog_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -119,5 +134,6 @@
         private DevExpress.XtraEditors.SimpleButton buttonNo;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.CheckButton boxReleaseNotes;
+        private System.Windows.Forms.RichTextBox Changes;
     }
 }

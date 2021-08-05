@@ -43,7 +43,7 @@ namespace XeniaPatchMaker
             this.HashKey = new DevExpress.XtraEditors.TextEdit();
             this.TitleId = new DevExpress.XtraEditors.TextEdit();
             this.TitleName = new DevExpress.XtraEditors.TextEdit();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.PatchInfoGroup = new DevExpress.XtraEditors.GroupControl();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.IsOn = new DevExpress.XtraEditors.ToggleSwitch();
             this.label11 = new System.Windows.Forms.Label();
@@ -53,16 +53,16 @@ namespace XeniaPatchMaker
             this.Desc = new DevExpress.XtraEditors.TextEdit();
             this.label15 = new System.Windows.Forms.Label();
             this.PatchName = new DevExpress.XtraEditors.TextEdit();
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.PatchAddressGroup = new DevExpress.XtraEditors.GroupControl();
             this.Types = new DevExpress.XtraEditors.ComboBoxEdit();
             this.PlusButton = new DevExpress.XtraEditors.SimpleButton();
             this.MinusButton = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.UseType = new DevExpress.XtraEditors.CheckEdit();
             this.ProvideSizeType = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.ProvideSizeLabel = new System.Windows.Forms.Label();
+            this.ValueLabel = new System.Windows.Forms.Label();
+            this.AddressLabel = new System.Windows.Forms.Label();
             this.oxvalue = new DevExpress.XtraEditors.TextEdit();
             this.oxadd = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
@@ -92,14 +92,14 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.HashKey.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TitleId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TitleName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchInfoGroup)).BeginInit();
+            this.PatchInfoGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IsOn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Authors.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Desc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatchName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
-            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchAddressGroup)).BeginInit();
+            this.PatchAddressGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Types.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UseType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProvideSizeType.Properties)).BeginInit();
@@ -225,25 +225,25 @@ namespace XeniaPatchMaker
             this.TitleName.Size = new System.Drawing.Size(100, 20);
             this.TitleName.TabIndex = 21;
             // 
-            // groupControl2
+            // PatchInfoGroup
             // 
-            this.groupControl2.Appearance.Options.UseForeColor = true;
-            this.groupControl2.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.groupControl2.AppearanceCaption.Options.UseForeColor = true;
-            this.groupControl2.Controls.Add(this.simpleButton2);
-            this.groupControl2.Controls.Add(this.IsOn);
-            this.groupControl2.Controls.Add(this.label11);
-            this.groupControl2.Controls.Add(this.label12);
-            this.groupControl2.Controls.Add(this.Authors);
-            this.groupControl2.Controls.Add(this.label14);
-            this.groupControl2.Controls.Add(this.Desc);
-            this.groupControl2.Controls.Add(this.label15);
-            this.groupControl2.Controls.Add(this.PatchName);
-            this.groupControl2.Location = new System.Drawing.Point(228, 60);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(196, 163);
-            this.groupControl2.TabIndex = 22;
-            this.groupControl2.Text = "Patch Info";
+            this.PatchInfoGroup.Appearance.Options.UseForeColor = true;
+            this.PatchInfoGroup.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
+            this.PatchInfoGroup.AppearanceCaption.Options.UseForeColor = true;
+            this.PatchInfoGroup.Controls.Add(this.simpleButton2);
+            this.PatchInfoGroup.Controls.Add(this.IsOn);
+            this.PatchInfoGroup.Controls.Add(this.label11);
+            this.PatchInfoGroup.Controls.Add(this.label12);
+            this.PatchInfoGroup.Controls.Add(this.Authors);
+            this.PatchInfoGroup.Controls.Add(this.label14);
+            this.PatchInfoGroup.Controls.Add(this.Desc);
+            this.PatchInfoGroup.Controls.Add(this.label15);
+            this.PatchInfoGroup.Controls.Add(this.PatchName);
+            this.PatchInfoGroup.Location = new System.Drawing.Point(228, 60);
+            this.PatchInfoGroup.Name = "PatchInfoGroup";
+            this.PatchInfoGroup.Size = new System.Drawing.Size(196, 163);
+            this.PatchInfoGroup.TabIndex = 22;
+            this.PatchInfoGroup.Text = "Patch Info";
             // 
             // simpleButton2
             // 
@@ -334,31 +334,31 @@ namespace XeniaPatchMaker
             this.PatchName.Size = new System.Drawing.Size(100, 20);
             this.PatchName.TabIndex = 25;
             // 
-            // groupControl3
+            // PatchAddressGroup
             // 
-            this.groupControl3.Appearance.Options.UseForeColor = true;
-            this.groupControl3.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.groupControl3.AppearanceCaption.Options.UseForeColor = true;
-            this.groupControl3.Controls.Add(this.Types);
-            this.groupControl3.Controls.Add(this.PlusButton);
-            this.groupControl3.Controls.Add(this.MinusButton);
-            this.groupControl3.Controls.Add(this.simpleButton6);
-            this.groupControl3.Controls.Add(this.UseType);
-            this.groupControl3.Controls.Add(this.ProvideSizeType);
-            this.groupControl3.Controls.Add(this.label5);
-            this.groupControl3.Controls.Add(this.label6);
-            this.groupControl3.Controls.Add(this.label7);
-            this.groupControl3.Controls.Add(this.oxvalue);
-            this.groupControl3.Controls.Add(this.oxadd);
-            this.groupControl3.Controls.Add(this.simpleButton3);
-            this.groupControl3.Controls.Add(this.PatchValue);
-            this.groupControl3.Controls.Add(this.PatchAddress);
-            this.groupControl3.Controls.Add(this.richEditControl1);
-            this.groupControl3.Location = new System.Drawing.Point(430, 63);
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(367, 160);
-            this.groupControl3.TabIndex = 22;
-            this.groupControl3.Text = "Patch Address";
+            this.PatchAddressGroup.Appearance.Options.UseForeColor = true;
+            this.PatchAddressGroup.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
+            this.PatchAddressGroup.AppearanceCaption.Options.UseForeColor = true;
+            this.PatchAddressGroup.Controls.Add(this.Types);
+            this.PatchAddressGroup.Controls.Add(this.PlusButton);
+            this.PatchAddressGroup.Controls.Add(this.MinusButton);
+            this.PatchAddressGroup.Controls.Add(this.simpleButton6);
+            this.PatchAddressGroup.Controls.Add(this.UseType);
+            this.PatchAddressGroup.Controls.Add(this.ProvideSizeType);
+            this.PatchAddressGroup.Controls.Add(this.ProvideSizeLabel);
+            this.PatchAddressGroup.Controls.Add(this.ValueLabel);
+            this.PatchAddressGroup.Controls.Add(this.AddressLabel);
+            this.PatchAddressGroup.Controls.Add(this.oxvalue);
+            this.PatchAddressGroup.Controls.Add(this.oxadd);
+            this.PatchAddressGroup.Controls.Add(this.simpleButton3);
+            this.PatchAddressGroup.Controls.Add(this.PatchValue);
+            this.PatchAddressGroup.Controls.Add(this.PatchAddress);
+            this.PatchAddressGroup.Controls.Add(this.richEditControl1);
+            this.PatchAddressGroup.Location = new System.Drawing.Point(430, 63);
+            this.PatchAddressGroup.Name = "PatchAddressGroup";
+            this.PatchAddressGroup.Size = new System.Drawing.Size(367, 160);
+            this.PatchAddressGroup.TabIndex = 22;
+            this.PatchAddressGroup.Text = "Patch Address";
             // 
             // Types
             // 
@@ -443,38 +443,38 @@ namespace XeniaPatchMaker
             this.ProvideSizeType.Size = new System.Drawing.Size(54, 20);
             this.ProvideSizeType.TabIndex = 24;
             // 
-            // label5
+            // ProvideSizeLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.label5.Location = new System.Drawing.Point(5, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 13);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Provided Size";
+            this.ProvideSizeLabel.AutoSize = true;
+            this.ProvideSizeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ProvideSizeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
+            this.ProvideSizeLabel.Location = new System.Drawing.Point(5, 30);
+            this.ProvideSizeLabel.Name = "ProvideSizeLabel";
+            this.ProvideSizeLabel.Size = new System.Drawing.Size(71, 13);
+            this.ProvideSizeLabel.TabIndex = 36;
+            this.ProvideSizeLabel.Text = "Provided Size";
             // 
-            // label6
+            // ValueLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.label6.Location = new System.Drawing.Point(16, 82);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 13);
-            this.label6.TabIndex = 35;
-            this.label6.Text = "Value";
+            this.ValueLabel.AutoSize = true;
+            this.ValueLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ValueLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
+            this.ValueLabel.Location = new System.Drawing.Point(16, 82);
+            this.ValueLabel.Name = "ValueLabel";
+            this.ValueLabel.Size = new System.Drawing.Size(33, 13);
+            this.ValueLabel.TabIndex = 35;
+            this.ValueLabel.Text = "Value";
             // 
-            // label7
+            // AddressLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.label7.Location = new System.Drawing.Point(5, 56);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 13);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "Address";
+            this.AddressLabel.AutoSize = true;
+            this.AddressLabel.BackColor = System.Drawing.Color.Transparent;
+            this.AddressLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
+            this.AddressLabel.Location = new System.Drawing.Point(5, 56);
+            this.AddressLabel.Name = "AddressLabel";
+            this.AddressLabel.Size = new System.Drawing.Size(46, 13);
+            this.AddressLabel.TabIndex = 34;
+            this.AddressLabel.Text = "Address";
             // 
             // oxvalue
             // 
@@ -714,8 +714,8 @@ namespace XeniaPatchMaker
             this.ClientSize = new System.Drawing.Size(823, 736);
             this.Controls.Add(this.OutPut);
             this.Controls.Add(this.DropLog);
-            this.Controls.Add(this.groupControl2);
-            this.Controls.Add(this.groupControl3);
+            this.Controls.Add(this.PatchInfoGroup);
+            this.Controls.Add(this.PatchAddressGroup);
             this.Controls.Add(this.GameInfoHeader);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -740,16 +740,16 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.HashKey.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TitleId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TitleName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
-            this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchInfoGroup)).EndInit();
+            this.PatchInfoGroup.ResumeLayout(false);
+            this.PatchInfoGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IsOn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Authors.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Desc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatchName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
-            this.groupControl3.ResumeLayout(false);
-            this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchAddressGroup)).EndInit();
+            this.PatchAddressGroup.ResumeLayout(false);
+            this.PatchAddressGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Types.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UseType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProvideSizeType.Properties)).EndInit();
@@ -773,8 +773,8 @@ namespace XeniaPatchMaker
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.GroupControl GameInfoHeader;
         private DevExpress.XtraEditors.TextEdit TitleName;
-        private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraEditors.GroupControl groupControl3;
+        private DevExpress.XtraEditors.GroupControl PatchInfoGroup;
+        private DevExpress.XtraEditors.GroupControl PatchAddressGroup;
         private DevExpress.XtraEditors.TextEdit MediaId;
         private DevExpress.XtraEditors.TextEdit HashKey;
         private DevExpress.XtraEditors.TextEdit TitleId;
@@ -789,9 +789,9 @@ namespace XeniaPatchMaker
         private System.Windows.Forms.Label label15;
         private DevExpress.XtraEditors.TextEdit PatchName;
         private DevExpress.XtraEditors.ComboBoxEdit ProvideSizeType;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label ProvideSizeLabel;
+        private System.Windows.Forms.Label ValueLabel;
+        private System.Windows.Forms.Label AddressLabel;
         private DevExpress.XtraEditors.TextEdit oxvalue;
         private DevExpress.XtraEditors.TextEdit oxadd;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
