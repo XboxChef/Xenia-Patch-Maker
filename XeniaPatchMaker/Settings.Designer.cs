@@ -38,6 +38,9 @@ namespace XeniaPatchMaker
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.ColorDisabled = new DevExpress.XtraEditors.CheckEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.AddressMath = new System.Windows.Forms.NumericUpDown();
             this.AutoDelete = new DevExpress.XtraEditors.CheckEdit();
             this.HideValueConverter = new DevExpress.XtraEditors.CheckEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -49,17 +52,19 @@ namespace XeniaPatchMaker
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.WriteInfo = new DevExpress.XtraEditors.CheckEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
+            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
+            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
+            this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.colorPickEdit1 = new DevExpress.XtraEditors.ColorPickEdit();
-            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
-            this.UpdateTab = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabControl3 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
-            this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit7 = new DevExpress.XtraEditors.CheckEdit();
+            this.InfoTab = new DevExpress.XtraTab.XtraTabPage();
             this.AboutTab = new DevExpress.XtraTab.XtraTabPage();
             this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
-            this.InfoTab = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.GeneralTab.SuspendLayout();
@@ -71,6 +76,7 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.ColorDisabled.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddressMath)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AutoDelete.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HideValueConverter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -83,13 +89,19 @@ namespace XeniaPatchMaker
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WriteInfo.Properties)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit1.Properties)).BeginInit();
-            this.UpdateTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl3)).BeginInit();
-            this.xtraTabControl3.SuspendLayout();
-            this.xtraTabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
+            this.groupControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
+            this.groupControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
+            this.groupControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
+            this.groupControl8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).BeginInit();
             this.AboutTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
             this.SuspendLayout();
@@ -100,19 +112,18 @@ namespace XeniaPatchMaker
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.GeneralTab;
-            this.xtraTabControl1.Size = new System.Drawing.Size(706, 360);
+            this.xtraTabControl1.Size = new System.Drawing.Size(692, 344);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.GeneralTab,
-            this.UpdateTab,
-            this.AboutTab,
-            this.InfoTab});
+            this.InfoTab,
+            this.AboutTab});
             // 
             // GeneralTab
             // 
             this.GeneralTab.Controls.Add(this.xtraTabControl2);
             this.GeneralTab.Name = "GeneralTab";
-            this.GeneralTab.Size = new System.Drawing.Size(704, 333);
+            this.GeneralTab.Size = new System.Drawing.Size(690, 317);
             this.GeneralTab.Text = "General Settings";
             // 
             // xtraTabControl2
@@ -121,18 +132,17 @@ namespace XeniaPatchMaker
             this.xtraTabControl2.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.xtraTabPage4;
-            this.xtraTabControl2.Size = new System.Drawing.Size(704, 333);
+            this.xtraTabControl2.Size = new System.Drawing.Size(690, 317);
             this.xtraTabControl2.TabIndex = 0;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage4,
             this.xtraTabPage1,
-            this.xtraTabPage2,
-            this.xtraTabPage3});
+            this.xtraTabPage2});
             // 
             // xtraTabPage4
             // 
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(702, 306);
+            this.xtraTabPage4.Size = new System.Drawing.Size(688, 290);
             this.xtraTabPage4.Text = "General";
             // 
             // xtraTabPage1
@@ -142,7 +152,7 @@ namespace XeniaPatchMaker
             this.xtraTabPage1.Controls.Add(this.groupControl2);
             this.xtraTabPage1.Controls.Add(this.groupControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(702, 306);
+            this.xtraTabPage1.Size = new System.Drawing.Size(688, 290);
             this.xtraTabPage1.Text = "Header Settings";
             // 
             // groupControl4
@@ -151,13 +161,13 @@ namespace XeniaPatchMaker
             this.groupControl4.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl4.Location = new System.Drawing.Point(537, 0);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(179, 306);
+            this.groupControl4.Size = new System.Drawing.Size(153, 290);
             this.groupControl4.TabIndex = 3;
             this.groupControl4.Text = "Extra Features";
             // 
             // ColorDisabled
             // 
-            this.ColorDisabled.Location = new System.Drawing.Point(25, 24);
+            this.ColorDisabled.Location = new System.Drawing.Point(12, 24);
             this.ColorDisabled.Name = "ColorDisabled";
             this.ColorDisabled.Properties.AllowFocused = false;
             this.ColorDisabled.Properties.Caption = "Disable Output Color\'s";
@@ -166,14 +176,53 @@ namespace XeniaPatchMaker
             // 
             // groupControl3
             // 
+            this.groupControl3.Controls.Add(this.labelControl4);
+            this.groupControl3.Controls.Add(this.labelControl3);
+            this.groupControl3.Controls.Add(this.AddressMath);
             this.groupControl3.Controls.Add(this.AutoDelete);
             this.groupControl3.Controls.Add(this.HideValueConverter);
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl3.Location = new System.Drawing.Point(358, 0);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(179, 306);
+            this.groupControl3.Size = new System.Drawing.Size(179, 290);
             this.groupControl3.TabIndex = 2;
             this.groupControl3.Text = "Patch Address Header";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(93, 231);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(64, 13);
+            this.labelControl4.TabIndex = 8;
+            this.labelControl4.Text = "Add/Subtract";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(21, 231);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(66, 13);
+            this.labelControl3.TabIndex = 7;
+            this.labelControl3.Text = "Address Math";
+            // 
+            // AddressMath
+            // 
+            this.AddressMath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.AddressMath.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AddressMath.ForeColor = System.Drawing.Color.White;
+            this.AddressMath.Location = new System.Drawing.Point(21, 254);
+            this.AddressMath.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AddressMath.Name = "AddressMath";
+            this.AddressMath.Size = new System.Drawing.Size(136, 17);
+            this.AddressMath.TabIndex = 6;
+            this.AddressMath.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // AutoDelete
             // 
@@ -203,7 +252,7 @@ namespace XeniaPatchMaker
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl2.Location = new System.Drawing.Point(179, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(179, 306);
+            this.groupControl2.Size = new System.Drawing.Size(179, 290);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Patch Info Header";
             // 
@@ -218,7 +267,7 @@ namespace XeniaPatchMaker
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(25, 100);
+            this.labelControl2.Location = new System.Drawing.Point(25, 231);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(78, 13);
             this.labelControl2.TabIndex = 6;
@@ -226,7 +275,7 @@ namespace XeniaPatchMaker
             // 
             // DefaultAuthors
             // 
-            this.DefaultAuthors.Location = new System.Drawing.Point(25, 119);
+            this.DefaultAuthors.Location = new System.Drawing.Point(25, 252);
             this.DefaultAuthors.Name = "DefaultAuthors";
             this.DefaultAuthors.Size = new System.Drawing.Size(129, 20);
             this.DefaultAuthors.TabIndex = 5;
@@ -255,7 +304,7 @@ namespace XeniaPatchMaker
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(179, 306);
+            this.groupControl1.Size = new System.Drawing.Size(179, 290);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Main Header";
             // 
@@ -270,15 +319,86 @@ namespace XeniaPatchMaker
             // 
             // xtraTabPage2
             // 
-            this.xtraTabPage2.Controls.Add(this.labelControl1);
-            this.xtraTabPage2.Controls.Add(this.colorPickEdit1);
+            this.xtraTabPage2.Controls.Add(this.groupControl5);
+            this.xtraTabPage2.Controls.Add(this.groupControl6);
+            this.xtraTabPage2.Controls.Add(this.groupControl7);
+            this.xtraTabPage2.Controls.Add(this.groupControl8);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(702, 306);
+            this.xtraTabPage2.Size = new System.Drawing.Size(688, 290);
             this.xtraTabPage2.Text = "Color Settings";
+            // 
+            // groupControl5
+            // 
+            this.groupControl5.Controls.Add(this.checkEdit3);
+            this.groupControl5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupControl5.Location = new System.Drawing.Point(537, 0);
+            this.groupControl5.Name = "groupControl5";
+            this.groupControl5.Size = new System.Drawing.Size(153, 290);
+            this.groupControl5.TabIndex = 7;
+            this.groupControl5.Text = "Extra Features";
+            // 
+            // checkEdit3
+            // 
+            this.checkEdit3.Location = new System.Drawing.Point(6, 24);
+            this.checkEdit3.Name = "checkEdit3";
+            this.checkEdit3.Properties.AllowFocused = false;
+            this.checkEdit3.Properties.Caption = "Use Colors";
+            this.checkEdit3.Size = new System.Drawing.Size(135, 19);
+            this.checkEdit3.TabIndex = 4;
+            // 
+            // groupControl6
+            // 
+            this.groupControl6.Controls.Add(this.checkEdit2);
+            this.groupControl6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupControl6.Location = new System.Drawing.Point(358, 0);
+            this.groupControl6.Name = "groupControl6";
+            this.groupControl6.Size = new System.Drawing.Size(179, 290);
+            this.groupControl6.TabIndex = 6;
+            this.groupControl6.Text = "Patch Address Header";
+            // 
+            // checkEdit2
+            // 
+            this.checkEdit2.Location = new System.Drawing.Point(6, 24);
+            this.checkEdit2.Name = "checkEdit2";
+            this.checkEdit2.Properties.AllowFocused = false;
+            this.checkEdit2.Properties.Caption = "Use Colors";
+            this.checkEdit2.Size = new System.Drawing.Size(135, 19);
+            this.checkEdit2.TabIndex = 4;
+            // 
+            // groupControl7
+            // 
+            this.groupControl7.Controls.Add(this.checkEdit1);
+            this.groupControl7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupControl7.Location = new System.Drawing.Point(179, 0);
+            this.groupControl7.Name = "groupControl7";
+            this.groupControl7.Size = new System.Drawing.Size(179, 290);
+            this.groupControl7.TabIndex = 5;
+            this.groupControl7.Text = "Patch Info Header";
+            // 
+            // checkEdit1
+            // 
+            this.checkEdit1.Location = new System.Drawing.Point(6, 24);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.AllowFocused = false;
+            this.checkEdit1.Properties.Caption = "Use Colors";
+            this.checkEdit1.Size = new System.Drawing.Size(135, 19);
+            this.checkEdit1.TabIndex = 3;
+            // 
+            // groupControl8
+            // 
+            this.groupControl8.Controls.Add(this.labelControl1);
+            this.groupControl8.Controls.Add(this.colorPickEdit1);
+            this.groupControl8.Controls.Add(this.checkEdit7);
+            this.groupControl8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupControl8.Location = new System.Drawing.Point(0, 0);
+            this.groupControl8.Name = "groupControl8";
+            this.groupControl8.Size = new System.Drawing.Size(179, 290);
+            this.groupControl8.TabIndex = 4;
+            this.groupControl8.Text = "Main Header";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(184, 23);
+            this.labelControl1.Location = new System.Drawing.Point(110, 68);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(40, 13);
             this.labelControl1.TabIndex = 2;
@@ -287,7 +407,7 @@ namespace XeniaPatchMaker
             // colorPickEdit1
             // 
             this.colorPickEdit1.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit1.Location = new System.Drawing.Point(10, 60);
+            this.colorPickEdit1.Location = new System.Drawing.Point(5, 64);
             this.colorPickEdit1.Name = "colorPickEdit1";
             this.colorPickEdit1.Properties.AutomaticColor = System.Drawing.Color.Black;
             this.colorPickEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -295,61 +415,27 @@ namespace XeniaPatchMaker
             this.colorPickEdit1.Size = new System.Drawing.Size(100, 20);
             this.colorPickEdit1.TabIndex = 1;
             // 
-            // xtraTabPage3
+            // checkEdit7
             // 
-            this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(702, 306);
-            this.xtraTabPage3.Text = "Debug Mode";
+            this.checkEdit7.Location = new System.Drawing.Point(5, 24);
+            this.checkEdit7.Name = "checkEdit7";
+            this.checkEdit7.Properties.AllowFocused = false;
+            this.checkEdit7.Properties.Caption = "Use Colors";
+            this.checkEdit7.Size = new System.Drawing.Size(135, 19);
+            this.checkEdit7.TabIndex = 2;
             // 
-            // UpdateTab
+            // InfoTab
             // 
-            this.UpdateTab.Controls.Add(this.xtraTabControl3);
-            this.UpdateTab.Name = "UpdateTab";
-            this.UpdateTab.Size = new System.Drawing.Size(704, 333);
-            this.UpdateTab.Text = "Update Settings";
-            // 
-            // xtraTabControl3
-            // 
-            this.xtraTabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl3.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControl3.Name = "xtraTabControl3";
-            this.xtraTabControl3.SelectedTabPage = this.xtraTabPage6;
-            this.xtraTabControl3.Size = new System.Drawing.Size(704, 333);
-            this.xtraTabControl3.TabIndex = 0;
-            this.xtraTabControl3.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage6});
-            // 
-            // xtraTabPage6
-            // 
-            this.xtraTabPage6.Controls.Add(this.checkEdit3);
-            this.xtraTabPage6.Controls.Add(this.checkEdit1);
-            this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(702, 306);
-            this.xtraTabPage6.Text = "Update";
-            // 
-            // checkEdit3
-            // 
-            this.checkEdit3.Location = new System.Drawing.Point(10, 28);
-            this.checkEdit3.Name = "checkEdit3";
-            this.checkEdit3.Properties.AllowFocused = false;
-            this.checkEdit3.Properties.Caption = "Check For Beta Updates";
-            this.checkEdit3.Size = new System.Drawing.Size(165, 19);
-            this.checkEdit3.TabIndex = 1;
-            // 
-            // checkEdit1
-            // 
-            this.checkEdit1.Location = new System.Drawing.Point(10, 3);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.AllowFocused = false;
-            this.checkEdit1.Properties.Caption = "Disable Checking For Updates";
-            this.checkEdit1.Size = new System.Drawing.Size(165, 19);
-            this.checkEdit1.TabIndex = 0;
+            this.InfoTab.Name = "InfoTab";
+            this.InfoTab.PageVisible = false;
+            this.InfoTab.Size = new System.Drawing.Size(690, 317);
+            this.InfoTab.Text = "Information";
             // 
             // AboutTab
             // 
             this.AboutTab.Controls.Add(this.listBoxControl1);
             this.AboutTab.Name = "AboutTab";
-            this.AboutTab.Size = new System.Drawing.Size(704, 333);
+            this.AboutTab.Size = new System.Drawing.Size(690, 317);
             this.AboutTab.Text = "About Us";
             // 
             // listBoxControl1
@@ -370,20 +456,14 @@ namespace XeniaPatchMaker
             this.listBoxControl1.Location = new System.Drawing.Point(0, 0);
             this.listBoxControl1.Name = "listBoxControl1";
             this.listBoxControl1.ShowFocusRect = false;
-            this.listBoxControl1.Size = new System.Drawing.Size(704, 333);
+            this.listBoxControl1.Size = new System.Drawing.Size(690, 317);
             this.listBoxControl1.TabIndex = 0;
-            // 
-            // InfoTab
-            // 
-            this.InfoTab.Name = "InfoTab";
-            this.InfoTab.Size = new System.Drawing.Size(704, 333);
-            this.InfoTab.Text = "Information";
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(706, 360);
+            this.ClientSize = new System.Drawing.Size(692, 344);
             this.Controls.Add(this.xtraTabControl1);
             this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("Settings.IconOptions.LargeImage")));
             this.MaximizeBox = false;
@@ -405,6 +485,8 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.ColorDisabled.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
+            this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddressMath)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AutoDelete.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HideValueConverter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
@@ -418,14 +500,20 @@ namespace XeniaPatchMaker
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WriteInfo.Properties)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
-            this.xtraTabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit1.Properties)).EndInit();
-            this.UpdateTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl3)).EndInit();
-            this.xtraTabControl3.ResumeLayout(false);
-            this.xtraTabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
+            this.groupControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
+            this.groupControl6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
+            this.groupControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
+            this.groupControl8.ResumeLayout(false);
+            this.groupControl8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).EndInit();
             this.AboutTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
             this.ResumeLayout(false);
@@ -435,17 +523,12 @@ namespace XeniaPatchMaker
         #endregion
 
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
-        private DevExpress.XtraTab.XtraTabPage GeneralTab;
-        private DevExpress.XtraTab.XtraTabPage UpdateTab;
+        public DevExpress.XtraTab.XtraTabPage GeneralTab;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
-        private DevExpress.XtraTab.XtraTabControl xtraTabControl3;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
-        private DevExpress.XtraTab.XtraTabPage AboutTab;
+        public DevExpress.XtraTab.XtraTabPage AboutTab;
         private DevExpress.XtraTab.XtraTabPage InfoTab;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
         private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit3;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraEditors.GroupControl groupControl3;
@@ -458,11 +541,21 @@ namespace XeniaPatchMaker
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         public DevExpress.XtraEditors.CheckEdit AutoDelete;
         public DevExpress.XtraEditors.CheckEdit DisableMessageBox;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private DevExpress.XtraEditors.ColorPickEdit colorPickEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit DefaultAuthors;
         public DevExpress.XtraEditors.CheckEdit UseDefaultAuthors;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private System.Windows.Forms.NumericUpDown AddressMath;
+        private DevExpress.XtraEditors.GroupControl groupControl5;
+        private DevExpress.XtraEditors.GroupControl groupControl6;
+        private DevExpress.XtraEditors.GroupControl groupControl7;
+        private DevExpress.XtraEditors.GroupControl groupControl8;
+        public DevExpress.XtraEditors.CheckEdit checkEdit3;
+        public DevExpress.XtraEditors.CheckEdit checkEdit2;
+        public DevExpress.XtraEditors.CheckEdit checkEdit1;
+        public DevExpress.XtraEditors.CheckEdit checkEdit7;
     }
 }

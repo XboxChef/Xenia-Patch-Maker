@@ -274,18 +274,16 @@
     <Compile Include="Loading Screen.Designer.cs">
       <DependentUpon>Loading Screen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Util\GitHubUpdate\Helper.cs" />
-    <Compile Include="Util\GitHubUpdate\UpdateChecker.cs" />
-    <Compile Include="Util\GitHubUpdate\UpdateNotifyDialog.cs">
+    <Compile Include="Util\Helper.cs" />
+    <Compile Include="Util\UpdateChecker.cs" />
+    <Compile Include="Util\UpdateNotifyDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Util\GitHubUpdate\UpdateNotifyDialog.Designer.cs">
+    <Compile Include="Util\UpdateNotifyDialog.Designer.cs">
       <DependentUpon>UpdateNotifyDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\IXmlSerializable.cs" />
     <Compile Include="Util\PatchUtil.cs" />
-    <Compile Include="Util\SettingsEntry.cs" />
-    <Compile Include="Util\SettingsDB.cs" />
     <Compile Include="Util\TitleEntry.cs" />
     <Compile Include="Util\TitleDB.cs" />
     <Compile Include="ValueConverter.cs">
@@ -309,7 +307,7 @@
     <EmbeddedResource Include="Loading Screen.resx">
       <DependentUpon>Loading Screen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Util\GitHubUpdate\UpdateNotifyDialog.resx">
+    <EmbeddedResource Include="Util\UpdateNotifyDialog.resx">
       <DependentUpon>UpdateNotifyDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ValueConverter.resx">

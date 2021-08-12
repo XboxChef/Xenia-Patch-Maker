@@ -92,7 +92,6 @@ namespace XeniaPatchMaker
             }
             finally
             {
-
                 Show();
             }
 
@@ -245,7 +244,7 @@ namespace XeniaPatchMaker
                 {
                     //when minus is clicked the address is grabbed and stored
                     //the address then uses hex math to subtract 4 bytes
-                    int decValue = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) - 4;
+                    int decValue = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) - Properties.Settings.Default.AddressMath;
                     PatchAddress.Text = decValue.ToString("X");
                 }
                 return;
@@ -256,7 +255,7 @@ namespace XeniaPatchMaker
                 {
                     //when adding is clicked the address is grabbed and stored
                     //the address then uses hex math to Add 4 bytes
-                    int decValue = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) + 4;
+                    int decValue = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) + Properties.Settings.Default.AddressMath;
                     PatchAddress.Text = decValue.ToString("X");
                 }
                 return;
@@ -282,19 +281,7 @@ namespace XeniaPatchMaker
         #endregion
 
         #region Functions
-        private void FormOpen_Click(object sender, EventArgs e)
-        {
-            if (sender.GetType().FullName == "DevExpress.XtraEditors.SimpleButton")
-            {
-                if (valueConverter == null)
-                {
-                    valueConverter = new ValueConverter();
-                    valueConverter.FormClosed += FormType_FormClosed;  //Add event Handler to cleanup after form closes
-                }
-                valueConverter.ShowDialog(this); //Show Form assigning this form as the forms owner
-            }
 
-        }
 
         private void BarManagerFormOpen_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -303,6 +290,7 @@ namespace XeniaPatchMaker
                 if (Program.Settings == null)
                 {
                     Program.Settings = new Settings();
+                    Program.Settings.AboutTab.PageVisible = false;
                     Program.Settings.FormClosed += FormType_FormClosed;  //Add event Handler to cleanup after form closes
                 }
                 Hide();
@@ -726,6 +714,31 @@ namespace XeniaPatchMaker
                 Authors.Enabled = true;
                 Authors.Text = string.Empty;
             }
+        }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (Program.Settings == null)
+            {
+                Program.Settings = new Settings();
+                Program.Settings.AboutTab.Show();
+                Program.Settings.GeneralTab.PageVisible = false;
+                Program.Settings.Text = "About Us";
+                Program.Settings.FormClosed += FormType_FormClosed;  //Add event Handler to cleanup after form closes
+            }
+            Hide();
+            Program.Settings.ShowDialog(this);  //Show Form assigning this form as the forms owner
+
+        }
+
+        private void ValueConverter_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (valueConverter == null)
+            {
+                valueConverter = new ValueConverter();
+                valueConverter.FormClosed += FormType_FormClosed;  //Add event Handler to cleanup after form closes
+            }
+            valueConverter.ShowDialog(this); //Show Form assigning this form as the forms owner
         }
     }
 }

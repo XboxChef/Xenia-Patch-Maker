@@ -353,12 +353,12 @@ namespace XeniaPatchMaker.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DisableValueConverter {
+        public bool IsValueConverter {
             get {
-                return ((bool)(this["DisableValueConverter"]));
+                return ((bool)(this["IsValueConverter"]));
             }
             set {
-                this["DisableValueConverter"] = value;
+                this["IsValueConverter"] = value;
             }
         }
         
@@ -371,6 +371,18 @@ namespace XeniaPatchMaker.Properties {
             }
             set {
                 this["DisableAuthors"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int AddressMath {
+            get {
+                return ((int)(this["AddressMath"]));
+            }
+            set {
+                this["AddressMath"] = value;
             }
         }
     }

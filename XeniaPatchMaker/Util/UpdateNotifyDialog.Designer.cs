@@ -40,7 +40,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-5, 9);
+            this.label1.Location = new System.Drawing.Point(-12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(196, 13);
             this.label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-5, 22);
+            this.label2.Location = new System.Drawing.Point(-12, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(175, 13);
             this.label2.TabIndex = 1;
@@ -89,9 +89,9 @@
             // Changes
             // 
             this.Changes.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Changes.Location = new System.Drawing.Point(0, 66);
+            this.Changes.Location = new System.Drawing.Point(0, 50);
             this.Changes.Name = "Changes";
-            this.Changes.Size = new System.Drawing.Size(360, 10);
+            this.Changes.Size = new System.Drawing.Size(346, 10);
             this.Changes.TabIndex = 8;
             this.Changes.Text = "";
             this.Changes.Visible = false;
@@ -103,7 +103,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(360, 76);
+            this.ClientSize = new System.Drawing.Size(346, 60);
             this.ControlBox = false;
             this.Controls.Add(this.Changes);
             this.Controls.Add(this.boxReleaseNotes);
@@ -113,9 +113,9 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(390, 140);
+            this.MaximumSize = new System.Drawing.Size(404, 156);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(390, 140);
+            this.MinimumSize = new System.Drawing.Size(376, 124);
             this.Name = "UpdateNotifyDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -68,5 +68,25 @@ namespace XeniaPatchMaker
         {
 
         }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {//.ToString("X").ToUpper();  StringValue.Text
+            try
+            {
+                ConvertedValue.Text = BitConverter.ToInt32(BitConverter.GetBytes((float)Convert.ToDouble((float)double.Parse(StringValue.Text, System.Globalization.CultureInfo.InvariantCulture))), 0).ToString("X").ToUpper();
+                Program.MainForm.Data_Between(ConvertedValue.Text);
+                return;
+
+            }
+            catch
+            {
+
+            }
+
+        }
+        public static float ToSingle(double value)
+        {
+            return (float)value;
+        }
     }
 }
