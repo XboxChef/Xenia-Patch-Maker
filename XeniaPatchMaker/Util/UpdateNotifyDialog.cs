@@ -57,7 +57,7 @@ namespace XeniaPatchMaker
                 ActiveForm.Size = new Size(390, 350);
                 string rs = await _checker.RenderReleaseNotes();
 
-            Changes.Text = rs.Substring(3, 149);
+            Changes.Text = rs;
             _loadednotes = true;
 
         }

@@ -53,13 +53,15 @@ namespace XeniaPatchMaker
                 UpdateChecker checker = new UpdateChecker("TeddyHammer", "XeniaPatchMaker");
                 checker.CheckUpdate(locked: UpdateType.Patch).ContinueWith(continuation =>
                 {
-                    XPM.IsUpdateUptoDate = "Needs Update!";
+                   IsUpdateUptoDate = "Needs Update!";
 
                     if (continuation.Result != UpdateType.None)
                     {
                         var result = new UpdateNotifyDialog(checker).ShowDialog();
                         if (result == DialogResult.Yes)
                         {
+                            MainForm.Enabled = false;
+                            Enabled = false;
                             checker.DownloadAsset("XeniaPatchMaker.exe");
                             if (File.Exists(Application.StartupPath + "\\XeniaPatchMakerUpdate.exe"))
                             {
@@ -103,8 +105,6 @@ namespace XeniaPatchMaker
         #region Header Info Input
         private void XEXInfo_Click(object sender, EventArgs e)
         {
-            if (HashKey.Text.Length > 10)
-            {
                 if (OutPut.Text.Contains(string.Empty))
                 {
                     OutPut.AppendText("title_name = \"" + TitleName.Text + "\"");
@@ -120,11 +120,6 @@ namespace XeniaPatchMaker
                 {
                     MessageBox.Show("Output Must Be Empty Else Tool Is Disabled");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Must Drop Log File");
-            }
 
         }
         private void AddPokeHeader_Click(object sender, EventArgs e)
@@ -132,14 +127,11 @@ namespace XeniaPatchMaker
             //Safe Guard For Users TO Make Sure Format Is Correct At All Times
             if (OutPut.Text.Contains("[[patch]]"))
             {
-                //Condition Checks Make Sure User At Least Writes Something
-                if (!IsNullOrEmpty(PatchAddress.Text) && !IsNullOrEmpty(PatchValue.Text))
-                {
                     OutPut.AppendText("    [[patch." + ProvideSizeType.Text + "]]");
                     OutPut.AppendText(Environment.NewLine);
-                    OutPut.AppendText("        address = " + oxadd.Text + PatchAddress.Text);
+                    OutPut.AppendText("        address = " + "0x" + PatchAddress.Text);
                     OutPut.AppendText(Environment.NewLine);
-                    OutPut.AppendText("        value = " + oxvalue.Text + PatchValue.Text);
+                    OutPut.AppendText("        value = " + "0x" + PatchValue.Text.ToUpper());
                     OutPut.AppendText(Environment.NewLine);
                     if(Properties.Settings.Default.AutoDelete == true)
                     {
@@ -157,12 +149,6 @@ namespace XeniaPatchMaker
                     {
                         
                     }
-
-                }
-                else
-                {
-                    MessageBox.Show("Must Enter Info!");
-                }
 
             }
             else
@@ -268,13 +254,11 @@ namespace XeniaPatchMaker
             if (UseType.Checked == true)
             {
                 PatchValue.Text = Types.Text;
-                oxvalue.Enabled = false;
                 PatchValue.Enabled = false;
             }
             else
             {
                 PatchValue.Text = "";
-                oxvalue.Enabled = true;
                 PatchValue.Enabled = true;
             }
         }
@@ -671,15 +655,7 @@ namespace XeniaPatchMaker
                         CheckKeyword(PatchValue.Text, Color.Green, 0);
                     }
 
-                    else if (!IsNullOrEmpty(oxadd.Text))
-                    {
-                        CheckKeyword(oxadd.Text, Color.Green, 0);
-                    }
 
-                    else if (!IsNullOrEmpty(oxvalue.Text))
-                    {
-                        CheckKeyword(oxvalue.Text, Color.Green, 0);
-                    }
 
                     else if (!IsNullOrEmpty(ProvideSizeType.Text))
                     {

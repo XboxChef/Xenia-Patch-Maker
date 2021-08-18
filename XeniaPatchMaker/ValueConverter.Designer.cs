@@ -29,36 +29,23 @@ namespace XeniaPatchMaker
         /// </summary>
         private void InitializeComponent()
         {
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.StringValue = new DevExpress.XtraEditors.TextEdit();
             this.label5 = new System.Windows.Forms.Label();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.ConvertedValue = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+            this.TypeConverter = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.StringValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertedValue.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TypeConverter.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // simpleButton6
-            // 
-            this.simpleButton6.AllowFocus = false;
-            this.simpleButton6.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.simpleButton6.Appearance.Options.UseForeColor = true;
-            this.simpleButton6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton6.Location = new System.Drawing.Point(0, 112);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(350, 23);
-            this.simpleButton6.TabIndex = 40;
-            this.simpleButton6.Text = "Decimal To Hex";
-            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
             // 
             // StringValue
             // 
             this.StringValue.Location = new System.Drawing.Point(105, 12);
             this.StringValue.Name = "StringValue";
-            this.StringValue.Size = new System.Drawing.Size(233, 20);
+            this.StringValue.Size = new System.Drawing.Size(191, 20);
             this.StringValue.TabIndex = 39;
             // 
             // label5
@@ -71,19 +58,6 @@ namespace XeniaPatchMaker
             this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 41;
             this.label5.Text = "String Value:";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.AllowFocus = false;
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton1.Location = new System.Drawing.Point(0, 89);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(350, 23);
-            this.simpleButton1.TabIndex = 42;
-            this.simpleButton1.Text = "Float To Hex";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // label1
             // 
@@ -100,10 +74,8 @@ namespace XeniaPatchMaker
             // 
             this.ConvertedValue.Location = new System.Drawing.Point(105, 38);
             this.ConvertedValue.Name = "ConvertedValue";
-            this.ConvertedValue.Size = new System.Drawing.Size(233, 20);
+            this.ConvertedValue.Size = new System.Drawing.Size(191, 20);
             this.ConvertedValue.TabIndex = 43;
-            this.ConvertedValue.EditValueChanged += new System.EventHandler(this.ConvertedValue_EditValueChanged);
-            this.ConvertedValue.TextChanged += new System.EventHandler(this.ConvertedValue_TextChanged);
             // 
             // simpleButton2
             // 
@@ -111,37 +83,52 @@ namespace XeniaPatchMaker
             this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
             this.simpleButton2.Appearance.Options.UseForeColor = true;
             this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton2.Location = new System.Drawing.Point(0, 135);
+            this.simpleButton2.Location = new System.Drawing.Point(0, 108);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(350, 23);
+            this.simpleButton2.Size = new System.Drawing.Size(308, 23);
             this.simpleButton2.TabIndex = 45;
             this.simpleButton2.Text = "Exit";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // simpleButton3
+            // simpleButton7
             // 
-            this.simpleButton3.AllowFocus = false;
-            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton3.Location = new System.Drawing.Point(0, 66);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(350, 23);
-            this.simpleButton3.TabIndex = 46;
-            this.simpleButton3.Text = "Double To Hex";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            this.simpleButton7.AllowFocus = false;
+            this.simpleButton7.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
+            this.simpleButton7.Appearance.Options.UseForeColor = true;
+            this.simpleButton7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.simpleButton7.Location = new System.Drawing.Point(0, 85);
+            this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.Size = new System.Drawing.Size(308, 23);
+            this.simpleButton7.TabIndex = 49;
+            this.simpleButton7.Text = "Convert";
+            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
+            // 
+            // TypeConverter
+            // 
+            this.TypeConverter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.TypeConverter.EditValue = "Bytes To Hex";
+            this.TypeConverter.Location = new System.Drawing.Point(0, 65);
+            this.TypeConverter.Name = "TypeConverter";
+            this.TypeConverter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TypeConverter.Properties.Items.AddRange(new object[] {
+            "Bytes To Hex",
+            "Double To Hex",
+            "Float To Hex",
+            "Decimal To Hex"});
+            this.TypeConverter.Size = new System.Drawing.Size(308, 20);
+            this.TypeConverter.TabIndex = 50;
             // 
             // ValueConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 158);
-            this.Controls.Add(this.simpleButton3);
+            this.ClientSize = new System.Drawing.Size(308, 131);
+            this.Controls.Add(this.TypeConverter);
+            this.Controls.Add(this.simpleButton7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ConvertedValue);
-            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.simpleButton6);
             this.Controls.Add(this.StringValue);
             this.Controls.Add(this.simpleButton2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -154,20 +141,19 @@ namespace XeniaPatchMaker
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ValueConverter_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.StringValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConvertedValue.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TypeConverter.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
         private DevExpress.XtraEditors.TextEdit StringValue;
         private System.Windows.Forms.Label label5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit ConvertedValue;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraEditors.ComboBoxEdit TypeConverter;
     }
 }

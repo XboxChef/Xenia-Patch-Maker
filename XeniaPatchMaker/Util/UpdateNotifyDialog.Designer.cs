@@ -115,7 +115,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(404, 156);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(376, 124);
+            this.MinimumSize = new System.Drawing.Size(362, 108);
             this.Name = "UpdateNotifyDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
