@@ -85,11 +85,15 @@ namespace XeniaPatchMaker
             this.InfoTab = new DevExpress.XtraTab.XtraTabPage();
             this.AboutTab = new DevExpress.XtraTab.XtraTabPage();
             this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
+            this.groupControl9 = new DevExpress.XtraEditors.GroupControl();
+            this.checkEdit4 = new DevExpress.XtraEditors.CheckEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.GeneralTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
+            this.xtraTabPage4.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
@@ -134,6 +138,10 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).BeginInit();
             this.AboutTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
+            this.groupControl9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -171,6 +179,7 @@ namespace XeniaPatchMaker
             // 
             // xtraTabPage4
             // 
+            this.xtraTabPage4.Controls.Add(this.groupControl9);
             this.xtraTabPage4.Name = "xtraTabPage4";
             this.xtraTabPage4.Size = new System.Drawing.Size(688, 290);
             this.xtraTabPage4.Text = "General";
@@ -737,6 +746,33 @@ namespace XeniaPatchMaker
             this.listBoxControl1.Size = new System.Drawing.Size(690, 317);
             this.listBoxControl1.TabIndex = 0;
             // 
+            // groupControl9
+            // 
+            this.groupControl9.Controls.Add(this.checkEdit4);
+            this.groupControl9.Controls.Add(this.textEdit1);
+            this.groupControl9.Location = new System.Drawing.Point(10, 3);
+            this.groupControl9.Name = "groupControl9";
+            this.groupControl9.Size = new System.Drawing.Size(281, 77);
+            this.groupControl9.TabIndex = 0;
+            this.groupControl9.Text = "Saving Path";
+            // 
+            // checkEdit4
+            // 
+            this.checkEdit4.Location = new System.Drawing.Point(5, 50);
+            this.checkEdit4.Name = "checkEdit4";
+            this.checkEdit4.Properties.AllowFocused = false;
+            this.checkEdit4.Properties.Caption = "Set This As Default Path";
+            this.checkEdit4.Size = new System.Drawing.Size(142, 19);
+            this.checkEdit4.TabIndex = 9;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Enabled = false;
+            this.textEdit1.Location = new System.Drawing.Point(5, 24);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(160, 20);
+            this.textEdit1.TabIndex = 8;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -757,6 +793,7 @@ namespace XeniaPatchMaker
             this.GeneralTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
             this.xtraTabControl2.ResumeLayout(false);
+            this.xtraTabPage4.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
@@ -806,6 +843,10 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).EndInit();
             this.AboutTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
+            this.groupControl9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -867,5 +908,8 @@ namespace XeniaPatchMaker
         private DevExpress.XtraEditors.ColorPickEdit PatchAddressColor2;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.ColorPickEdit PatchAddressColor1;
+        private DevExpress.XtraEditors.GroupControl groupControl9;
+        public DevExpress.XtraEditors.CheckEdit checkEdit4;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
     }
 }

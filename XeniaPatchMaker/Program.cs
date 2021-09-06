@@ -39,18 +39,5 @@ namespace XeniaPatchMaker
         {
 
         }
-
-        public static string LocationOfFileDroppedToExe
-        {
-            get
-            {
-                return string.Empty/*new[] { string.Empty }*/;
-            }
-            set
-            {
-
-            }
-        }
-
     }
 }

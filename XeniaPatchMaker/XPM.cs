@@ -34,7 +34,50 @@ namespace XeniaPatchMaker
             //if there was a file dropped..
             if (args.Length > 0)
             {
-                LocationOfFileDroppedToExe = args[0];
+                string LocationOfFileDroppedToExe = args[0];
+                if (!LocationOfFileDroppedToExe.Equals(string.Empty))
+                {
+                    if (LocationOfFileDroppedToExe.Contains(".patch"))
+                    {
+                        OutPut.Text = File.ReadAllText(LocationOfFileDroppedToExe);
+                    }
+                    else if (LocationOfFileDroppedToExe.Contains(".log"))
+                    {
+                        Data = File.ReadAllText(LocationOfFileDroppedToExe);
+                        //makes log shorter
+                        Data.Substring(0, Data.IndexOf("Savegame ID:"));
+                        GetAllTypes();
+                        if (Properties.Settings.Default.WriteInfo == true)
+                        {
+                            if (HashKey.Text.Length > 10)
+                            {
+                            EmptyString:
+                                if (IsNullOrEmpty(OutPut.Text))
+                                {
+                                    OutputConditions = true;
+                                    OutPut.AppendText("title_name = \"" + TitleName.Text + "\"");
+                                    OutPut.AppendText(Environment.NewLine);
+                                    OutPut.AppendText("title_id = \"" + TitleId.Text + "\"");
+                                    OutPut.AppendText(Environment.NewLine);
+                                    OutPut.AppendText("hash = \"" + HashKey.Text + "\"");
+                                    OutPut.AppendText(Environment.NewLine);
+                                    OutPut.AppendText("#media_id = \"" + MediaId.Text + "\"");
+                                    OutPut.AppendText(Environment.NewLine);
+                                    return;
+                                }
+                                else
+                                {
+                                    OutPut.Text = string.Empty;
+                                    goto EmptyString;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Must Drop Log File");
+                            }
+                        }
+                    }
+                }
                 //do something with the file now...
             }
         }
@@ -721,17 +764,6 @@ namespace XeniaPatchMaker
             {
                 Authors.Enabled = true;
                 Authors.Text = string.Empty;
-            }
-            if (!LocationOfFileDroppedToExe.Equals(string.Empty))
-            {
-                if (LocationOfFileDroppedToExe.Contains(".patch"))
-                {
-                    OutPut.Text = File.ReadAllText(LocationOfFileDroppedToExe.ToString());
-                }
-                else if (LocationOfFileDroppedToExe.Contains(".log"))
-                {
-
-                }
             }
         }
 
