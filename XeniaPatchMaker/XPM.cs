@@ -24,17 +24,23 @@ namespace XeniaPatchMaker
         public static string IsUpdateUptoDate { get; set; }
         public bool OutputConditions { get; private set; }
 
+
         #endregion
 
         #region Initialize
-        public XPM()
+        public XPM(string[] args)
         {
             InitializeComponent();
-
+            //if there was a file dropped..
+            if (args.Length > 0)
+            {
+                LocationOfFileDroppedToExe = args[0];
+                //do something with the file now...
+            }
         }
         private void XPM_Load(object sender, EventArgs e)
         {
-
+            OutputConditions = true;
             try
             {
                 Hide();
@@ -105,7 +111,7 @@ namespace XeniaPatchMaker
         #region Header Info Input
         private void XEXInfo_Click(object sender, EventArgs e)
         {
-                if (OutPut.Text.Contains(string.Empty))
+                if (IsNullOrEmpty(OutPut.Text))
                 {
                     OutPut.AppendText("title_name = \"" + TitleName.Text + "\"");
                     OutPut.AppendText(Environment.NewLine);
@@ -115,15 +121,18 @@ namespace XeniaPatchMaker
                     OutPut.AppendText(Environment.NewLine);
                     OutPut.AppendText("#media_id = \"" + MediaId.Text + "\"");
                     OutPut.AppendText(Environment.NewLine);
-                }
+                    OutputConditions = false;
+
+            }
                 else
                 {
-                    MessageBox.Show("Output Must Be Empty Else Tool Is Disabled");
+                    MessageBox.Show("Output Must Be Empty!");
                 }
 
         }
         private void AddPokeHeader_Click(object sender, EventArgs e)
         {
+            OutputConditions = true;
             //Safe Guard For Users TO Make Sure Format Is Correct At All Times
             if (OutPut.Text.Contains("[[patch]]"))
             {
@@ -149,7 +158,7 @@ namespace XeniaPatchMaker
                     {
                         
                     }
-
+                OutputConditions = false;
             }
             else
             {
@@ -159,6 +168,7 @@ namespace XeniaPatchMaker
 
         private void AddPatchHeader_Click(object sender, EventArgs e)
         {
+            OutputConditions = true;
             //Safe Guard For Users TO Make Sure Format Is Correct At All Times
             if (OutPut.Text.Contains("#media_id ="))
             {
@@ -197,6 +207,7 @@ namespace XeniaPatchMaker
 
                         } 
                     }
+                    OutputConditions = false;
                 }
                 else
                 {
@@ -373,13 +384,13 @@ namespace XeniaPatchMaker
                         //do something else
                     }
                 }
-                if (IsNullOrEmpty(TitleName.Text) && IsNullOrEmpty(TitleId.Text) && IsNullOrEmpty(HashKey.Text) && IsNullOrEmpty(MediaId.Text))
-                {
-                    string getdataheader = Data.Substring(Data.IndexOf("title_name = \"".ToLower()), Data.IndexOf("\n\n"));
-                    TitleName.Text = getdataheader.Substring(0, Data.IndexOf("\"\n")).Remove(0,14);
+                //if (IsNullOrEmpty(TitleName.Text) && IsNullOrEmpty(TitleId.Text) && IsNullOrEmpty(HashKey.Text) && IsNullOrEmpty(MediaId.Text))
+                //{
+                //    string getdataheader = Data.Substring(Data.IndexOf("title_name = \"".ToLower()), Data.IndexOf("\n\n"));
+                //    TitleName.Text = getdataheader.Substring(0, Data.IndexOf("\"\n")).Remove(0,14);
 
-                    TitleId.Text = getdataheader.Substring(data.IndexOf("title_id = \""), Data.IndexOf("\"\n"));//title_id = "
-                }
+                //    TitleId.Text = getdataheader.Substring(data.IndexOf("title_id = \""), Data.IndexOf("\"\n"));//title_id = "
+                //}
                 OutPut.Text = data;
                 return;
             }
@@ -574,9 +585,30 @@ namespace XeniaPatchMaker
         }
         private void OutPut_TextChanged(object sender, EventArgs e)
         {
-            //sender.GetType().
+            if(OutPut.Text.Equals(""))
+            {
+                barButtonItem11.Enabled = false;
+                barButtonItem10.Enabled = false;
+                barButtonItem9.Enabled = false;
+            }
+            else
+            {
+                barButtonItem11.Enabled = true;
+                barButtonItem10.Enabled = true;
+                barButtonItem9.Enabled = true;
+            }
             if (Properties.Settings.Default.ColorDisabled == false)
             {
+                //by default
+                if (OutPut.Text.Contains("false"))
+                {
+                    CheckKeyword("is_enabled = false".Substring(2), Color.Red, 0);
+                }
+                if (OutPut.Text.Contains("true"))
+                {
+                    CheckKeyword("is_enabled = true".Substring(2), Color.Green, 0);
+                }
+                CheckKeyword(" is_enabled = ", Color.FromArgb(126, 59, 188), 0);
                 if (OutputConditions == true)
                 {
                     //fix while writing you get glitches
@@ -690,6 +722,17 @@ namespace XeniaPatchMaker
                 Authors.Enabled = true;
                 Authors.Text = string.Empty;
             }
+            if (!LocationOfFileDroppedToExe.Equals(string.Empty))
+            {
+                if (LocationOfFileDroppedToExe.Contains(".patch"))
+                {
+                    OutPut.Text = File.ReadAllText(LocationOfFileDroppedToExe.ToString());
+                }
+                else if (LocationOfFileDroppedToExe.Contains(".log"))
+                {
+
+                }
+            }
         }
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -706,7 +749,18 @@ namespace XeniaPatchMaker
             Program.Settings.ShowDialog(this);  //Show Form assigning this form as the forms owner
 
         }
-
+        private void OutPut_DragEnter(object sender, DragEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        private void OutPut_DragDrop(object sender, DragEventArgs e)
+        {
+            if(CurrentFullName.EndsWith(".patch"))
+            {
+                OutPut.Text = File.ReadAllText(CurrentFullPath);
+            }
+            
+        }
         private void ValueConverter_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (valueConverter == null)
@@ -715,6 +769,26 @@ namespace XeniaPatchMaker
                 valueConverter.FormClosed += FormType_FormClosed;  //Add event Handler to cleanup after form closes
             }
             valueConverter.ShowDialog(this); //Show Form assigning this form as the forms owner
+        }
+
+        private void OutPut_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            OutputConditions = false;
+        }
+
+        private void OutPut_Leave(object sender, EventArgs e)
+        {
+            OutputConditions = true;
+        }
+
+        private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (Finder == null)
+            {
+                Finder = new Find();
+                Finder.FormClosed += FormType_FormClosed;  //Add event Handler to cleanup after form closes
+            }
+            Finder.ShowDialog(this); //Show Form assigning this form as the forms owner
         }
     }
 }

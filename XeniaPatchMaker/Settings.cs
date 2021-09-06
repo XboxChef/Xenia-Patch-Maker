@@ -61,5 +61,15 @@ namespace XeniaPatchMaker
             Properties.Settings.Default.DefaultAuthors = DefaultAuthors.Text;
             Properties.Settings.Default.UseDefaultAuthors = UseDefaultAuthors.Checked;
         }
+
+        private void ColorControl_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainColor1_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+
+        }
     }
 }

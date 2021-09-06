@@ -56,33 +56,31 @@ namespace XeniaPatchMaker
             this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.colorPickEdit9 = new DevExpress.XtraEditors.ColorPickEdit();
+            this.PatchAddressColor4 = new DevExpress.XtraEditors.ColorPickEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.colorPickEdit10 = new DevExpress.XtraEditors.ColorPickEdit();
+            this.PatchAddressColor3 = new DevExpress.XtraEditors.ColorPickEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.colorPickEdit11 = new DevExpress.XtraEditors.ColorPickEdit();
+            this.PatchAddressColor2 = new DevExpress.XtraEditors.ColorPickEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.colorPickEdit12 = new DevExpress.XtraEditors.ColorPickEdit();
+            this.PatchAddressColor1 = new DevExpress.XtraEditors.ColorPickEdit();
             this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
             this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.colorPickEdit5 = new DevExpress.XtraEditors.ColorPickEdit();
-            this.colorPickEdit8 = new DevExpress.XtraEditors.ColorPickEdit();
+            this.PatchInfoColor1 = new DevExpress.XtraEditors.ColorPickEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.colorPickEdit6 = new DevExpress.XtraEditors.ColorPickEdit();
-            this.colorPickEdit7 = new DevExpress.XtraEditors.ColorPickEdit();
+            this.PatchInfoColor3 = new DevExpress.XtraEditors.ColorPickEdit();
+            this.PatchInfoColor2 = new DevExpress.XtraEditors.ColorPickEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.colorPickEdit4 = new DevExpress.XtraEditors.ColorPickEdit();
+            this.MainColor4 = new DevExpress.XtraEditors.ColorPickEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.colorPickEdit3 = new DevExpress.XtraEditors.ColorPickEdit();
+            this.MainColor3 = new DevExpress.XtraEditors.ColorPickEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.colorPickEdit2 = new DevExpress.XtraEditors.ColorPickEdit();
+            this.MainColor2 = new DevExpress.XtraEditors.ColorPickEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.colorPickEdit1 = new DevExpress.XtraEditors.ColorPickEdit();
+            this.MainColor1 = new DevExpress.XtraEditors.ColorPickEdit();
             this.checkEdit7 = new DevExpress.XtraEditors.CheckEdit();
             this.InfoTab = new DevExpress.XtraTab.XtraTabPage();
             this.AboutTab = new DevExpress.XtraTab.XtraTabPage();
@@ -116,24 +114,23 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
             this.groupControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit9.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit10.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit11.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit12.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchAddressColor4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchAddressColor3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchAddressColor2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchAddressColor1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
             this.groupControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit8.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchInfoColor1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchInfoColor3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchInfoColor2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
             this.groupControl8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainColor4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainColor3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainColor2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainColor1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).BeginInit();
             this.AboutTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
@@ -382,13 +379,13 @@ namespace XeniaPatchMaker
             // groupControl6
             // 
             this.groupControl6.Controls.Add(this.labelControl12);
-            this.groupControl6.Controls.Add(this.colorPickEdit9);
+            this.groupControl6.Controls.Add(this.PatchAddressColor4);
             this.groupControl6.Controls.Add(this.labelControl13);
-            this.groupControl6.Controls.Add(this.colorPickEdit10);
+            this.groupControl6.Controls.Add(this.PatchAddressColor3);
             this.groupControl6.Controls.Add(this.labelControl14);
-            this.groupControl6.Controls.Add(this.colorPickEdit11);
+            this.groupControl6.Controls.Add(this.PatchAddressColor2);
             this.groupControl6.Controls.Add(this.labelControl15);
-            this.groupControl6.Controls.Add(this.colorPickEdit12);
+            this.groupControl6.Controls.Add(this.PatchAddressColor1);
             this.groupControl6.Controls.Add(this.checkEdit2);
             this.groupControl6.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl6.Location = new System.Drawing.Point(358, 0);
@@ -405,16 +402,19 @@ namespace XeniaPatchMaker
             this.labelControl12.TabIndex = 16;
             this.labelControl12.Text = "Example";
             // 
-            // colorPickEdit9
+            // PatchAddressColor4
             // 
-            this.colorPickEdit9.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit9.Location = new System.Drawing.Point(6, 127);
-            this.colorPickEdit9.Name = "colorPickEdit9";
-            this.colorPickEdit9.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit9.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.PatchAddressColor4.EditValue = System.Drawing.Color.Empty;
+            this.PatchAddressColor4.Location = new System.Drawing.Point(6, 127);
+            this.PatchAddressColor4.Name = "PatchAddressColor4";
+            this.PatchAddressColor4.Properties.AllowFocused = false;
+            this.PatchAddressColor4.Properties.AutomaticColor = System.Drawing.Color.Black;
+            this.PatchAddressColor4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit9.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit9.TabIndex = 15;
+            this.PatchAddressColor4.Size = new System.Drawing.Size(100, 20);
+            this.PatchAddressColor4.TabIndex = 15;
+            this.PatchAddressColor4.EditValueChanged += new System.EventHandler(this.ColorControl_EditValueChanged);
+            this.PatchAddressColor4.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.MainColor1_EditValueChanging);
             // 
             // labelControl13
             // 
@@ -424,16 +424,19 @@ namespace XeniaPatchMaker
             this.labelControl13.TabIndex = 14;
             this.labelControl13.Text = "Example";
             // 
-            // colorPickEdit10
+            // PatchAddressColor3
             // 
-            this.colorPickEdit10.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit10.Location = new System.Drawing.Point(6, 101);
-            this.colorPickEdit10.Name = "colorPickEdit10";
-            this.colorPickEdit10.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit10.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.PatchAddressColor3.EditValue = System.Drawing.Color.Empty;
+            this.PatchAddressColor3.Location = new System.Drawing.Point(6, 101);
+            this.PatchAddressColor3.Name = "PatchAddressColor3";
+            this.PatchAddressColor3.Properties.AllowFocused = false;
+            this.PatchAddressColor3.Properties.AutomaticColor = System.Drawing.Color.Black;
+            this.PatchAddressColor3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit10.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit10.TabIndex = 13;
+            this.PatchAddressColor3.Size = new System.Drawing.Size(100, 20);
+            this.PatchAddressColor3.TabIndex = 13;
+            this.PatchAddressColor3.EditValueChanged += new System.EventHandler(this.ColorControl_EditValueChanged);
+            this.PatchAddressColor3.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.MainColor1_EditValueChanging);
             // 
             // labelControl14
             // 
@@ -443,16 +446,19 @@ namespace XeniaPatchMaker
             this.labelControl14.TabIndex = 12;
             this.labelControl14.Text = "Example";
             // 
-            // colorPickEdit11
+            // PatchAddressColor2
             // 
-            this.colorPickEdit11.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit11.Location = new System.Drawing.Point(6, 75);
-            this.colorPickEdit11.Name = "colorPickEdit11";
-            this.colorPickEdit11.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit11.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.PatchAddressColor2.EditValue = System.Drawing.Color.Empty;
+            this.PatchAddressColor2.Location = new System.Drawing.Point(6, 75);
+            this.PatchAddressColor2.Name = "PatchAddressColor2";
+            this.PatchAddressColor2.Properties.AllowFocused = false;
+            this.PatchAddressColor2.Properties.AutomaticColor = System.Drawing.Color.Black;
+            this.PatchAddressColor2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit11.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit11.TabIndex = 11;
+            this.PatchAddressColor2.Size = new System.Drawing.Size(100, 20);
+            this.PatchAddressColor2.TabIndex = 11;
+            this.PatchAddressColor2.EditValueChanged += new System.EventHandler(this.ColorControl_EditValueChanged);
+            this.PatchAddressColor2.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.MainColor1_EditValueChanging);
             // 
             // labelControl15
             // 
@@ -462,16 +468,19 @@ namespace XeniaPatchMaker
             this.labelControl15.TabIndex = 10;
             this.labelControl15.Text = "Example";
             // 
-            // colorPickEdit12
+            // PatchAddressColor1
             // 
-            this.colorPickEdit12.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit12.Location = new System.Drawing.Point(6, 49);
-            this.colorPickEdit12.Name = "colorPickEdit12";
-            this.colorPickEdit12.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit12.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.PatchAddressColor1.EditValue = System.Drawing.Color.Empty;
+            this.PatchAddressColor1.Location = new System.Drawing.Point(6, 49);
+            this.PatchAddressColor1.Name = "PatchAddressColor1";
+            this.PatchAddressColor1.Properties.AllowFocused = false;
+            this.PatchAddressColor1.Properties.AutomaticColor = System.Drawing.Color.Black;
+            this.PatchAddressColor1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit12.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit12.TabIndex = 9;
+            this.PatchAddressColor1.Size = new System.Drawing.Size(100, 20);
+            this.PatchAddressColor1.TabIndex = 9;
+            this.PatchAddressColor1.EditValueChanged += new System.EventHandler(this.ColorControl_EditValueChanged);
+            this.PatchAddressColor1.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.MainColor1_EditValueChanging);
             // 
             // checkEdit2
             // 
@@ -484,14 +493,12 @@ namespace XeniaPatchMaker
             // 
             // groupControl7
             // 
-            this.groupControl7.Controls.Add(this.labelControl8);
             this.groupControl7.Controls.Add(this.checkEdit1);
-            this.groupControl7.Controls.Add(this.colorPickEdit5);
-            this.groupControl7.Controls.Add(this.colorPickEdit8);
+            this.groupControl7.Controls.Add(this.PatchInfoColor1);
             this.groupControl7.Controls.Add(this.labelControl9);
             this.groupControl7.Controls.Add(this.labelControl11);
-            this.groupControl7.Controls.Add(this.colorPickEdit6);
-            this.groupControl7.Controls.Add(this.colorPickEdit7);
+            this.groupControl7.Controls.Add(this.PatchInfoColor3);
+            this.groupControl7.Controls.Add(this.PatchInfoColor2);
             this.groupControl7.Controls.Add(this.labelControl10);
             this.groupControl7.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl7.Location = new System.Drawing.Point(179, 0);
@@ -499,14 +506,6 @@ namespace XeniaPatchMaker
             this.groupControl7.Size = new System.Drawing.Size(179, 290);
             this.groupControl7.TabIndex = 5;
             this.groupControl7.Text = "Patch Info Header";
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Location = new System.Drawing.Point(111, 131);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(40, 13);
-            this.labelControl8.TabIndex = 16;
-            this.labelControl8.Text = "Example";
             // 
             // checkEdit1
             // 
@@ -517,27 +516,19 @@ namespace XeniaPatchMaker
             this.checkEdit1.Size = new System.Drawing.Size(135, 19);
             this.checkEdit1.TabIndex = 3;
             // 
-            // colorPickEdit5
+            // PatchInfoColor1
             // 
-            this.colorPickEdit5.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit5.Location = new System.Drawing.Point(6, 127);
-            this.colorPickEdit5.Name = "colorPickEdit5";
-            this.colorPickEdit5.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.PatchInfoColor1.EditValue = System.Drawing.Color.Empty;
+            this.PatchInfoColor1.Location = new System.Drawing.Point(6, 49);
+            this.PatchInfoColor1.Name = "PatchInfoColor1";
+            this.PatchInfoColor1.Properties.AllowFocused = false;
+            this.PatchInfoColor1.Properties.AutomaticColor = System.Drawing.Color.Black;
+            this.PatchInfoColor1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit5.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit5.TabIndex = 15;
-            // 
-            // colorPickEdit8
-            // 
-            this.colorPickEdit8.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit8.Location = new System.Drawing.Point(6, 49);
-            this.colorPickEdit8.Name = "colorPickEdit8";
-            this.colorPickEdit8.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit8.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit8.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit8.TabIndex = 9;
+            this.PatchInfoColor1.Size = new System.Drawing.Size(100, 20);
+            this.PatchInfoColor1.TabIndex = 9;
+            this.PatchInfoColor1.EditValueChanged += new System.EventHandler(this.ColorControl_EditValueChanged);
+            this.PatchInfoColor1.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.MainColor1_EditValueChanging);
             // 
             // labelControl9
             // 
@@ -555,27 +546,33 @@ namespace XeniaPatchMaker
             this.labelControl11.TabIndex = 10;
             this.labelControl11.Text = "Example";
             // 
-            // colorPickEdit6
+            // PatchInfoColor3
             // 
-            this.colorPickEdit6.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit6.Location = new System.Drawing.Point(6, 101);
-            this.colorPickEdit6.Name = "colorPickEdit6";
-            this.colorPickEdit6.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.PatchInfoColor3.EditValue = System.Drawing.Color.Empty;
+            this.PatchInfoColor3.Location = new System.Drawing.Point(6, 101);
+            this.PatchInfoColor3.Name = "PatchInfoColor3";
+            this.PatchInfoColor3.Properties.AllowFocused = false;
+            this.PatchInfoColor3.Properties.AutomaticColor = System.Drawing.Color.Black;
+            this.PatchInfoColor3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit6.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit6.TabIndex = 13;
+            this.PatchInfoColor3.Size = new System.Drawing.Size(100, 20);
+            this.PatchInfoColor3.TabIndex = 13;
+            this.PatchInfoColor3.EditValueChanged += new System.EventHandler(this.ColorControl_EditValueChanged);
+            this.PatchInfoColor3.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.MainColor1_EditValueChanging);
             // 
-            // colorPickEdit7
+            // PatchInfoColor2
             // 
-            this.colorPickEdit7.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit7.Location = new System.Drawing.Point(6, 75);
-            this.colorPickEdit7.Name = "colorPickEdit7";
-            this.colorPickEdit7.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.PatchInfoColor2.EditValue = System.Drawing.Color.Empty;
+            this.PatchInfoColor2.Location = new System.Drawing.Point(6, 75);
+            this.PatchInfoColor2.Name = "PatchInfoColor2";
+            this.PatchInfoColor2.Properties.AllowFocused = false;
+            this.PatchInfoColor2.Properties.AutomaticColor = System.Drawing.Color.Black;
+            this.PatchInfoColor2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit7.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit7.TabIndex = 11;
+            this.PatchInfoColor2.Size = new System.Drawing.Size(100, 20);
+            this.PatchInfoColor2.TabIndex = 11;
+            this.PatchInfoColor2.EditValueChanged += new System.EventHandler(this.ColorControl_EditValueChanged);
+            this.PatchInfoColor2.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.MainColor1_EditValueChanging);
             // 
             // labelControl10
             // 
@@ -588,13 +585,13 @@ namespace XeniaPatchMaker
             // groupControl8
             // 
             this.groupControl8.Controls.Add(this.labelControl7);
-            this.groupControl8.Controls.Add(this.colorPickEdit4);
+            this.groupControl8.Controls.Add(this.MainColor4);
             this.groupControl8.Controls.Add(this.labelControl6);
-            this.groupControl8.Controls.Add(this.colorPickEdit3);
+            this.groupControl8.Controls.Add(this.MainColor3);
             this.groupControl8.Controls.Add(this.labelControl5);
-            this.groupControl8.Controls.Add(this.colorPickEdit2);
+            this.groupControl8.Controls.Add(this.MainColor2);
             this.groupControl8.Controls.Add(this.labelControl1);
-            this.groupControl8.Controls.Add(this.colorPickEdit1);
+            this.groupControl8.Controls.Add(this.MainColor1);
             this.groupControl8.Controls.Add(this.checkEdit7);
             this.groupControl8.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl8.Location = new System.Drawing.Point(0, 0);
@@ -611,16 +608,19 @@ namespace XeniaPatchMaker
             this.labelControl7.TabIndex = 8;
             this.labelControl7.Text = "Example";
             // 
-            // colorPickEdit4
+            // MainColor4
             // 
-            this.colorPickEdit4.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit4.Location = new System.Drawing.Point(5, 127);
-            this.colorPickEdit4.Name = "colorPickEdit4";
-            this.colorPickEdit4.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.MainColor4.EditValue = System.Drawing.Color.Empty;
+            this.MainColor4.Location = new System.Drawing.Point(5, 127);
+            this.MainColor4.Name = "MainColor4";
+            this.MainColor4.Properties.AllowFocused = false;
+            this.MainColor4.Properties.AutomaticColor = System.Drawing.Color.Black;
+            this.MainColor4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit4.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit4.TabIndex = 7;
+            this.MainColor4.Size = new System.Drawing.Size(100, 20);
+            this.MainColor4.TabIndex = 7;
+            this.MainColor4.EditValueChanged += new System.EventHandler(this.ColorControl_EditValueChanged);
+            this.MainColor4.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.MainColor1_EditValueChanging);
             // 
             // labelControl6
             // 
@@ -630,16 +630,19 @@ namespace XeniaPatchMaker
             this.labelControl6.TabIndex = 6;
             this.labelControl6.Text = "Example";
             // 
-            // colorPickEdit3
+            // MainColor3
             // 
-            this.colorPickEdit3.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit3.Location = new System.Drawing.Point(5, 101);
-            this.colorPickEdit3.Name = "colorPickEdit3";
-            this.colorPickEdit3.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.MainColor3.EditValue = System.Drawing.Color.Empty;
+            this.MainColor3.Location = new System.Drawing.Point(5, 101);
+            this.MainColor3.Name = "MainColor3";
+            this.MainColor3.Properties.AllowFocused = false;
+            this.MainColor3.Properties.AutomaticColor = System.Drawing.Color.Black;
+            this.MainColor3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit3.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit3.TabIndex = 5;
+            this.MainColor3.Size = new System.Drawing.Size(100, 20);
+            this.MainColor3.TabIndex = 5;
+            this.MainColor3.EditValueChanged += new System.EventHandler(this.ColorControl_EditValueChanged);
+            this.MainColor3.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.MainColor1_EditValueChanging);
             // 
             // labelControl5
             // 
@@ -649,16 +652,19 @@ namespace XeniaPatchMaker
             this.labelControl5.TabIndex = 4;
             this.labelControl5.Text = "Example";
             // 
-            // colorPickEdit2
+            // MainColor2
             // 
-            this.colorPickEdit2.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit2.Location = new System.Drawing.Point(5, 75);
-            this.colorPickEdit2.Name = "colorPickEdit2";
-            this.colorPickEdit2.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.MainColor2.EditValue = System.Drawing.Color.Empty;
+            this.MainColor2.Location = new System.Drawing.Point(5, 75);
+            this.MainColor2.Name = "MainColor2";
+            this.MainColor2.Properties.AllowFocused = false;
+            this.MainColor2.Properties.AutomaticColor = System.Drawing.Color.Black;
+            this.MainColor2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit2.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit2.TabIndex = 3;
+            this.MainColor2.Size = new System.Drawing.Size(100, 20);
+            this.MainColor2.TabIndex = 3;
+            this.MainColor2.EditValueChanged += new System.EventHandler(this.ColorControl_EditValueChanged);
+            this.MainColor2.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.MainColor1_EditValueChanging);
             // 
             // labelControl1
             // 
@@ -668,16 +674,19 @@ namespace XeniaPatchMaker
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "Example";
             // 
-            // colorPickEdit1
+            // MainColor1
             // 
-            this.colorPickEdit1.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit1.Location = new System.Drawing.Point(5, 49);
-            this.colorPickEdit1.Name = "colorPickEdit1";
-            this.colorPickEdit1.Properties.AutomaticColor = System.Drawing.Color.Black;
-            this.colorPickEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.MainColor1.EditValue = System.Drawing.Color.Empty;
+            this.MainColor1.Location = new System.Drawing.Point(5, 49);
+            this.MainColor1.Name = "MainColor1";
+            this.MainColor1.Properties.AllowFocused = false;
+            this.MainColor1.Properties.AutomaticColor = System.Drawing.Color.Black;
+            this.MainColor1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit1.Size = new System.Drawing.Size(100, 20);
-            this.colorPickEdit1.TabIndex = 1;
+            this.MainColor1.Size = new System.Drawing.Size(100, 20);
+            this.MainColor1.TabIndex = 1;
+            this.MainColor1.EditValueChanged += new System.EventHandler(this.ColorControl_EditValueChanged);
+            this.MainColor1.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.MainColor1_EditValueChanging);
             // 
             // checkEdit7
             // 
@@ -775,26 +784,25 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
             this.groupControl6.ResumeLayout(false);
             this.groupControl6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit9.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit10.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit11.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit12.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchAddressColor4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchAddressColor3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchAddressColor2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchAddressColor1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
             this.groupControl7.ResumeLayout(false);
             this.groupControl7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit8.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchInfoColor1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchInfoColor3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatchInfoColor2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
             this.groupControl8.ResumeLayout(false);
             this.groupControl8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colorPickEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainColor4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainColor3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainColor2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainColor1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).EndInit();
             this.AboutTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
@@ -823,7 +831,7 @@ namespace XeniaPatchMaker
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         public DevExpress.XtraEditors.CheckEdit AutoDelete;
         public DevExpress.XtraEditors.CheckEdit DisableMessageBox;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit1;
+        private DevExpress.XtraEditors.ColorPickEdit MainColor1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit DefaultAuthors;
@@ -840,26 +848,24 @@ namespace XeniaPatchMaker
         public DevExpress.XtraEditors.CheckEdit checkEdit1;
         public DevExpress.XtraEditors.CheckEdit checkEdit7;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit4;
+        private DevExpress.XtraEditors.ColorPickEdit MainColor4;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit3;
+        private DevExpress.XtraEditors.ColorPickEdit MainColor3;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit2;
-        private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit5;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit8;
+        private DevExpress.XtraEditors.ColorPickEdit MainColor2;
+        private DevExpress.XtraEditors.ColorPickEdit PatchInfoColor1;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl11;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit6;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit7;
+        private DevExpress.XtraEditors.ColorPickEdit PatchInfoColor3;
+        private DevExpress.XtraEditors.ColorPickEdit PatchInfoColor2;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl12;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit9;
+        private DevExpress.XtraEditors.ColorPickEdit PatchAddressColor4;
         private DevExpress.XtraEditors.LabelControl labelControl13;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit10;
+        private DevExpress.XtraEditors.ColorPickEdit PatchAddressColor3;
         private DevExpress.XtraEditors.LabelControl labelControl14;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit11;
+        private DevExpress.XtraEditors.ColorPickEdit PatchAddressColor2;
         private DevExpress.XtraEditors.LabelControl labelControl15;
-        private DevExpress.XtraEditors.ColorPickEdit colorPickEdit12;
+        private DevExpress.XtraEditors.ColorPickEdit PatchAddressColor1;
     }
 }

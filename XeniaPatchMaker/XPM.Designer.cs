@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Windows.Forms;
+
 namespace XeniaPatchMaker
 {
     partial class XPM
@@ -30,6 +33,7 @@ namespace XeniaPatchMaker
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::XeniaPatchMaker.Loading_Screen), true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XPM));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,9 +58,9 @@ namespace XeniaPatchMaker
             this.PatchName = new DevExpress.XtraEditors.TextEdit();
             this.PatchAddressGroup = new DevExpress.XtraEditors.GroupControl();
             this.Types = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.UseType = new DevExpress.XtraEditors.CheckEdit();
             this.PlusButton = new DevExpress.XtraEditors.SimpleButton();
             this.MinusButton = new DevExpress.XtraEditors.SimpleButton();
-            this.UseType = new DevExpress.XtraEditors.CheckEdit();
             this.ProvideSizeType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.ProvideSizeLabel = new System.Windows.Forms.Label();
             this.ValueLabel = new System.Windows.Forms.Label();
@@ -80,15 +84,19 @@ namespace XeniaPatchMaker
             this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.DropLog = new DevExpress.XtraEditors.GroupControl();
             this.OutPut = new System.Windows.Forms.RichTextBox();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.TopManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.ValueConverter = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
@@ -99,6 +107,7 @@ namespace XeniaPatchMaker
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             ((System.ComponentModel.ISupportInitialize)(this.GameInfoHeader)).BeginInit();
             this.GameInfoHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MediaId.Properties)).BeginInit();
@@ -120,9 +129,15 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.PatchAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BottomManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DropLog)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TopManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 900;
             // 
             // label1
             // 
@@ -349,9 +364,9 @@ namespace XeniaPatchMaker
             this.PatchAddressGroup.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
             this.PatchAddressGroup.AppearanceCaption.Options.UseForeColor = true;
             this.PatchAddressGroup.Controls.Add(this.Types);
+            this.PatchAddressGroup.Controls.Add(this.UseType);
             this.PatchAddressGroup.Controls.Add(this.PlusButton);
             this.PatchAddressGroup.Controls.Add(this.MinusButton);
-            this.PatchAddressGroup.Controls.Add(this.UseType);
             this.PatchAddressGroup.Controls.Add(this.ProvideSizeType);
             this.PatchAddressGroup.Controls.Add(this.ProvideSizeLabel);
             this.PatchAddressGroup.Controls.Add(this.ValueLabel);
@@ -369,7 +384,7 @@ namespace XeniaPatchMaker
             // Types
             // 
             this.Types.EditValue = "60000000";
-            this.Types.Location = new System.Drawing.Point(101, 107);
+            this.Types.Location = new System.Drawing.Point(55, 102);
             this.Types.Name = "Types";
             this.Types.Properties.AllowFocused = false;
             this.Types.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1458,9 +1473,19 @@ namespace XeniaPatchMaker
             "1000030a",
             "1000034a"});
             this.Types.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.Types.Size = new System.Drawing.Size(80, 20);
+            this.Types.Size = new System.Drawing.Size(126, 20);
             this.Types.TabIndex = 41;
             this.Types.SelectedIndexChanged += new System.EventHandler(this.Types_SelectedIndexChanged);
+            // 
+            // UseType
+            // 
+            this.UseType.Location = new System.Drawing.Point(17, 102);
+            this.UseType.Name = "UseType";
+            this.UseType.Properties.AllowFocused = false;
+            this.UseType.Properties.Caption = "Use Type";
+            this.UseType.Size = new System.Drawing.Size(87, 19);
+            this.UseType.TabIndex = 37;
+            this.UseType.CheckedChanged += new System.EventHandler(this.Types_SelectedIndexChanged);
             // 
             // PlusButton
             // 
@@ -1485,16 +1510,6 @@ namespace XeniaPatchMaker
             this.MinusButton.TabIndex = 39;
             this.MinusButton.Text = "-";
             this.MinusButton.Click += new System.EventHandler(this.AddressMath_Click);
-            // 
-            // UseType
-            // 
-            this.UseType.Location = new System.Drawing.Point(8, 108);
-            this.UseType.Name = "UseType";
-            this.UseType.Properties.AllowFocused = false;
-            this.UseType.Properties.Caption = "Use Type =>";
-            this.UseType.Size = new System.Drawing.Size(87, 19);
-            this.UseType.TabIndex = 37;
-            this.UseType.CheckedChanged += new System.EventHandler(this.Types_SelectedIndexChanged);
             // 
             // ProvideSizeType
             // 
@@ -1561,16 +1576,16 @@ namespace XeniaPatchMaker
             // 
             // PatchValue
             // 
-            this.PatchValue.Location = new System.Drawing.Point(81, 78);
+            this.PatchValue.Location = new System.Drawing.Point(55, 78);
             this.PatchValue.Name = "PatchValue";
-            this.PatchValue.Size = new System.Drawing.Size(100, 20);
+            this.PatchValue.Size = new System.Drawing.Size(126, 20);
             this.PatchValue.TabIndex = 31;
             // 
             // PatchAddress
             // 
-            this.PatchAddress.Location = new System.Drawing.Point(81, 52);
+            this.PatchAddress.Location = new System.Drawing.Point(55, 52);
             this.PatchAddress.Name = "PatchAddress";
-            this.PatchAddress.Size = new System.Drawing.Size(100, 20);
+            this.PatchAddress.Size = new System.Drawing.Size(126, 20);
             this.PatchAddress.TabIndex = 30;
             // 
             // richEditControl1
@@ -1720,7 +1735,7 @@ namespace XeniaPatchMaker
             this.DropLog.AppearanceCaption.Options.UseForeColor = true;
             this.DropLog.Location = new System.Drawing.Point(4, 23);
             this.DropLog.Name = "DropLog";
-            this.DropLog.Size = new System.Drawing.Size(808, 65);
+            this.DropLog.Size = new System.Drawing.Size(628, 65);
             this.DropLog.TabIndex = 23;
             this.DropLog.Text = "Drop Xenia Log Here: / Drop Patch File Here:";
             this.DropLog.DragDrop += new System.Windows.Forms.DragEventHandler(this.DropBox_DragDrop);
@@ -1728,6 +1743,7 @@ namespace XeniaPatchMaker
             // 
             // OutPut
             // 
+            this.OutPut.AllowDrop = true;
             this.OutPut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.OutPut.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OutPut.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1737,21 +1753,25 @@ namespace XeniaPatchMaker
             this.OutPut.Size = new System.Drawing.Size(816, 456);
             this.OutPut.TabIndex = 26;
             this.OutPut.Text = "";
+            this.OutPut.DragDrop += new System.Windows.Forms.DragEventHandler(this.OutPut_DragDrop);
+            this.OutPut.DragEnter += new System.Windows.Forms.DragEventHandler(this.DropBox_DragEnter);
             this.OutPut.TextChanged += new System.EventHandler(this.OutPut_TextChanged);
             this.OutPut.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OutPut_KeyDown);
+            this.OutPut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OutPut_KeyPress);
             this.OutPut.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OutPut_KeyUp);
+            this.OutPut.Leave += new System.EventHandler(this.OutPut_Leave);
             // 
-            // barManager1
+            // TopManager
             // 
-            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.TopManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.bar1,
             this.bar2});
-            this.barManager1.DockControls.Add(this.barDockControl1);
-            this.barManager1.DockControls.Add(this.barDockControl2);
-            this.barManager1.DockControls.Add(this.barDockControl3);
-            this.barManager1.DockControls.Add(this.barDockControl4);
-            this.barManager1.Form = this;
-            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.TopManager.DockControls.Add(this.barDockControl1);
+            this.TopManager.DockControls.Add(this.barDockControl2);
+            this.TopManager.DockControls.Add(this.barDockControl3);
+            this.TopManager.DockControls.Add(this.barDockControl4);
+            this.TopManager.Form = this;
+            this.TopManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barSubItem2,
             this.barSubItem4,
             this.barSubItem5,
@@ -1762,9 +1782,13 @@ namespace XeniaPatchMaker
             this.barSubItem1,
             this.ValueConverter,
             this.barSubItem3,
-            this.barSubItem6});
-            this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 12;
+            this.barSubItem6,
+            this.barButtonItem9,
+            this.barButtonItem10,
+            this.barButtonItem11,
+            this.barSubItem7});
+            this.TopManager.MainMenu = this.bar2;
+            this.TopManager.MaxItemId = 16;
             // 
             // bar1
             // 
@@ -1799,7 +1823,8 @@ namespace XeniaPatchMaker
             this.barSubItem2.Id = 0;
             this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem7)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem7),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem7)});
             this.barSubItem2.Name = "barSubItem2";
             // 
             // barButtonItem3
@@ -1815,6 +1840,12 @@ namespace XeniaPatchMaker
             this.barButtonItem7.Id = 5;
             this.barButtonItem7.Name = "barButtonItem7";
             this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.LoadPatchFile_Click);
+            // 
+            // barSubItem7
+            // 
+            this.barSubItem7.Caption = "Recent Files..";
+            this.barSubItem7.Id = 15;
+            this.barSubItem7.Name = "barSubItem7";
             // 
             // barSubItem4
             // 
@@ -1835,7 +1866,33 @@ namespace XeniaPatchMaker
             // 
             this.barSubItem6.Caption = "Search";
             this.barSubItem6.Id = 10;
+            this.barSubItem6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem9),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem10),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem11)});
             this.barSubItem6.Name = "barSubItem6";
+            // 
+            // barButtonItem9
+            // 
+            this.barButtonItem9.Caption = "Find";
+            this.barButtonItem9.Enabled = false;
+            this.barButtonItem9.Id = 12;
+            this.barButtonItem9.Name = "barButtonItem9";
+            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "Replace...";
+            this.barButtonItem10.Enabled = false;
+            this.barButtonItem10.Id = 13;
+            this.barButtonItem10.Name = "barButtonItem10";
+            // 
+            // barButtonItem11
+            // 
+            this.barButtonItem11.Caption = "Find Again...";
+            this.barButtonItem11.Enabled = false;
+            this.barButtonItem11.Id = 14;
+            this.barButtonItem11.Name = "barButtonItem11";
             // 
             // barSubItem1
             // 
@@ -1879,7 +1936,7 @@ namespace XeniaPatchMaker
             this.barDockControl1.CausesValidation = false;
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
-            this.barDockControl1.Manager = this.barManager1;
+            this.barDockControl1.Manager = this.TopManager;
             this.barDockControl1.Size = new System.Drawing.Size(816, 46);
             // 
             // barDockControl2
@@ -1887,7 +1944,7 @@ namespace XeniaPatchMaker
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControl2.Location = new System.Drawing.Point(0, 736);
-            this.barDockControl2.Manager = this.barManager1;
+            this.barDockControl2.Manager = this.TopManager;
             this.barDockControl2.Size = new System.Drawing.Size(816, 0);
             // 
             // barDockControl3
@@ -1895,7 +1952,7 @@ namespace XeniaPatchMaker
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControl3.Location = new System.Drawing.Point(0, 46);
-            this.barDockControl3.Manager = this.barManager1;
+            this.barDockControl3.Manager = this.TopManager;
             this.barDockControl3.Size = new System.Drawing.Size(0, 690);
             // 
             // barDockControl4
@@ -1903,7 +1960,7 @@ namespace XeniaPatchMaker
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControl4.Location = new System.Drawing.Point(816, 46);
-            this.barDockControl4.Manager = this.barManager1;
+            this.barDockControl4.Manager = this.TopManager;
             this.barDockControl4.Size = new System.Drawing.Size(0, 690);
             // 
             // groupControl1
@@ -1911,12 +1968,23 @@ namespace XeniaPatchMaker
             this.groupControl1.Appearance.Options.UseForeColor = true;
             this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
             this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
-            this.groupControl1.Location = new System.Drawing.Point(638, 94);
+            this.groupControl1.Controls.Add(this.searchControl1);
+            this.groupControl1.Location = new System.Drawing.Point(638, 23);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.ShowCaption = false;
-            this.groupControl1.Size = new System.Drawing.Size(174, 150);
+            this.groupControl1.Size = new System.Drawing.Size(174, 221);
             this.groupControl1.TabIndex = 25;
-            this.groupControl1.Text = "Main Header";
+            this.groupControl1.Text = "PPC Opcode";
+            // 
+            // searchControl1
+            // 
+            this.searchControl1.Location = new System.Drawing.Point(7, 29);
+            this.searchControl1.MenuManager = this.BottomManager;
+            this.searchControl1.Name = "searchControl1";
+            this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this.searchControl1.Size = new System.Drawing.Size(161, 20);
+            this.searchControl1.TabIndex = 0;
             // 
             // XPM
             // 
@@ -1973,12 +2041,16 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.PatchAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BottomManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DropLog)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TopManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
+
 
         #endregion
         private System.Windows.Forms.Label label1;
@@ -2031,7 +2103,7 @@ namespace XeniaPatchMaker
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem2;
         private DevExpress.XtraBars.BarDockControl barDockControl3;
-        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.BarManager TopManager;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarSubItem barSubItem2;
@@ -2049,6 +2121,11 @@ namespace XeniaPatchMaker
         private DevExpress.XtraBars.BarSubItem barSubItem3;
         private DevExpress.XtraBars.BarSubItem barSubItem6;
         private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.SearchControl searchControl1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
+        private DevExpress.XtraBars.BarSubItem barSubItem7;
     }
 }
 
