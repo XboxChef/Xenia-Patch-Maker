@@ -8,13 +8,13 @@ namespace XeniaPatchMaker
 
     partial class Helper
     {
-        public static void ArgumentNotNull([ValidatedNotNull]object value, string name)
+        public static void ArgumentNotNull([ValidatedNotNull] object value, string name)
         {
             if (value != null) return;
 
             throw new ArgumentNullException(name);
         }
-        public static void ArgumentNotNullOrEmptyString([ValidatedNotNull]string value, string name)
+        public static void ArgumentNotNullOrEmptyString([ValidatedNotNull] string value, string name)
         {
             ArgumentNotNull(value, name);
             if (!string.IsNullOrWhiteSpace(value)) return;

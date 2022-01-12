@@ -62,8 +62,8 @@ namespace XeniaPatchMaker
             }
             else if (checkbox.Text.Equals(checkEdit1.Text))
             {
-               // culture.CompareInfo.IndexOf(paragraph, word, CompareOptions.IgnoreCase) >= 0
-              //  SearchTextbox.Equals(a, b, StringComparison.CurrentCultureIgnoreCase);
+                // culture.CompareInfo.IndexOf(paragraph, word, CompareOptions.IgnoreCase) >= 0
+                //  SearchTextbox.Equals(a, b, StringComparison.CurrentCultureIgnoreCase);
             }
         }
     }

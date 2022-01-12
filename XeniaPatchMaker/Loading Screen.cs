@@ -1,13 +1,5 @@
 ﻿using DevExpress.XtraSplashScreen;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
 
 namespace XeniaPatchMaker
 {
@@ -39,7 +31,7 @@ namespace XeniaPatchMaker
 
         private void Loading_Screen_Load(object sender, EventArgs e)
         {
- 
+
         }
     }
 }

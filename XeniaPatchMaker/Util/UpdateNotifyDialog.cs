@@ -1,10 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using System;
 using System.Drawing;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using XeniaPatchMaker;
 
 namespace XeniaPatchMaker
 {
@@ -12,10 +8,10 @@ namespace XeniaPatchMaker
     {
         private readonly UpdateChecker _checker;
         private bool _loadednotes;
-        
+
         public UpdateNotifyDialog(UpdateChecker checker)
         {
-            
+
             _checker = checker;
 
             InitializeComponent();
@@ -29,7 +25,7 @@ namespace XeniaPatchMaker
 
         private void UpdateNotifyDialog_Shown(object sender, EventArgs e)
         {
-            
+
         }
 
         private void UpdateNotifyDialog_Load(object sender, EventArgs e)
@@ -52,10 +48,10 @@ namespace XeniaPatchMaker
         private async void boxReleaseNotes_CheckedChanged(object sender, EventArgs e)
         {
             if (_loadednotes) return;
-                Changes.Visible = true;
-                Changes.Size = new Size(374, 200);
-                ActiveForm.Size = new Size(390, 350);
-                string rs = await _checker.RenderReleaseNotes();
+            Changes.Visible = true;
+            Changes.Size = new Size(374, 200);
+            ActiveForm.Size = new Size(390, 350);
+            string rs = await _checker.RenderReleaseNotes();
 
             Changes.Text = rs;
             _loadednotes = true;

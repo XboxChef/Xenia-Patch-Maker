@@ -12,7 +12,7 @@ namespace XeniaPatchMaker.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.3.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -383,6 +383,187 @@ namespace XeniaPatchMaker.Properties {
             }
             set {
                 this["AddressMath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color mainheadercolor1 {
+            get {
+                return ((global::System.Drawing.Color)(this["mainheadercolor1"]));
+            }
+            set {
+                this["mainheadercolor1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color mainheadercolor2 {
+            get {
+                return ((global::System.Drawing.Color)(this["mainheadercolor2"]));
+            }
+            set {
+                this["mainheadercolor2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color mainheadercolor3 {
+            get {
+                return ((global::System.Drawing.Color)(this["mainheadercolor3"]));
+            }
+            set {
+                this["mainheadercolor3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color mainheadercolor4 {
+            get {
+                return ((global::System.Drawing.Color)(this["mainheadercolor4"]));
+            }
+            set {
+                this["mainheadercolor4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color patchInfoColor1 {
+            get {
+                return ((global::System.Drawing.Color)(this["patchInfoColor1"]));
+            }
+            set {
+                this["patchInfoColor1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color patchInfoColor2 {
+            get {
+                return ((global::System.Drawing.Color)(this["patchInfoColor2"]));
+            }
+            set {
+                this["patchInfoColor2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color patchInfoColor3 {
+            get {
+                return ((global::System.Drawing.Color)(this["patchInfoColor3"]));
+            }
+            set {
+                this["patchInfoColor3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color PatchAddressColor1 {
+            get {
+                return ((global::System.Drawing.Color)(this["PatchAddressColor1"]));
+            }
+            set {
+                this["PatchAddressColor1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color PatchAddressColor2 {
+            get {
+                return ((global::System.Drawing.Color)(this["PatchAddressColor2"]));
+            }
+            set {
+                this["PatchAddressColor2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color PatchAddressColor3 {
+            get {
+                return ((global::System.Drawing.Color)(this["PatchAddressColor3"]));
+            }
+            set {
+                this["PatchAddressColor3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color PatchAddressColor4 {
+            get {
+                return ((global::System.Drawing.Color)(this["PatchAddressColor4"]));
+            }
+            set {
+                this["PatchAddressColor4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SavedPath {
+            get {
+                return ((string)(this["SavedPath"]));
+            }
+            set {
+                this["SavedPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SavePathBool {
+            get {
+                return ((bool)(this["SavePathBool"]));
+            }
+            set {
+                this["SavePathBool"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PatchUseColor {
+            get {
+                return ((bool)(this["PatchUseColor"]));
+            }
+            set {
+                this["PatchUseColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PatchInfoUseColor {
+            get {
+                return ((bool)(this["PatchInfoUseColor"]));
+            }
+            set {
+                this["PatchInfoUseColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MainUseColor {
+            get {
+                return ((bool)(this["MainUseColor"]));
+            }
+            set {
+                this["MainUseColor"] = value;
             }
         }
     }

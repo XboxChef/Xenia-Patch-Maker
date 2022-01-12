@@ -1,11 +1,9 @@
-﻿using System;
-using System.Linq;
-
-using Octokit;
+﻿using Octokit;
 using Semver;
-using System.Threading.Tasks;
+using System;
+using System.Linq;
 using System.Net;
-using System.IO;
+using System.Threading.Tasks;
 
 namespace XeniaPatchMaker
 {
@@ -30,7 +28,7 @@ namespace XeniaPatchMaker
         void Init(string owner, string name, SemVersion version)
         {
             GitHub = new GitHubClient(new ProductHeaderValue(name + @"-UpdateCheck"));
-            _releaseClient = GitHub.Release;
+            _releaseClient = GitHub.Repository.Release;
 
             RepositoryOwner = owner;
             RepositoryName = name;
@@ -117,13 +115,13 @@ namespace XeniaPatchMaker
             // asset.Url is some api wizardry that we'll maybe use later
             //var assets = await _releaseClient.GetAssets(RepositoryOwner, RepositoryName, LatestRelease.Id);
             //var asset = assets.First(n => n.Name == asset name);
-            
+
             // for now, do some ugly shit
             const string template = "https://github.com/{0}/{1}/releases/download/{2}/{3}";
             var url = string.Format(template, RepositoryOwner, RepositoryName, LatestRelease.TagName, Assetname);
             using (var client = new WebClient())
             {
-                
+
                 client.DownloadFile(url, "XeniaPatchMakerUpdate.exe");
             }
         }

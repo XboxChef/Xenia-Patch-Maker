@@ -2,22 +2,22 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using XeniaPatchMaker.Properties;
 using XeniaPatchMaker.Util;
-using static XeniaPatchMaker.Util.PatchUtil;
 using static XeniaPatchMaker.Program;
+using static XeniaPatchMaker.Util.PatchUtil;
+
 namespace XeniaPatchMaker
 {
     public partial class XPM : XtraForm
     {
         #region PlaceHolders
-        
-        
+
+
         public static string CurrentFullPath { get; set; }
         public static string CurrentFullName { get; set; }
         public static string Data { get; set; }
@@ -98,11 +98,11 @@ namespace XeniaPatchMaker
                 }
                 IsOn.ForeColor = Color.Red;
                 Version.Caption = "Version: " + Application.ProductVersion;
-                Text = "Xenia Patch Maker By TeddyHammer";
+                Text = "Xenia Patch Maker By Serenity";
                 UpdateChecker checker = new UpdateChecker("TeddyHammer", "XeniaPatchMaker");
                 checker.CheckUpdate(locked: UpdateType.Patch).ContinueWith(continuation =>
                 {
-                   IsUpdateUptoDate = "Needs Update!";
+                    IsUpdateUptoDate = "Needs Update!";
 
                     if (continuation.Result != UpdateType.None)
                     {
@@ -139,14 +139,14 @@ namespace XeniaPatchMaker
                     }
                 });
                 File.Delete(Application.StartupPath + "\\XeniaPatchMakerold.exe");
-                
+
             }
             finally
             {
                 Show();
             }
 
-            
+
 
         }
         #endregion
@@ -154,23 +154,23 @@ namespace XeniaPatchMaker
         #region Header Info Input
         private void XEXInfo_Click(object sender, EventArgs e)
         {
-                if (IsNullOrEmpty(OutPut.Text))
-                {
-                    OutPut.AppendText("title_name = \"" + TitleName.Text + "\"");
-                    OutPut.AppendText(Environment.NewLine);
-                    OutPut.AppendText("title_id = \"" + TitleId.Text + "\"");
-                    OutPut.AppendText(Environment.NewLine);
-                    OutPut.AppendText("hash = \"" + HashKey.Text + "\"");
-                    OutPut.AppendText(Environment.NewLine);
-                    OutPut.AppendText("#media_id = \"" + MediaId.Text + "\"");
-                    OutPut.AppendText(Environment.NewLine);
-                    OutputConditions = false;
+            if (IsNullOrEmpty(OutPut.Text))
+            {
+                OutPut.AppendText("title_name = \"" + TitleName.Text + "\"");
+                OutPut.AppendText(Environment.NewLine);
+                OutPut.AppendText("title_id = \"" + TitleId.Text + "\"");
+                OutPut.AppendText(Environment.NewLine);
+                OutPut.AppendText("hash = \"" + HashKey.Text + "\"");
+                OutPut.AppendText(Environment.NewLine);
+                OutPut.AppendText("#media_id = \"" + MediaId.Text + "\"");
+                OutPut.AppendText(Environment.NewLine);
+                OutputConditions = false;
 
             }
-                else
-                {
-                    MessageBox.Show("Output Must Be Empty!");
-                }
+            else
+            {
+                MessageBox.Show("Output Must Be Empty!");
+            }
 
         }
         private void AddPokeHeader_Click(object sender, EventArgs e)
@@ -179,28 +179,29 @@ namespace XeniaPatchMaker
             //Safe Guard For Users TO Make Sure Format Is Correct At All Times
             if (OutPut.Text.Contains("[[patch]]"))
             {
-                    OutPut.AppendText("    [[patch." + ProvideSizeType.Text + "]]");
-                    OutPut.AppendText(Environment.NewLine);
-                    OutPut.AppendText("        address = " + "0x" + PatchAddress.Text);
-                    OutPut.AppendText(Environment.NewLine);
-                    OutPut.AppendText("        value = " + "0x" + PatchValue.Text.ToUpper());
-                    OutPut.AppendText(Environment.NewLine);
-                    if(Properties.Settings.Default.AutoDelete == true)
+                OutPut.AppendText("    [[patch." + ProvideSizeType.Text + "]]");
+                OutPut.AppendText(Environment.NewLine);
+                OutPut.AppendText("        address = " + "0x" + PatchAddress.Text);
+                OutPut.AppendText(Environment.NewLine);
+                OutPut.AppendText("        value = " + "0x" + PatchValue.Text.ToUpper());
+                OutPut.AppendText(Environment.NewLine);
+
+                if (Properties.Settings.Default.AutoDelete == true)
+                {
+                    PatchAddress.Text = string.Empty;
+                    if (UseType.Checked == true)
                     {
-                        PatchAddress.Text = string.Empty;
-                        if (UseType.Checked == true)
-                        {
-                             
-                        }
-                        else
-                        {
-                            PatchValue.Text = string.Empty;
-                        }
+
                     }
                     else
                     {
-                        
+                        PatchValue.Text = string.Empty;
                     }
+                }
+                else
+                {
+
+                }
                 OutputConditions = false;
             }
             else
@@ -223,7 +224,7 @@ namespace XeniaPatchMaker
                     OutPut.AppendText(Environment.NewLine + "    name = \"" + PatchName.Text + "\"");
                     if (Properties.Settings.Default.DisableDesc == false)
                     {
-                        OutPut.AppendText(Environment.NewLine + "    desc = \"" + Desc.Text + "\""); 
+                        OutPut.AppendText(Environment.NewLine + "    desc = \"" + Desc.Text + "\"");
                     }
                     if (Properties.Settings.Default.UseDefaultAuthors == true)
                     {
@@ -248,7 +249,7 @@ namespace XeniaPatchMaker
                         else
                         {
 
-                        } 
+                        }
                     }
                     OutputConditions = false;
                 }
@@ -307,7 +308,7 @@ namespace XeniaPatchMaker
         {
             if (UseType.Checked == true)
             {
-                PatchValue.Text = Types.Text;
+                PatchValue.Text = Types.Text.ToUpper().Substring(2 + Types.Text.IndexOf("0x"));
                 PatchValue.Enabled = false;
             }
             else
@@ -382,7 +383,7 @@ namespace XeniaPatchMaker
                 //makes log shorter
                 Data.Substring(0, Data.IndexOf("Savegame ID:"));
                 GetAllTypes();
-                if(Properties.Settings.Default.WriteInfo == true)
+                if (Properties.Settings.Default.WriteInfo == true)
                 {
                     if (HashKey.Text.Length > 10)
                     {
@@ -412,7 +413,7 @@ namespace XeniaPatchMaker
                     }
                 }
             }
-            else if(Path.GetFileName(CurrentFullName).Contains(".patch"))
+            else if (Path.GetFileName(CurrentFullName).Contains(".patch"))
             {
                 string data = Data;
                 if (!IsNullOrEmpty(TitleName.Text) && !IsNullOrEmpty(TitleId.Text) && !IsNullOrEmpty(HashKey.Text) && !IsNullOrEmpty(MediaId.Text))
@@ -437,7 +438,7 @@ namespace XeniaPatchMaker
                 OutPut.Text = data;
                 return;
             }
-            
+
 
 
 
@@ -628,7 +629,7 @@ namespace XeniaPatchMaker
         }
         private void OutPut_TextChanged(object sender, EventArgs e)
         {
-            if(OutPut.Text.Equals(""))
+            if (OutPut.Text.Equals(""))
             {
                 barButtonItem11.Enabled = false;
                 barButtonItem10.Enabled = false;
@@ -671,11 +672,11 @@ namespace XeniaPatchMaker
                     }
                     CheckKeyword(" is_enabled = ", Color.FromArgb(126, 59, 188), 0);
                     //by default
-                    CheckKeyword("[[patch." + "be32" + "]]", Color.FromArgb(72, 74, 170), 0);
+                    CheckKeyword("[[patch." + "be32" + "]]", Properties.Settings.Default.PatchAddressColor1, 0);
                     CheckKeyword("\"", Color.Red, 0);
-                    CheckKeyword("title_name =", Color.Yellow, 0);
-                    CheckKeyword("title_id =", Color.Cyan, 0);
-                    CheckKeyword("#media_id =", Color.FromArgb(0, 175, 0), 0);
+                    CheckKeyword("title_name =", Properties.Settings.Default.PatchAddressColor2, 0);
+                    CheckKeyword("title_id =", Properties.Settings.Default.PatchAddressColor3, 0);
+                    CheckKeyword("#media_id =", Properties.Settings.Default.PatchAddressColor4, 0);
 
                     CheckKeyword("address = ", Color.FromArgb(214, 136, 82), 0);
                     CheckKeyword("value = ", Color.FromArgb(214, 136, 82), 0);
@@ -683,56 +684,56 @@ namespace XeniaPatchMaker
                     CheckKeyword(" desc = ", Color.FromArgb(214, 136, 82), 0);
                     CheckKeyword(" author = ", Color.FromArgb(214, 136, 82), 0);
                     //Checks User Input's Then Changes Color
-                    if (!IsNullOrEmpty(TitleName.Text))
+                    if (TitleName.Text != string.Empty)
                     {
                         CheckKeyword(TitleName.Text, Color.Green, 0);
                     }
-                    else if (!IsNullOrEmpty(TitleId.Text))
+                    else if (TitleId.Text != string.Empty)
                     {
                         CheckKeyword(TitleId.Text, Color.Green, 0);
                     }
-                    else if (!IsNullOrEmpty(HashKey.Text))
+                    else if (HashKey.Text != string.Empty)
                     {
                         CheckKeyword(HashKey.Text, Color.Green, 0);
                     }
-                    else if (!IsNullOrEmpty(MediaId.Text))
+                    else if (MediaId.Text != string.Empty)
                     {
                         CheckKeyword(MediaId.Text, Color.Green, 0);
                     }
 
-                    else if (!IsNullOrEmpty(IsOn.Text))
+                    else if (IsOn.Text != string.Empty)
                     {
                         CheckKeyword(IsOn.Text, Color.Green, 0);
                     }
 
-                    else if (!IsNullOrEmpty(Authors.Text))
+                    else if (Authors.Text != string.Empty)
                     {
                         CheckKeyword(Authors.Text, Color.Green, 0);
                     }
 
-                    else if (!IsNullOrEmpty(PatchName.Text))
+                    else if (PatchName.Text != string.Empty)
                     {
                         CheckKeyword(PatchName.Text, Color.Green, 0);
                     }
 
-                    else if (!IsNullOrEmpty(Desc.Text))
+                    else if (Desc.Text != string.Empty)
                     {
                         CheckKeyword(Desc.Text, Color.FromArgb(214, 136, 82), 0);
                     }
 
-                    else if (!IsNullOrEmpty(PatchAddress.Text))
+                    else if (PatchAddress.Text != string.Empty)
                     {
                         CheckKeyword(PatchAddress.Text, Color.Green, 0);
                     }
 
-                    else if (!IsNullOrEmpty(PatchValue.Text))
+                    else if (PatchValue.Text != string.Empty)
                     {
                         CheckKeyword(PatchValue.Text, Color.Green, 0);
                     }
 
 
 
-                    else if (!IsNullOrEmpty(ProvideSizeType.Text))
+                    else if (ProvideSizeType.Text != string.Empty)
                     {
                         CheckKeyword(ProvideSizeType.Text, Color.Green, 0);
                     }
@@ -740,7 +741,7 @@ namespace XeniaPatchMaker
                     {
                         return;
                     }
-                } 
+                }
             }
         }
         #endregion
@@ -781,17 +782,13 @@ namespace XeniaPatchMaker
             Program.Settings.ShowDialog(this);  //Show Form assigning this form as the forms owner
 
         }
-        private void OutPut_DragEnter(object sender, DragEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
         private void OutPut_DragDrop(object sender, DragEventArgs e)
         {
-            if(CurrentFullName.EndsWith(".patch"))
+            if (CurrentFullName.EndsWith(".patch"))
             {
                 OutPut.Text = File.ReadAllText(CurrentFullPath);
             }
-            
+
         }
         private void ValueConverter_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -822,5 +819,6 @@ namespace XeniaPatchMaker
             }
             Finder.ShowDialog(this); //Show Form assigning this form as the forms owner
         }
+
     }
 }

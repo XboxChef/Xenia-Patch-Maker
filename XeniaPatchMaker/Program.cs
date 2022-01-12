@@ -1,12 +1,5 @@
-﻿using XeniaPatchMaker;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
-using XeniaPatchMaker.Util;
-using System.IO;
 
 namespace XeniaPatchMaker
 {
@@ -17,7 +10,7 @@ namespace XeniaPatchMaker
         public static ValueConverter valueConverter { get; set; }
         public static Loading_Screen Load { get; set; }
         public static Find Finder { get; set; }
-        
+
 
         /// <summary>
         /// The main entry point for the application.
