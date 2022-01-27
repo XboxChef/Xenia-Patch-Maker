@@ -15,18 +15,6 @@ namespace XeniaPatchMaker.Util
         {
             return (s == null || s == string.Empty) ? true : false;
         }
-        public static string GetMediaID(string Placeholder, string Start, string End, int length)
-        {
-            try
-            {
-                int x = Placeholder.LastIndexOf(Start/*"Title ID:"*/) + Start.Length + 1;
-                return Placeholder.Substring(x, Placeholder.IndexOf(End/*"Savegame ID:"*/) - x);
-            }
-            catch
-            {
-                return string.Empty;
-            }
-        }
 
         /// <summary>
         /// Loads Patch Data Back To Textboxes

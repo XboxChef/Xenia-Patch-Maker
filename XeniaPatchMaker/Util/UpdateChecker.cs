@@ -117,8 +117,7 @@ namespace XeniaPatchMaker
             //var asset = assets.First(n => n.Name == asset name);
 
             // for now, do some ugly shit
-            const string template = "https://github.com/{0}/{1}/releases/download/{2}/{3}";
-            var url = string.Format(template, RepositoryOwner, RepositoryName, LatestRelease.TagName, Assetname);
+            var url = string.Format("https://github.com/{0}/{1}/releases/download/{2}/{3}", RepositoryOwner, RepositoryName, LatestRelease.TagName, Assetname);
             using (var client = new WebClient())
             {
 

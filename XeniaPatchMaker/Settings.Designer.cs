@@ -51,11 +51,11 @@ namespace XeniaPatchMaker
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.DefaultAuthors = new DevExpress.XtraEditors.TextEdit();
             this.DisableMessageBox = new DevExpress.XtraEditors.CheckEdit();
-            this.DisableDesc = new DevExpress.XtraEditors.CheckEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.WriteInfo = new DevExpress.XtraEditors.CheckEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.ColorDisabled = new DevExpress.XtraEditors.CheckEdit();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
             this.PatchAddressColorlabel4 = new DevExpress.XtraEditors.LabelControl();
             this.PatchAddressColor4 = new DevExpress.XtraEditors.ColorPickEdit();
@@ -87,7 +87,6 @@ namespace XeniaPatchMaker
             this.InfoTab = new DevExpress.XtraTab.XtraTabPage();
             this.AboutTab = new DevExpress.XtraTab.XtraTabPage();
             this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
-            this.ColorDisabled = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.GeneralTab.SuspendLayout();
@@ -110,13 +109,13 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.UseDefaultAuthors.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DefaultAuthors.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DisableMessageBox.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DisableDesc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WriteInfo.Properties)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ColorDisabled.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
             this.groupControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PatchAddressColor4.Properties)).BeginInit();
@@ -139,7 +138,6 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.MainUseColor.Properties)).BeginInit();
             this.AboutTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ColorDisabled.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -316,7 +314,6 @@ namespace XeniaPatchMaker
             this.groupControl2.Controls.Add(this.labelControl2);
             this.groupControl2.Controls.Add(this.DefaultAuthors);
             this.groupControl2.Controls.Add(this.DisableMessageBox);
-            this.groupControl2.Controls.Add(this.DisableDesc);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl2.Location = new System.Drawing.Point(179, 0);
             this.groupControl2.Name = "groupControl2";
@@ -326,7 +323,7 @@ namespace XeniaPatchMaker
             // 
             // UseDefaultAuthors
             // 
-            this.UseDefaultAuthors.Location = new System.Drawing.Point(25, 74);
+            this.UseDefaultAuthors.Location = new System.Drawing.Point(25, 49);
             this.UseDefaultAuthors.Name = "UseDefaultAuthors";
             this.UseDefaultAuthors.Properties.AllowFocused = false;
             this.UseDefaultAuthors.Properties.Caption = "Use Default Author\'s";
@@ -350,21 +347,12 @@ namespace XeniaPatchMaker
             // 
             // DisableMessageBox
             // 
-            this.DisableMessageBox.Location = new System.Drawing.Point(25, 49);
+            this.DisableMessageBox.Location = new System.Drawing.Point(25, 24);
             this.DisableMessageBox.Name = "DisableMessageBox";
             this.DisableMessageBox.Properties.AllowFocused = false;
             this.DisableMessageBox.Properties.Caption = "Disable MessageBox";
             this.DisableMessageBox.Size = new System.Drawing.Size(129, 19);
             this.DisableMessageBox.TabIndex = 4;
-            // 
-            // DisableDesc
-            // 
-            this.DisableDesc.Location = new System.Drawing.Point(25, 24);
-            this.DisableDesc.Name = "DisableDesc";
-            this.DisableDesc.Properties.AllowFocused = false;
-            this.DisableDesc.Properties.Caption = "Disable Description";
-            this.DisableDesc.Size = new System.Drawing.Size(129, 19);
-            this.DisableDesc.TabIndex = 3;
             // 
             // groupControl1
             // 
@@ -404,6 +392,15 @@ namespace XeniaPatchMaker
             this.groupControl5.Size = new System.Drawing.Size(153, 290);
             this.groupControl5.TabIndex = 7;
             this.groupControl5.Text = "Extra Features";
+            // 
+            // ColorDisabled
+            // 
+            this.ColorDisabled.Location = new System.Drawing.Point(6, 24);
+            this.ColorDisabled.Name = "ColorDisabled";
+            this.ColorDisabled.Properties.AllowFocused = false;
+            this.ColorDisabled.Properties.Caption = "Disable Output Color\'s";
+            this.ColorDisabled.Size = new System.Drawing.Size(129, 19);
+            this.ColorDisabled.TabIndex = 2;
             // 
             // groupControl6
             // 
@@ -769,15 +766,6 @@ namespace XeniaPatchMaker
             this.listBoxControl1.Size = new System.Drawing.Size(690, 317);
             this.listBoxControl1.TabIndex = 0;
             // 
-            // ColorDisabled
-            // 
-            this.ColorDisabled.Location = new System.Drawing.Point(6, 24);
-            this.ColorDisabled.Name = "ColorDisabled";
-            this.ColorDisabled.Properties.AllowFocused = false;
-            this.ColorDisabled.Properties.Caption = "Disable Output Color\'s";
-            this.ColorDisabled.Size = new System.Drawing.Size(129, 19);
-            this.ColorDisabled.TabIndex = 2;
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -817,13 +805,13 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.UseDefaultAuthors.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DefaultAuthors.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DisableMessageBox.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DisableDesc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WriteInfo.Properties)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
             this.groupControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ColorDisabled.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
             this.groupControl6.ResumeLayout(false);
             this.groupControl6.PerformLayout();
@@ -849,7 +837,6 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.MainUseColor.Properties)).EndInit();
             this.AboutTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ColorDisabled.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -868,7 +855,6 @@ namespace XeniaPatchMaker
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        public DevExpress.XtraEditors.CheckEdit DisableDesc;
         public DevExpress.XtraEditors.CheckEdit WriteInfo;
         public DevExpress.XtraEditors.CheckEdit HideValueConverter;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;

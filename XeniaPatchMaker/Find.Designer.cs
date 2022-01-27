@@ -154,7 +154,6 @@ namespace XeniaPatchMaker
             this.checkEdit1.Properties.Caption = "Case Sensitive";
             this.checkEdit1.Size = new System.Drawing.Size(101, 19);
             this.checkEdit1.TabIndex = 1;
-            this.checkEdit1.CheckedChanged += new System.EventHandler(this.CaseSensitive_CheckedChanged);
             this.checkEdit1.Click += new System.EventHandler(this.checkEdit2_Click);
             // 
             // simpleButton1

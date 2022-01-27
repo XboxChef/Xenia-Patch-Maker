@@ -37,9 +37,7 @@ namespace XeniaPatchMaker
             if (version[0] == 'v')
                 version = version.Substring(1);
 
-            SemVersion result = SemVersion.Parse(version);
-
-            return result;
+            return SemVersion.Parse(version);
         }
     }
 }

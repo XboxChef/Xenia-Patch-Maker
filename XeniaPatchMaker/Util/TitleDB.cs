@@ -8,6 +8,23 @@ using System.Xml.Serialization;
 namespace XeniaPatchMaker.Util
 {
     /// <summary>
+    /// 
+    /// </summary>
+    public class TitleEntry
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlAttribute("id")]
+        public string ID { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlAttribute("title")]
+        public string Title { get; set; }
+    }
+    /// <summary>
     /// This is the format class that hold title information.
     /// </summary>
     [XmlRoot("titleDB")]

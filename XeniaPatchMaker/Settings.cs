@@ -12,7 +12,6 @@ namespace XeniaPatchMaker
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            DisableDesc.Checked = Properties.Settings.Default.DisableDesc;
             WriteInfo.Checked = Properties.Settings.Default.WriteInfo;
             AutoDelete.Checked = Properties.Settings.Default.AutoDelete;
             DisableMessageBox.Checked = Properties.Settings.Default.DisableMessageBox;
@@ -73,7 +72,6 @@ namespace XeniaPatchMaker
             {
                 Properties.Settings.Default.HideValueConverter = true;
             }
-            Properties.Settings.Default.DisableDesc = DisableDesc.Checked;
             Properties.Settings.Default.AutoDelete = AutoDelete.Checked;
             Properties.Settings.Default.DisableMessageBox = DisableMessageBox.Checked;
             Properties.Settings.Default.ColorDisabled = ColorDisabled.Checked;

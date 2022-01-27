@@ -27,10 +27,6 @@ namespace XeniaPatchMaker
             }
 
         }
-
-        private static void Start(string Path)
-        {
-
-        }
+        
     }
 }
