@@ -1,6 +1,6 @@
 # Xenia Patch Maker
 
-An application to help create patches for the Xbox 360 emulator [Xenia](https://xenia.jp/). 
+An application to help create patches for the Xbox 360 emulator [Xenia](https://xenia.jp/).
 
 https://user-images.githubusercontent.com/31154606/125875417-a21732f2-ebce-4cdf-975b-085b61e81b6c.mp4
 
