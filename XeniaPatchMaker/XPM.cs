@@ -106,8 +106,7 @@ namespace XeniaPatchMaker
 
                     if (continuation.Result != UpdateType.None)
                     {
-                        var result = new UpdateNotifyDialog(checker).ShowDialog();
-                        if (result == DialogResult.Yes)
+                        if (new UpdateNotifyDialog(checker).ShowDialog() == DialogResult.Yes)
                         {
                             MainForm.Enabled = false;
                             Enabled = false;
@@ -125,7 +124,7 @@ namespace XeniaPatchMaker
 
                             }
                         }
-                        if (result == DialogResult.No)
+                        else
                         {
                             Process.GetCurrentProcess().Kill();
                         }
@@ -152,7 +151,7 @@ namespace XeniaPatchMaker
 
         private void CreateDictonary()
         {
-            PPCOpcodes.Add("abs", OpcodeType = "0x7c0002d0");
+            PPCOpcodes.Add("abs", OpcodeType = "0x7c");
             //PPCOpcodes.Add("abs", OpcodeType = "0x7c0002d1");
             //PPCOpcodes.Add("abso", OpcodeType = "0x7c0006d0");
             PPCOpcodes.Add("abso", OpcodeType = "0x7c0006d1");
@@ -166,7 +165,7 @@ namespace XeniaPatchMaker
             PPCOpcodes.Add("adde", OpcodeType = "0x7c000115");
             //PPCOpcodes.Add("addeo", OpcodeType = "0x7c000514");
             PPCOpcodes.Add("addeo", OpcodeType = "0x7c000515");
-            PPCOpcodes.Add("addi", OpcodeType = "0x38000000");
+            PPCOpcodes.Add("addi", OpcodeType = "0x38");
             PPCOpcodes.Add("addic", OpcodeType = "0x300000");
             //PPCOpcodes.Add("addic", OpcodeType = "0x340000");
             PPCOpcodes.Add("addis", OpcodeType = "0x3c0000");
@@ -178,7 +177,7 @@ namespace XeniaPatchMaker
             PPCOpcodes.Add("addo", OpcodeType = "0x7c000615");
             //PPCOpcodes.Add("addze", OpcodeType = "0x7c000194");
             PPCOpcodes.Add("addze", OpcodeType = "0x7c000195");
-           // PPCOpcodes.Add("addzeo", OpcodeType = "0x7c000594");
+            // PPCOpcodes.Add("addzeo", OpcodeType = "0x7c000594");
             PPCOpcodes.Add("addzeo", OpcodeType = "0x7c000595");
             //PPCOpcodes.Add("and", OpcodeType = "0x7c000038");
             PPCOpcodes.Add("and", OpcodeType = "0x7c000039");
@@ -433,7 +432,7 @@ namespace XeniaPatchMaker
             PPCOpcodes.Add("eqv", OpcodeType = "0x7c000238");
             //PPCOpcodes.Add("eqv", OpcodeType = "0x7c000239");
             PPCOpcodes.Add("extsb", OpcodeType = "0x7c000774");
-           // PPCOpcodes.Add("extsb", OpcodeType = "0x7c000775");
+            // PPCOpcodes.Add("extsb", OpcodeType = "0x7c000775");
             PPCOpcodes.Add("extsh", OpcodeType = "0x7c000734");
             //PPCOpcodes.Add("extsh", OpcodeType = "0x7c000735");
             PPCOpcodes.Add("extsw", OpcodeType = "0x7c0007b4");
@@ -1029,7 +1028,7 @@ namespace XeniaPatchMaker
         #region Header Info Input
         private void XEXInfo_Click(object sender, EventArgs e)
         {
-            if (IsNullOrEmpty(OutPut.Text))
+            if (OutPut.Text == string.Empty)
             {
                 OutPut.AppendText("title_name = \"" + TitleName.Text + "\"");
                 OutPut.AppendText(Environment.NewLine);
@@ -1038,6 +1037,7 @@ namespace XeniaPatchMaker
                 OutPut.AppendText("hash = \"" + HashKey.Text + "\"");
                 OutPut.AppendText(Environment.NewLine);
                 OutputConditions = false;
+                WXI.Enabled = false;
 
             }
             else
@@ -1057,15 +1057,38 @@ namespace XeniaPatchMaker
                 return false;
             }
         }
+
         private void AddPokeHeader_Click(object sender, EventArgs e)
         {
-            OutputConditions = true;
-            //Safe Guard For Users TO Make Sure Format Is Correct At All Times
-            if (OutPut.Text.Contains("[[patch]]"))
+            //Todo: Check For Double Or Single Float
+            bool writepatchvalue = false;
+            switch (PatchValue.Text.Length)
             {
+                case 2://be8
+                    writepatchvalue = true;
+                    break;
+                case 4://be16
+                    writepatchvalue = true;
+                    break;
+                case 8://be32
+                    writepatchvalue = true;
+                    break;
+                case 16://be64
+                    writepatchvalue = true;
+                    break;
+                default:
+                    MessageBox.Show("Incorrect Patch Length (Must Fix)");
+                    break;
+            }
+
+            //Safe Guard For Users TO Make Sure Format Is Correct At All Times
+            if (OutPut.Text.Contains("[[patch]]") && writepatchvalue == true)
+            {
+
+                OutputConditions = true;
                 OutPut.AppendText("    [[patch." + ProvideSizeType.Text + "]]");
                 OutPut.AppendText(Environment.NewLine);
-                OutPut.AppendText("        address = " + "0x" + PatchAddress.Text);
+                OutPut.AppendText("        address = " + "0x" + PatchAddress.Text.ToUpper());
                 OutPut.AppendText(Environment.NewLine);
                 OutPut.AppendText("        value = " + "0x" + PatchValue.Text.ToUpper());
                 OutPut.AppendText(Environment.NewLine);
@@ -1073,18 +1096,10 @@ namespace XeniaPatchMaker
                 if (Properties.Settings.Default.AutoDelete == true)
                 {
                     PatchAddress.Text = string.Empty;
-                    if (UseType.Checked == true)
-                    {
-
-                    }
-                    else
+                    if (UseType.Checked != true)
                     {
                         PatchValue.Text = string.Empty;
                     }
-                }
-                else
-                {
-
                 }
                 OutputConditions = false;
             }
@@ -1175,8 +1190,7 @@ namespace XeniaPatchMaker
                 {
                     //when adding is clicked the address is grabbed and stored
                     //the address then uses hex math to Add 4 bytes
-                    int decValue = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) + Properties.Settings.Default.AddressMath;
-                    PatchAddress.Text = decValue.ToString("X");
+                    PatchAddress.Text = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) + Properties.Settings.Default.AddressMath.ToString("X");
                 }
                 return;
             }
@@ -1188,15 +1202,15 @@ namespace XeniaPatchMaker
 
             if (UseType.Checked == true)
             {
-                if(SelectedOpcodeCheck(Types.SelectedItem.ToString()))
+                if (SelectedOpcodeCheck(Types.SelectedItem.ToString()))
                 {
                     PatchValue.Text = OpcodeType.ToUpper().Substring(2 + OpcodeType.IndexOf("0x"));
                     PatchValue.Enabled = false;
                 }
                 else
                 {
-                PatchValue.Text = "";
-                PatchValue.Enabled = true;
+                    PatchValue.Text = "";
+                    PatchValue.Enabled = true;
                 }
 
             }
@@ -1265,11 +1279,10 @@ namespace XeniaPatchMaker
         /// <param name="e"></param>
         private void DropBox_DragDrop(object sender, DragEventArgs e)
         {
-            Data = File.ReadAllText(string.Join("", CurrentFullPath));
+            Data = File.ReadAllText(string.Join("", CurrentFullPath)).Substring(0, Data.IndexOf("Savegame ID:"));
             if (Path.GetFileName(CurrentFullName).Contains(".log"))
             {
                 //makes log shorter
-                Data.Substring(0, Data.IndexOf("Savegame ID:"));
                 GetAllTypes();
                 if (Properties.Settings.Default.WriteInfo == true)
                 {
@@ -1301,7 +1314,6 @@ namespace XeniaPatchMaker
             }
             else if (Path.GetFileName(CurrentFullName).Contains(".patch"))
             {
-                string data = Data;
                 if (!IsNullOrEmpty(TitleName.Text) && !IsNullOrEmpty(TitleId.Text) && !IsNullOrEmpty(HashKey.Text))
                 {
                     DialogResult dialogResult = MessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
@@ -1314,7 +1326,7 @@ namespace XeniaPatchMaker
                         //do something else
                     }
                 }
-                OutPut.Text = data;
+                OutPut.Text = Data;
                 return;
             }
 
@@ -1364,13 +1376,13 @@ namespace XeniaPatchMaker
 
         private void ClearOutput_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!IsNullOrEmpty(OutPut.Text))
+            if (OutPut.Text == string.Empty)
             {
-                OutPut.Text = string.Empty;
+                return;
             }
             else
             {
-                return;
+                OutPut.Text = string.Empty;
             }
         }
 
@@ -1429,22 +1441,19 @@ namespace XeniaPatchMaker
                 CheckPathExists = true,
                 CheckFileExists = true
             })
-
-
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
+
                     OutputConditions = true;
                     OutPut.Text = File.ReadAllText(dialog.FileName);
                     OutputConditions = false;
-
-
                 }
         }
         public void FormType_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (sender.GetType().FullName == "XeniaPatchMaker.ValueConverter")
             {
-                Program.valueConverter = null;
+                valueConverter = null;
             }
             else if (sender.GetType().FullName == "XeniaPatchMaker.XPM")
             {
@@ -1502,113 +1511,123 @@ namespace XeniaPatchMaker
         {
             try
             {
-                if (OutPut.Text.Equals(""))
+                //checks if string is not empty.
+                if (OutPut.Text.Equals(string.Empty))
                 {
                     barButtonItem11.Enabled = false;
                     barButtonItem10.Enabled = false;
                     barButtonItem9.Enabled = false;
+                    WXI.Enabled = true;
                 }
                 else
                 {
+                    WXI.Enabled = true;
                     barButtonItem11.Enabled = true;
                     barButtonItem10.Enabled = true;
                     barButtonItem9.Enabled = true;
+
+                    if (Properties.Settings.Default.ColorDisabled == false)
+                    {
+                        if (OutputConditions == true)
+                        {
+                            foreach (string text in OutPut.Lines)
+                            {
+                                switch (text)
+                                {
+                                    case "true":
+                                        CheckKeyword("is_enabled = false".Substring(2), Color.Green, 0);
+                                        break;
+                                    case "false":
+                                        CheckKeyword("is_enabled = false".Substring(2), Color.Green, 0);
+                                        break;
+                                    case " is_enabled = ":
+                                        CheckKeyword(" is_enabled = ", Color.FromArgb(126, 59, 188), 0);
+                                        break;
+                                    case "[[patch]]":
+                                        CheckKeyword("[[patch]]", Color.FromArgb(74, 139, 197), 0);
+                                        break;
+                                    case "hash =":
+                                        CheckKeyword("hash =", Color.Coral, 0);
+                                        break;
+                                    case "[[patch." + "be32" + "]]":
+                                        CheckKeyword("[[patch." + "be32" + "]]", Properties.Settings.Default.PatchAddressColor1, 0);
+                                        break;
+                                    case "\"":
+                                        CheckKeyword("\"", Color.Red, 0);
+                                        break;
+                                    case "title_name =":
+                                        CheckKeyword("title_name =", Properties.Settings.Default.PatchAddressColor2, 0);
+                                        break;
+                                    case "title_id =":
+                                        CheckKeyword("title_id =", Properties.Settings.Default.PatchAddressColor3, 0);
+                                        break;
+                                    case "address = ":
+                                        CheckKeyword("address = ", Color.FromArgb(214, 136, 82), 0);
+                                        break;
+                                    case "value = ":
+                                        CheckKeyword("value = ", Color.FromArgb(214, 136, 82), 0);
+                                        break;
+                                    case " name = ":
+                                        CheckKeyword(" name = ", Color.FromArgb(214, 136, 82), 0);
+                                        break;
+                                    case " author = ":
+                                        CheckKeyword(" author = ", Color.FromArgb(214, 136, 82), 0);
+                                        break;
+                                }
+                            }
+                            //Checks User Input's Then Changes Color
+                            if (TitleName.Text != string.Empty)
+                            {
+                                CheckKeyword(TitleName.Text, Color.Green, 0);
+                            }
+                            else if (TitleId.Text != string.Empty)
+                            {
+                                CheckKeyword(TitleId.Text, Color.Green, 0);
+                            }
+                            else if (HashKey.Text != string.Empty)
+                            {
+                                CheckKeyword(HashKey.Text, Color.Green, 0);
+                            }
+                            else if (IsOn.Text != string.Empty)
+                            {
+                                CheckKeyword(IsOn.Text, Color.Green, 0);
+                            }
+
+                            else if (Authors.Text != string.Empty)
+                            {
+                                CheckKeyword(Authors.Text, Color.Green, 0);
+                            }
+
+                            else if (PatchName.Text != string.Empty)
+                            {
+                                CheckKeyword(PatchName.Text, Color.Green, 0);
+                            }
+
+                            else if (PatchAddress.Text != string.Empty)
+                            {
+                                CheckKeyword(PatchAddress.Text, Color.Green, 0);
+                            }
+
+                            else if (PatchValue.Text != string.Empty)
+                            {
+                                CheckKeyword(PatchValue.Text, Color.Green, 0);
+                            }
+                            else if (ProvideSizeType.Text != string.Empty)
+                            {
+                                CheckKeyword(ProvideSizeType.Text, Color.Green, 0);
+                            }
+                            else
+                            {
+                                return;
+                            }
+                        }
+                    }
                 }
-                if (Properties.Settings.Default.ColorDisabled == false)
-                {
-                    //by default
-                    if (OutPut.Text.Contains("false"))
-                    {
-                        CheckKeyword("is_enabled = false".Substring(2), Color.Red, 0);
-                    }
-                    if (OutPut.Text.Contains("true"))
-                    {
-                        CheckKeyword("is_enabled = true".Substring(2), Color.Green, 0);
-                    }
-                    CheckKeyword(" is_enabled = ", Color.FromArgb(126, 59, 188), 0);
-                    if (OutputConditions == true)
-                    {
-                        //fix while writing you get glitches
 
-                        //by default
-                        CheckKeyword("[[patch]]", Color.FromArgb(74, 139, 197), 0);
-                        //by default
-                        CheckKeyword("hash =", Color.Coral, 0);
-                        //by default
-                        if (OutPut.Text.Contains("false"))
-                        {
-                            CheckKeyword("is_enabled = false".Substring(2), Color.Red, 0);
-                        }
-                        if (OutPut.Text.Contains("true"))
-                        {
-                            CheckKeyword("is_enabled = true".Substring(2), Color.Green, 0);
-                        }
-                        CheckKeyword(" is_enabled = ", Color.FromArgb(126, 59, 188), 0);
-                        //by default
-                        CheckKeyword("[[patch." + "be32" + "]]", Properties.Settings.Default.PatchAddressColor1, 0);
-                        CheckKeyword("\"", Color.Red, 0);
-                        CheckKeyword("title_name =", Properties.Settings.Default.PatchAddressColor2, 0);
-                        CheckKeyword("title_id =", Properties.Settings.Default.PatchAddressColor3, 0);
-
-                        CheckKeyword("address = ", Color.FromArgb(214, 136, 82), 0);
-                        CheckKeyword("value = ", Color.FromArgb(214, 136, 82), 0);
-                        CheckKeyword(" name = ", Color.FromArgb(214, 136, 82), 0);
-                        CheckKeyword(" desc = ", Color.FromArgb(214, 136, 82), 0);
-                        CheckKeyword(" author = ", Color.FromArgb(214, 136, 82), 0);
-                        //Checks User Input's Then Changes Color
-                        if (TitleName.Text != string.Empty)
-                        {
-                            CheckKeyword(TitleName.Text, Color.Green, 0);
-                        }
-                        else if (TitleId.Text != string.Empty)
-                        {
-                            CheckKeyword(TitleId.Text, Color.Green, 0);
-                        }
-                        else if (HashKey.Text != string.Empty)
-                        {
-                            CheckKeyword(HashKey.Text, Color.Green, 0);
-                        }
-                        else if (IsOn.Text != string.Empty)
-                        {
-                            CheckKeyword(IsOn.Text, Color.Green, 0);
-                        }
-
-                        else if (Authors.Text != string.Empty)
-                        {
-                            CheckKeyword(Authors.Text, Color.Green, 0);
-                        }
-
-                        else if (PatchName.Text != string.Empty)
-                        {
-                            CheckKeyword(PatchName.Text, Color.Green, 0);
-                        }
-
-                        else if (PatchAddress.Text != string.Empty)
-                        {
-                            CheckKeyword(PatchAddress.Text, Color.Green, 0);
-                        }
-
-                        else if (PatchValue.Text != string.Empty)
-                        {
-                            CheckKeyword(PatchValue.Text, Color.Green, 0);
-                        }
-
-
-
-                        else if (ProvideSizeType.Text != string.Empty)
-                        {
-                            CheckKeyword(ProvideSizeType.Text, Color.Green, 0);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
             }
             catch
             {
-                
+
             }
         }
         #endregion
@@ -1659,15 +1678,9 @@ namespace XeniaPatchMaker
             valueConverter.ShowDialog(this); //Show Form assigning this form as the forms owner
         }
 
-        private void OutPut_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            OutputConditions = false;
-        }
+        private void OutPut_KeyPress(object sender, KeyPressEventArgs e) => OutputConditions = false;
 
-        private void OutPut_Leave(object sender, EventArgs e)
-        {
-            OutputConditions = true;
-        }
+        private void OutPut_Leave(object sender, EventArgs e) => OutputConditions = true;
 
         private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

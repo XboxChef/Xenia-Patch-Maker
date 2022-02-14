@@ -39,7 +39,7 @@ namespace XeniaPatchMaker
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.WXI = new DevExpress.XtraEditors.SimpleButton();
             this.GameInfoHeader = new DevExpress.XtraEditors.GroupControl();
             this.HashKey = new DevExpress.XtraEditors.TextEdit();
             this.TitleId = new DevExpress.XtraEditors.TextEdit();
@@ -165,18 +165,18 @@ namespace XeniaPatchMaker
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
             // 
-            // simpleButton1
+            // WXI
             // 
-            this.simpleButton1.AllowFocus = false;
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton1.Location = new System.Drawing.Point(2, 126);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(192, 23);
-            this.simpleButton1.TabIndex = 20;
-            this.simpleButton1.Text = "Write Xex Info";
-            this.simpleButton1.Click += new System.EventHandler(this.XEXInfo_Click);
+            this.WXI.AllowFocus = false;
+            this.WXI.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(139)))), ((int)(((byte)(197)))));
+            this.WXI.Appearance.Options.UseForeColor = true;
+            this.WXI.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.WXI.Location = new System.Drawing.Point(2, 126);
+            this.WXI.Name = "WXI";
+            this.WXI.Size = new System.Drawing.Size(192, 23);
+            this.WXI.TabIndex = 20;
+            this.WXI.Text = "Write Xex Info";
+            this.WXI.Click += new System.EventHandler(this.XEXInfo_Click);
             // 
             // GameInfoHeader
             // 
@@ -187,7 +187,7 @@ namespace XeniaPatchMaker
             this.GameInfoHeader.Controls.Add(this.HashKey);
             this.GameInfoHeader.Controls.Add(this.TitleId);
             this.GameInfoHeader.Controls.Add(this.TitleName);
-            this.GameInfoHeader.Controls.Add(this.simpleButton1);
+            this.GameInfoHeader.Controls.Add(this.WXI);
             this.GameInfoHeader.Controls.Add(this.label3);
             this.GameInfoHeader.Controls.Add(this.label2);
             this.GameInfoHeader.Location = new System.Drawing.Point(11, 101);
@@ -1103,6 +1103,8 @@ namespace XeniaPatchMaker
             this.ProvideSizeType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ProvideSizeType.Properties.Items.AddRange(new object[] {
+            "f64",
+            "f32",
             "be64",
             "be32",
             "be16",
@@ -1590,7 +1592,7 @@ namespace XeniaPatchMaker
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton WXI;
         private DevExpress.XtraEditors.GroupControl GameInfoHeader;
         private DevExpress.XtraEditors.TextEdit TitleName;
         private DevExpress.XtraEditors.GroupControl PatchInfoGroup;

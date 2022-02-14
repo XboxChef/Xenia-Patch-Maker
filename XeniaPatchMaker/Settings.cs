@@ -53,7 +53,7 @@ namespace XeniaPatchMaker
             PatchAddressColor2.Color = PatchAddressColorlabel2.ForeColor = Properties.Settings.Default.PatchAddressColor2;
             PatchAddressColor3.Color = PatchAddressColorlabel3.ForeColor = Properties.Settings.Default.PatchAddressColor3;
             PatchAddressColor4.Color = PatchAddressColorlabel4.ForeColor = Properties.Settings.Default.PatchAddressColor4;
-            
+
 
         }
 
@@ -83,69 +83,69 @@ namespace XeniaPatchMaker
         {
             try
             {
-                if(ActiveControl != null)
+                if (ActiveControl != null)
                 {
-                switch (ActiveControl.Name)
-                {
-                    case "MainColor1":
-                        MainColorLabel1.ForeColor = MainColor1.Color;
-                        Properties.Settings.Default.mainheadercolor1 = MainColorLabel1.ForeColor;
+                    switch (ActiveControl.Name)
+                    {
+                        case "MainColor1":
+                            MainColorLabel1.ForeColor = MainColor1.Color;
+                            Properties.Settings.Default.mainheadercolor1 = MainColorLabel1.ForeColor;
 
-                        break;
-                    case "MainColor2":
-                        MainColorLabel2.ForeColor = MainColor2.Color;
-                        Properties.Settings.Default.mainheadercolor2 = MainColorLabel2.ForeColor;
-
-
-                        break;
-                    case "MainColor3":
-                        MainColorLabel3.ForeColor = MainColor3.Color;
-                        Properties.Settings.Default.mainheadercolor3 = MainColorLabel3.ForeColor;
-
-                        break;
-                    case "MainColor4":
-                        MainColorLabel4.ForeColor = MainColor4.Color;
-                        Properties.Settings.Default.mainheadercolor4 = MainColorLabel4.ForeColor;
-
-                        break;
-                    case "PatchInfoColor1":
-                        PatchInfoColorLabel1.ForeColor = PatchInfoColor1.Color;
-                        Properties.Settings.Default.patchInfoColor1 = PatchInfoColorLabel1.ForeColor;
-
-                        break;
-                    case "PatchInfoColor2":
-                        PatchInfoColorLabel2.ForeColor = PatchInfoColor2.Color;
-                        Properties.Settings.Default.patchInfoColor2 = PatchInfoColorLabel2.ForeColor;
+                            break;
+                        case "MainColor2":
+                            MainColorLabel2.ForeColor = MainColor2.Color;
+                            Properties.Settings.Default.mainheadercolor2 = MainColorLabel2.ForeColor;
 
 
-                        break;
-                    case "PatchInfoColor3":
-                        PatchInfoColorLabel3.ForeColor = PatchInfoColor3.Color;
-                        Properties.Settings.Default.patchInfoColor3 = PatchInfoColorLabel3.ForeColor;
+                            break;
+                        case "MainColor3":
+                            MainColorLabel3.ForeColor = MainColor3.Color;
+                            Properties.Settings.Default.mainheadercolor3 = MainColorLabel3.ForeColor;
 
-                        break;
-                    case "PatchAddressColor1":
-                        PatchAddressColorlabel1.ForeColor = PatchAddressColor1.Color;
-                        Properties.Settings.Default.PatchAddressColor1 = PatchAddressColorlabel1.ForeColor;
+                            break;
+                        case "MainColor4":
+                            MainColorLabel4.ForeColor = MainColor4.Color;
+                            Properties.Settings.Default.mainheadercolor4 = MainColorLabel4.ForeColor;
 
-                        break;
-                    case "PatchAddressColor2":
-                        PatchAddressColorlabel2.ForeColor = PatchAddressColor2.Color;
-                        Properties.Settings.Default.PatchAddressColor2 = PatchAddressColorlabel2.ForeColor;
+                            break;
+                        case "PatchInfoColor1":
+                            PatchInfoColorLabel1.ForeColor = PatchInfoColor1.Color;
+                            Properties.Settings.Default.patchInfoColor1 = PatchInfoColorLabel1.ForeColor;
 
-                        break;
-                    case "PatchAddressColor3":
-                        PatchAddressColorlabel3.ForeColor = PatchAddressColor3.Color;
-                        Properties.Settings.Default.PatchAddressColor3 = PatchAddressColorlabel3.ForeColor;
+                            break;
+                        case "PatchInfoColor2":
+                            PatchInfoColorLabel2.ForeColor = PatchInfoColor2.Color;
+                            Properties.Settings.Default.patchInfoColor2 = PatchInfoColorLabel2.ForeColor;
 
-                        break;
-                    case "PatchAddressColor4":
-                        PatchAddressColorlabel4.ForeColor = PatchAddressColor4.Color;
-                        Properties.Settings.Default.PatchAddressColor4 = PatchAddressColorlabel4.ForeColor;
 
-                        break;
+                            break;
+                        case "PatchInfoColor3":
+                            PatchInfoColorLabel3.ForeColor = PatchInfoColor3.Color;
+                            Properties.Settings.Default.patchInfoColor3 = PatchInfoColorLabel3.ForeColor;
 
-                }
+                            break;
+                        case "PatchAddressColor1":
+                            PatchAddressColorlabel1.ForeColor = PatchAddressColor1.Color;
+                            Properties.Settings.Default.PatchAddressColor1 = PatchAddressColorlabel1.ForeColor;
+
+                            break;
+                        case "PatchAddressColor2":
+                            PatchAddressColorlabel2.ForeColor = PatchAddressColor2.Color;
+                            Properties.Settings.Default.PatchAddressColor2 = PatchAddressColorlabel2.ForeColor;
+
+                            break;
+                        case "PatchAddressColor3":
+                            PatchAddressColorlabel3.ForeColor = PatchAddressColor3.Color;
+                            Properties.Settings.Default.PatchAddressColor3 = PatchAddressColorlabel3.ForeColor;
+
+                            break;
+                        case "PatchAddressColor4":
+                            PatchAddressColorlabel4.ForeColor = PatchAddressColor4.Color;
+                            Properties.Settings.Default.PatchAddressColor4 = PatchAddressColorlabel4.ForeColor;
+
+                            break;
+
+                    }
                 }
 
             }
