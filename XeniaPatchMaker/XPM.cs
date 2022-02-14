@@ -45,8 +45,7 @@ namespace XeniaPatchMaker
                     else if (LocationOfFileDroppedToExe.Contains(".log"))
                     {
                         Data = File.ReadAllText(LocationOfFileDroppedToExe);
-                        //makes log shorter
-                        Data.Substring(0, Data.IndexOf("Savegame ID:"));
+                        Data.Substring(0, Data.IndexOf("Savegame ID:") + "Savegame ID:".Length);
                         GetAllTypes();
                         if (Properties.Settings.Default.WriteInfo == true)
                         {
@@ -1279,7 +1278,8 @@ namespace XeniaPatchMaker
         /// <param name="e"></param>
         private void DropBox_DragDrop(object sender, DragEventArgs e)
         {
-            Data = File.ReadAllText(string.Join("", CurrentFullPath)).Substring(0, Data.IndexOf("Savegame ID:"));
+            Data = File.ReadAllText(string.Join("", CurrentFullPath));
+            Data.Substring(0, Data.IndexOf("Savegame ID:") + "Savegame ID:".Length);
             if (Path.GetFileName(CurrentFullName).Contains(".log"))
             {
                 //makes log shorter
