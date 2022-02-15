@@ -33,7 +33,7 @@ namespace XeniaPatchMaker
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::XeniaPatchMaker.Loading_Screen), true, true);
+            DevExpress.XtraSplashScreen.SplashScreenManager LoadingSplashScreen = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::XeniaPatchMaker.Loading_Screen), true, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XPM));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -83,11 +83,11 @@ namespace XeniaPatchMaker
             this.TopManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.SaveButton = new DevExpress.XtraBars.BarButtonItem();
+            this.LoadButton = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.ClearButton = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
@@ -124,9 +124,9 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.TopManager)).BeginInit();
             this.SuspendLayout();
             // 
-            // splashScreenManager1
+            // LoadingSplashScreen
             // 
-            splashScreenManager1.ClosingDelay = 900;
+            LoadingSplashScreen.ClosingDelay = 880;
             // 
             // label1
             // 
@@ -1337,9 +1337,9 @@ namespace XeniaPatchMaker
             this.barSubItem4,
             this.barSubItem5,
             this.barButtonItem6,
-            this.barButtonItem3,
-            this.barButtonItem7,
-            this.barButtonItem8,
+            this.SaveButton,
+            this.LoadButton,
+            this.ClearButton,
             this.barSubItem1,
             this.ValueConverter,
             this.barSubItem3,
@@ -1375,24 +1375,24 @@ namespace XeniaPatchMaker
             this.barSubItem2.Caption = "File";
             this.barSubItem2.Id = 0;
             this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem7),
+            new DevExpress.XtraBars.LinkPersistInfo(this.SaveButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.LoadButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem7)});
             this.barSubItem2.Name = "barSubItem2";
             // 
-            // barButtonItem3
+            // SaveButton
             // 
-            this.barButtonItem3.Caption = "Save";
-            this.barButtonItem3.Id = 4;
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.SavePatchFile_Click);
+            this.SaveButton.Caption = "Save";
+            this.SaveButton.Id = 4;
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.SavePatchFile_Click);
             // 
-            // barButtonItem7
+            // LoadButton
             // 
-            this.barButtonItem7.Caption = "Load";
-            this.barButtonItem7.Id = 5;
-            this.barButtonItem7.Name = "barButtonItem7";
-            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.LoadPatchFile_Click);
+            this.LoadButton.Caption = "Load";
+            this.LoadButton.Id = 5;
+            this.LoadButton.Name = "LoadButton";
+            this.LoadButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.LoadPatchFile_Click);
             // 
             // barSubItem7
             // 
@@ -1405,15 +1405,15 @@ namespace XeniaPatchMaker
             this.barSubItem4.Caption = "Edit";
             this.barSubItem4.Id = 1;
             this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.ClearButton)});
             this.barSubItem4.Name = "barSubItem4";
             // 
-            // barButtonItem8
+            // ClearButton
             // 
-            this.barButtonItem8.Caption = "Clear";
-            this.barButtonItem8.Id = 6;
-            this.barButtonItem8.Name = "barButtonItem8";
-            this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearOutput_Click);
+            this.ClearButton.Caption = "Clear";
+            this.ClearButton.Id = 6;
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearOutput_Click);
             // 
             // barSubItem6
             // 
@@ -1636,10 +1636,10 @@ namespace XeniaPatchMaker
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarSubItem barSubItem2;
         private DevExpress.XtraBars.BarDockControl barDockControl4;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem SaveButton;
+        private DevExpress.XtraBars.BarButtonItem LoadButton;
         private DevExpress.XtraBars.BarSubItem barSubItem4;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.BarButtonItem ClearButton;
         private DevExpress.XtraBars.BarSubItem barSubItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarSubItem barSubItem1;

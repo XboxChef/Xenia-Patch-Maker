@@ -266,11 +266,11 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loading Screen.cs">
+    <Compile Include="Loading Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loading Screen.Designer.cs">
-      <DependentUpon>Loading Screen.cs</DependentUpon>
+    <Compile Include="Loading Form.Designer.cs">
+      <DependentUpon>Loading Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Helper.cs" />
     <Compile Include="Util\UpdateChecker.cs" />
@@ -304,8 +304,8 @@
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Loading Screen.resx">
-      <DependentUpon>Loading Screen.cs</DependentUpon>
+    <EmbeddedResource Include="Loading Form.resx">
+      <DependentUpon>Loading Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Util\UpdateNotifyDialog.resx">
       <DependentUpon>UpdateNotifyDialog.cs</DependentUpon>

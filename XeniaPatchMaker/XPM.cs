@@ -38,13 +38,12 @@ namespace XeniaPatchMaker
                 {
                     if (args[0].Contains(".patch"))
                     {
-                        Output.Text = File.ReadAllText(args[0]);
+                        LoadPatchData(args[0]);
                     }
                     else if (args[0].Contains(".log"))
                     {
                         Data = File.ReadAllText(args[0]);
-                        Data.Substring(0, Data.IndexOf("Savegame ID:") + "Savegame ID:".Length);
-                        GetAllTypes();
+                        GetAllTypes(Data.Substring(0, Data.IndexOf("Savegame ID:") + "Savegame ID:".Length));
                         if (Properties.Settings.Default.WriteInfo == true)
                         {
                             if (HashKey.Text.Length > 10)
@@ -74,7 +73,6 @@ namespace XeniaPatchMaker
                         }
                     }
                 }
-                // Do something with the file now...
             }
         }
         private void XPM_Load(object sender, EventArgs e)
@@ -1132,7 +1130,7 @@ namespace XeniaPatchMaker
                         Output.AppendText(Environment.NewLine + "    author = \"" + Authors.Text + "\"");
                     }
                     Output.AppendText(Environment.NewLine + "    is_enabled = " + IsOn.IsOn.ToString().ToLower() + Environment.NewLine + Environment.NewLine);
-
+                    // Condition checks make sure If the Current user Has the Proper Settings Applied.
                     if (Properties.Settings.Default.DisableMessageBox == false)
                     {
                         DialogResult dialogResult = MessageBox.Show("Would you like to delete the current patch input?", "Warning", MessageBoxButtons.YesNo);
@@ -1142,9 +1140,6 @@ namespace XeniaPatchMaker
                             Authors.Text = string.Empty;
                             IsOn.IsOn = false;
                         }
-                        //else
-                        //{
-                        //}
                     }
                     OutputConditions = false;
                 }
@@ -1238,11 +1233,11 @@ namespace XeniaPatchMaker
         /// <summary>
         /// Find all types.
         /// </summary>
-        public void GetAllTypes()
+        public void GetAllTypes(string data)
         {
             // Improving what we have
-            TitleId.Text = GetTitleID(Data, "Title ID:", "Savegame ID:", 0);
-            HashKey.Text = GetHashKey(Data, "Module hash: ", " for default", 0);
+            TitleId.Text = GetTitleID(data, "Title ID:", "Savegame ID:", 0);
+            HashKey.Text = GetHashKey(data, "Module hash: ", " for default", 0);
             // Deserialize the DB XML file
             var titleDB = TitleDB.XmlDeserialize(File.ReadAllText(Path.Combine(Application.StartupPath, "DB.xml"), Encoding.UTF8));
 
@@ -1274,12 +1269,11 @@ namespace XeniaPatchMaker
         /// <param name="e"></param>
         private void DropBox_DragDrop(object sender, DragEventArgs e)
         {
-            Data = File.ReadAllText(string.Join("", CurrentFullPath));
-            Data.Substring(0, Data.IndexOf("Savegame ID:") + "Savegame ID:".Length);
+            // Condition Check: verify if user has dropped a log file in.
             if (Path.GetFileName(CurrentFullName).Contains(".log"))
             {
-                // Make log shorter
-                GetAllTypes();
+                Data = File.ReadAllText(string.Join("", CurrentFullPath));
+                GetAllTypes(Data.Substring(0, Data.IndexOf("Savegame ID:") + "Savegame ID:".Length));
                 if (Properties.Settings.Default.WriteInfo == true)
                 {
                     if (HashKey.Text.Length > 10)
@@ -1310,21 +1304,33 @@ namespace XeniaPatchMaker
             }
             else if (Path.GetFileName(CurrentFullName).Contains(".patch"))
             {
-                if (!IsNullOrEmpty(TitleName.Text) && !IsNullOrEmpty(TitleId.Text) && !IsNullOrEmpty(HashKey.Text))
+                DialogResult dialogResult = MessageBox.Show("This Will Delete Any Current Unsaved Data.\r\nWould You Like To Continue?", "Load Patch File.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Sure", "Some Title", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        // Do something
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        // Do something else
-                    }
+                    LoadPatchData(string.Join("", CurrentFullPath));
                 }
-                Output.Text = Data;
                 return;
             }
+        }
+
+        private void LoadPatchData(string Path)
+        {
+            foreach (string lines in File.ReadAllLines(Path))
+            {
+                if (lines.StartsWith("title_name = "))
+                {
+                    TitleName.Text = lines.Substring("title_name = ".Length).Replace("\"", string.Empty);
+                }
+                else if (lines.StartsWith("title_id = "))
+                {
+                    TitleId.Text = lines.Substring("title_id = ".Length).Replace("\"", string.Empty);
+                }
+                else if (lines.StartsWith("hash = "))
+                {
+                    HashKey.Text = lines.Substring("hash = ".Length).Replace("\"", string.Empty);
+                }
+            }
+            Output.Text = File.ReadAllText(Path);
         }
 
         private void DropBox_DragEnter(object sender, DragEventArgs e)
@@ -1425,7 +1431,7 @@ namespace XeniaPatchMaker
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     OutputConditions = true;
-                    Output.Text = File.ReadAllText(dialog.FileName);
+                    LoadPatchData(dialog.FileName);
                     OutputConditions = false;
                 }
         }

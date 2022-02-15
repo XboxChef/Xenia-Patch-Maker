@@ -758,12 +758,12 @@ namespace XeniaPatchMaker
             "IcySon55 - Fixed The Naming Process, improved the database and added XML.",
             "",
             "-Code Used-",
-            "Ryan Gribble - Helper class https://github.com/octokit/octokit.net/blob/main/Oct" +
-                "okit/Helpers/)",
+            "Ryan Gribble - Helper class https://github.com/octokit/octokit.net/blob/main/Octo" +
+                "kit/Helpers/)",
             "nixxquality - GitHub Updater https://github.com/nixxquality/GitHubUpdate",
             "",
-            "Everyone is welcome to join this list I can't express how much of a thanks I want " +
-                "to give to",
+            "Everyone is welcome to join this list I can\'t express how much of a thanks I want" +
+                " to give to",
             "these contributors."});
             this.listBoxControl1.Location = new System.Drawing.Point(0, 0);
             this.listBoxControl1.Name = "listBoxControl1";

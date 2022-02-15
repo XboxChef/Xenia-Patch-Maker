@@ -99,8 +99,6 @@ namespace XeniaPatchMaker
             this.Name = "Loading_Screen";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "SplashScreen1";
-            this.Load += new System.EventHandler(this.Loading_Screen_Load);
-            this.Shown += new System.EventHandler(this.SplashScreen1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();
             this.ResumeLayout(false);
