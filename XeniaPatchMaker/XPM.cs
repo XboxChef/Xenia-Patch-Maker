@@ -1063,20 +1063,33 @@ namespace XeniaPatchMaker
             bool writepatchvalue = false;
             switch (PatchValue.Text.Length)
             {
+                
                 case 2://be8
-                    writepatchvalue = true;
+                    if(ProvideSizeType.Text == "be8")
+                    {
+                        writepatchvalue = true;
+                    }
                     break;
                 case 4://be16
-                    writepatchvalue = true;
+                    if (ProvideSizeType.Text == "be16")
+                    {
+                        writepatchvalue = true;
+                    }
                     break;
                 case 8://be32
-                    writepatchvalue = true;
+                    if (ProvideSizeType.Text == "be32")
+                    {
+                        writepatchvalue = true;
+                    }
                     break;
                 case 16://be64
-                    writepatchvalue = true;
+                    if (ProvideSizeType.Text == "be64")
+                    {
+                        writepatchvalue = true;
+                    }
                     break;
                 default:
-                    MessageBox.Show("Incorrect Patch Length (Must Fix)");
+                    writepatchvalue = false;
                     break;
             }
 
@@ -1104,7 +1117,14 @@ namespace XeniaPatchMaker
             }
             else
             {
-                MessageBox.Show("Patch Header Must Be Made First (Please Write Patch Info)");
+                if(writepatchvalue == false)
+                {
+                    MessageBox.Show("Incorrect Patch Length (Must Fix)");
+                }
+                else if(!OutPut.Text.Contains("[[patch]]"))
+                {
+                    MessageBox.Show("Patch Header Must Be Made First (Please Write Patch Info)");
+                }
             }
         }
 
@@ -1631,7 +1651,15 @@ namespace XeniaPatchMaker
             }
         }
         #endregion
-
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.F))
+            {
+                MessageBox.Show("What the Ctrl+F?");
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void XPM_Shown(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.UseDefaultAuthors == true)

@@ -744,10 +744,15 @@ namespace XeniaPatchMaker
             // 
             this.listBoxControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxControl1.Items.AddRange(new object[] {
-            "TeddyHammer - (aka Serenity Project Manager/Owner)",
+            "Serenity - (aka TeddyHammer Project Manager/Owner)",
+            "",
             "Etokapa - (Providing Useful Feedback Project Tester)",
+            "",
             "Billy Blueberry - (Emotional Support Also Being A Traitor! :) )",
+            "",
             "Boma - (Helping Find More Bug Fixes /Feature Request)",
+            "",
+            "Margen - (Helping Find More Bug Fixes /Feature Request)",
             "",
             "-Contributors-",
             "IcySon55 - (Fixed The Naming Process) Improved The Database And Added XML.",
