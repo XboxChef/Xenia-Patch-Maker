@@ -16,8 +16,9 @@ namespace XeniaPatchMaker
 {
     public partial class XPM : XtraForm
     {
-        #region PlaceHolders
-
+        #region Place Holders
+        public static Dictionary<string, string> PPCOpcodes = new Dictionary<string, string>();
+        public static string OpcodeType;
         public static string CurrentFullPath { get; set; }
         public static string CurrentFullName { get; set; }
         public static string Data { get; set; }
@@ -33,16 +34,15 @@ namespace XeniaPatchMaker
             // If a file was dropped..
             if (args.Length > 0)
             {
-                string LocationOfFileDroppedToExe = args[0];
-                if (!LocationOfFileDroppedToExe.Equals(string.Empty))
+                if (!args[0].Equals(string.Empty))
                 {
-                    if (LocationOfFileDroppedToExe.Contains(".patch"))
+                    if (args[0].Contains(".patch"))
                     {
-                        Output.Text = File.ReadAllText(LocationOfFileDroppedToExe);
+                        Output.Text = File.ReadAllText(args[0]);
                     }
-                    else if (LocationOfFileDroppedToExe.Contains(".log"))
+                    else if (args[0].Contains(".log"))
                     {
-                        Data = File.ReadAllText(LocationOfFileDroppedToExe);
+                        Data = File.ReadAllText(args[0]);
                         Data.Substring(0, Data.IndexOf("Savegame ID:") + "Savegame ID:".Length);
                         GetAllTypes();
                         if (Properties.Settings.Default.WriteInfo == true)
@@ -115,9 +115,6 @@ namespace XeniaPatchMaker
                                 Process.Start(Application.StartupPath + "\\XeniaPatchMaker.exe");
                                 Process.GetCurrentProcess().Kill();
                             }
-                            //else
-                            //{
-                            //}
                         }
                         else
                         {
@@ -136,8 +133,7 @@ namespace XeniaPatchMaker
                 Show();
             }
         }
-        public static Dictionary<string, string> PPCOpcodes = new Dictionary<string, string>();
-        public static string OpcodeType;
+
 
         private void CreateDictonary()
         {

@@ -153,37 +153,33 @@ namespace XeniaPatchMaker
 
         private void UseColorSettings_Checkbox(object sender, EventArgs e)
         {
-            try
+            if (ActiveControl != null)
             {
-                if (ActiveControl != null)
+                switch (ActiveControl.Name)
                 {
-                    switch (ActiveControl.Name)
-                    {
-                        case "DefaultSavePath":
-                            Properties.Settings.Default.SavePathBool = DefaultSavePath.Checked;
-                            break;
-                        case "PatchUseColor":
-                            Properties.Settings.Default.PatchUseColor = PatchUseColor.Checked;
-                            break;
-                        case "PatchInfoUseColor":
-                            Properties.Settings.Default.PatchInfoUseColor = PatchInfoUseColor.Checked;
-                            break;
-                        case "MainUseColor":
-                            Properties.Settings.Default.MainUseColor = MainUseColor.Checked;
-                            break;
-                    }
+                    case "DefaultSavePath":
+                        Properties.Settings.Default.SavePathBool = DefaultSavePath.Checked;
+                        break;
+                    case "PatchUseColor":
+                        Properties.Settings.Default.PatchUseColor = PatchUseColor.Checked;
+                        break;
+                    case "PatchInfoUseColor":
+                        Properties.Settings.Default.PatchInfoUseColor = PatchInfoUseColor.Checked;
+                        break;
+                    case "MainUseColor":
+                        Properties.Settings.Default.MainUseColor = MainUseColor.Checked;
+                        break;
                 }
-            }
-            catch
-            {
             }
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
-            folderBrowser.ShowDialog();
-            Properties.Settings.Default.SavedPath = textEdit1.Text = folderBrowser.SelectedPath;
+            if(folderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                Properties.Settings.Default.SavedPath = textEdit1.Text = folderBrowser.SelectedPath;
+            }
         }
     }
 }
