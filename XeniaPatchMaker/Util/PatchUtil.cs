@@ -3,11 +3,10 @@ using System.Linq;
 
 namespace XeniaPatchMaker.Util
 {
-
     public static class PatchUtil
     {
         /// <summary>
-        /// Condition Checker
+        /// Condition checker.
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
@@ -17,7 +16,7 @@ namespace XeniaPatchMaker.Util
         }
 
         /// <summary>
-        /// Loads Patch Data Back To Textboxes
+        /// Loads patch data back to textboxes.
         /// </summary>
         /// <param name="Placeholder"></param>
         /// <param name="Start"></param>
@@ -52,7 +51,6 @@ namespace XeniaPatchMaker.Util
             {
                 return string.Empty;
             }
-
         }
         public static string GetHashKey(string Placeholder, string Start, string End, int length)
         {
@@ -65,27 +63,25 @@ namespace XeniaPatchMaker.Util
             }
             catch
             {
-
                 return string.Empty;
             }
         }
         public static void CheckKeyword(string word, Color color, int startIndex)
         {
-            string outsource = Program.MainForm.OutPut.Text;
-            if (Program.MainForm.OutPut.Text.Contains(word))
+            string outsource = Program.MainForm.Output.Text;
+            if (Program.MainForm.Output.Text.Contains(word))
             {
                 int index = -1;
-                int selectStart = Program.MainForm.OutPut.SelectionStart;
+                int selectStart = Program.MainForm.Output.SelectionStart;
 
-                while ((index = Program.MainForm.OutPut.Text.IndexOf(word, (index + 1))) != -1)
+                while ((index = Program.MainForm.Output.Text.IndexOf(word, (index + 1))) != -1)
                 {
-                    Program.MainForm.OutPut.Select((index + startIndex), word.Length);
-                    Program.MainForm.OutPut.SelectionColor = color;
-                    Program.MainForm.OutPut.Select(selectStart, 0);
-                    Program.MainForm.OutPut.SelectionColor = Color.White;
+                    Program.MainForm.Output.Select((index + startIndex), word.Length);
+                    Program.MainForm.Output.SelectionColor = color;
+                    Program.MainForm.Output.Select(selectStart, 0);
+                    Program.MainForm.Output.SelectionColor = Color.White;
                 }
             }
         }
-
     }
 }

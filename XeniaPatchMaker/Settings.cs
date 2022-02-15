@@ -32,16 +32,15 @@ namespace XeniaPatchMaker
             {
                 HideValueConverter.Checked = true;
             }
-
         }
 
         private void LoadColors()
         {
-            //Color Settings
+            // Color settings
             PatchUseColor.Checked = Properties.Settings.Default.PatchUseColor;
             PatchInfoUseColor.Checked = Properties.Settings.Default.PatchInfoUseColor;
             MainUseColor.Checked = Properties.Settings.Default.MainUseColor;
-            //end of color settings
+            // End of color settings
             MainColor1.Color = MainColorLabel1.ForeColor = Properties.Settings.Default.mainheadercolor1;
             MainColor2.Color = MainColorLabel2.ForeColor = Properties.Settings.Default.mainheadercolor2;
             MainColor3.Color = MainColorLabel3.ForeColor = Properties.Settings.Default.mainheadercolor3;
@@ -53,8 +52,6 @@ namespace XeniaPatchMaker
             PatchAddressColor2.Color = PatchAddressColorlabel2.ForeColor = Properties.Settings.Default.PatchAddressColor2;
             PatchAddressColor3.Color = PatchAddressColorlabel3.ForeColor = Properties.Settings.Default.PatchAddressColor3;
             PatchAddressColor4.Color = PatchAddressColorlabel4.ForeColor = Properties.Settings.Default.PatchAddressColor4;
-
-
         }
 
         private void Settings_FormClosed(object sender, FormClosedEventArgs e)
@@ -63,7 +60,7 @@ namespace XeniaPatchMaker
 
             Properties.Settings.Default.AddressMath = (int)AddressMath.Value;
             Properties.Settings.Default.WriteInfo = WriteInfo.Checked;
-            //if true hide if not then leave it visible
+            // if true, hide, if not leave it visible
             if (HideValueConverter.Checked == true)
             {
                 Properties.Settings.Default.HideValueConverter = false;
@@ -96,7 +93,6 @@ namespace XeniaPatchMaker
                             MainColorLabel2.ForeColor = MainColor2.Color;
                             Properties.Settings.Default.mainheadercolor2 = MainColorLabel2.ForeColor;
 
-
                             break;
                         case "MainColor3":
                             MainColorLabel3.ForeColor = MainColor3.Color;
@@ -116,7 +112,6 @@ namespace XeniaPatchMaker
                         case "PatchInfoColor2":
                             PatchInfoColorLabel2.ForeColor = PatchInfoColor2.Color;
                             Properties.Settings.Default.patchInfoColor2 = PatchInfoColorLabel2.ForeColor;
-
 
                             break;
                         case "PatchInfoColor3":
@@ -144,20 +139,16 @@ namespace XeniaPatchMaker
                             Properties.Settings.Default.PatchAddressColor4 = PatchAddressColorlabel4.ForeColor;
 
                             break;
-
                     }
                 }
-
             }
             catch
             {
-
             }
         }
 
         private void MainColor1_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-
         }
 
         private void UseColorSettings_Checkbox(object sender, EventArgs e)
@@ -185,9 +176,7 @@ namespace XeniaPatchMaker
             }
             catch
             {
-
             }
-
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

@@ -25,13 +25,13 @@ namespace XeniaPatchMaker.Util
         public string Title { get; set; }
     }
     /// <summary>
-    /// This is the format class that hold title information.
+    /// This is the format class that holds title information.
     /// </summary>
     [XmlRoot("titleDB")]
     public class TitleDB : IXmlSerializable<TitleDB>
     {
         /// <summary>
-        /// The game titles dictioary.
+        /// The game title's dictionary.
         /// </summary>
         [XmlArray("titles")]
         [XmlArrayItem("title")]

@@ -79,7 +79,7 @@ namespace XeniaPatchMaker
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.DropLog = new DevExpress.XtraEditors.GroupControl();
-            this.OutPut = new System.Windows.Forms.RichTextBox();
+            this.Output = new System.Windows.Forms.RichTextBox();
             this.TopManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
@@ -1303,25 +1303,25 @@ namespace XeniaPatchMaker
             this.DropLog.DragDrop += new System.Windows.Forms.DragEventHandler(this.DropBox_DragDrop);
             this.DropLog.DragEnter += new System.Windows.Forms.DragEventHandler(this.DropBox_DragEnter);
             // 
-            // OutPut
+            // Output
             // 
-            this.OutPut.AllowDrop = true;
-            this.OutPut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.OutPut.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OutPut.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.OutPut.ForeColor = System.Drawing.Color.White;
-            this.OutPut.Location = new System.Drawing.Point(0, 270);
-            this.OutPut.Name = "OutPut";
-            this.OutPut.Size = new System.Drawing.Size(816, 438);
-            this.OutPut.TabIndex = 26;
-            this.OutPut.Text = "";
-            this.OutPut.DragDrop += new System.Windows.Forms.DragEventHandler(this.OutPut_DragDrop);
-            this.OutPut.DragEnter += new System.Windows.Forms.DragEventHandler(this.DropBox_DragEnter);
-            this.OutPut.TextChanged += new System.EventHandler(this.OutPut_TextChanged);
-            this.OutPut.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OutPut_KeyDown);
-            this.OutPut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OutPut_KeyPress);
-            this.OutPut.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OutPut_KeyUp);
-            this.OutPut.Leave += new System.EventHandler(this.OutPut_Leave);
+            this.Output.AllowDrop = true;
+            this.Output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.Output.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Output.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Output.ForeColor = System.Drawing.Color.White;
+            this.Output.Location = new System.Drawing.Point(0, 270);
+            this.Output.Name = "Output";
+            this.Output.Size = new System.Drawing.Size(816, 438);
+            this.Output.TabIndex = 26;
+            this.Output.Text = "";
+            this.Output.DragDrop += new System.Windows.Forms.DragEventHandler(this.Output_DragDrop);
+            this.Output.DragEnter += new System.Windows.Forms.DragEventHandler(this.DropBox_DragEnter);
+            this.Output.TextChanged += new System.EventHandler(this.Output_TextChanged);
+            this.Output.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Output_KeyDown);
+            this.Output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Output_KeyPress);
+            this.Output.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Output_KeyUp);
+            this.Output.Leave += new System.EventHandler(this.Output_Leave);
             // 
             // TopManager
             // 
@@ -1531,7 +1531,7 @@ namespace XeniaPatchMaker
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 736);
-            this.Controls.Add(this.OutPut);
+            this.Controls.Add(this.Output);
             this.Controls.Add(this.DropLog);
             this.Controls.Add(this.PatchInfoGroup);
             this.Controls.Add(this.PatchAddressGroup);
@@ -1613,7 +1613,7 @@ namespace XeniaPatchMaker
         private System.Windows.Forms.Label AddressLabel;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.TextEdit PatchAddress;
-        public System.Windows.Forms.RichTextBox OutPut;
+        public System.Windows.Forms.RichTextBox Output;
         public DevExpress.XtraEditors.TextEdit PatchValue;
         private DevExpress.XtraEditors.SimpleButton PlusButton;
         private DevExpress.XtraEditors.SimpleButton MinusButton;
@@ -1657,4 +1657,3 @@ namespace XeniaPatchMaker
         private DevExpress.XtraBars.BarDockControl barDockControl2;
     }
 }
-

@@ -744,27 +744,27 @@ namespace XeniaPatchMaker
             // 
             this.listBoxControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxControl1.Items.AddRange(new object[] {
-            "Serenity - (aka TeddyHammer Project Manager/Owner)",
+            "Serenity - aka TeddyHammer Project Manager/Owner",
             "",
-            "Etokapa - (Providing Useful Feedback Project Tester)",
+            "Etokapa - Providing useful feedback, Project Tester",
             "",
-            "Billy Blueberry - (Emotional Support Also Being A Traitor! :) )",
+            "Billie Blueberry - Emotional support, also being a traitor! :)",
             "",
-            "Boma - (Helping Find More Bug Fixes /Feature Request)",
+            "Boma - Helping find more bug fixes /Feature request",
             "",
-            "Margen - (Helping Find More Bug Fixes /Feature Request)",
+            "Margen67 - Helping find More Bug Fixes /Feature request",
             "",
             "-Contributors-",
-            "IcySon55 - (Fixed The Naming Process) Improved The Database And Added XML.",
+            "IcySon55 - Fixed The Naming Process, improved the database and added XML.",
             "",
             "-Code Used-",
-            "Ryan Gribble (Helper Class - https://github.com/octokit/octokit.net/blob/main/Oct" +
+            "Ryan Gribble - Helper class https://github.com/octokit/octokit.net/blob/main/Oct" +
                 "okit/Helpers/)",
-            "nixxquality (GitHub Updator - https://github.com/nixxquality/GitHubUpdate)",
+            "nixxquality - GitHub Updater https://github.com/nixxquality/GitHubUpdate",
             "",
-            "Everyone is Welcome To Join This List i Cant Express How Much Of A Thanks I Wana " +
-                "Give To",
-            "These Contributions."});
+            "Everyone is welcome to join this list I can't express how much of a thanks I want " +
+                "to give to",
+            "these contributors."});
             this.listBoxControl1.Location = new System.Drawing.Point(0, 0);
             this.listBoxControl1.Name = "listBoxControl1";
             this.listBoxControl1.ShowFocusRect = false;
