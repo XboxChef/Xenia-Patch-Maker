@@ -40,7 +40,7 @@ namespace XeniaPatchMaker
                 {
                     if (LocationOfFileDroppedToExe.Contains(".patch"))
                     {
-                        OutPut.Text = File.ReadAllText(LocationOfFileDroppedToExe);
+                        Output.Text = File.ReadAllText(LocationOfFileDroppedToExe);
                     }
                     else if (LocationOfFileDroppedToExe.Contains(".log"))
                     {
@@ -52,20 +52,20 @@ namespace XeniaPatchMaker
                             if (HashKey.Text.Length > 10)
                             {
                             EmptyString:
-                                if (IsNullOrEmpty(OutPut.Text))
+                                if (IsNullOrEmpty(Output.Text))
                                 {
                                     OutputConditions = true;
-                                    OutPut.AppendText("title_name = \"" + TitleName.Text + "\"");
-                                    OutPut.AppendText(Environment.NewLine);
-                                    OutPut.AppendText("title_id = \"" + TitleId.Text + "\"");
-                                    OutPut.AppendText(Environment.NewLine);
-                                    OutPut.AppendText("hash = \"" + HashKey.Text + "\"");
-                                    OutPut.AppendText(Environment.NewLine);
+                                    Output.AppendText("title_name = \"" + TitleName.Text + "\"");
+                                    Output.AppendText(Environment.NewLine);
+                                    Output.AppendText("title_id = \"" + TitleId.Text + "\"");
+                                    Output.AppendText(Environment.NewLine);
+                                    Output.AppendText("hash = \"" + HashKey.Text + "\"");
+                                    Output.AppendText(Environment.NewLine);
                                     return;
                                 }
                                 else
                                 {
-                                    OutPut.Text = string.Empty;
+                                    Output.Text = string.Empty;
                                     goto EmptyString;
                                 }
                             }
@@ -1027,14 +1027,14 @@ namespace XeniaPatchMaker
         #region Header Info Input
         private void XEXInfo_Click(object sender, EventArgs e)
         {
-            if (OutPut.Text == string.Empty)
+            if (Output.Text == string.Empty)
             {
-                OutPut.AppendText("title_name = \"" + TitleName.Text + "\"");
-                OutPut.AppendText(Environment.NewLine);
-                OutPut.AppendText("title_id = \"" + TitleId.Text + "\"");
-                OutPut.AppendText(Environment.NewLine);
-                OutPut.AppendText("hash = \"" + HashKey.Text + "\"");
-                OutPut.AppendText(Environment.NewLine);
+                Output.AppendText("title_name = \"" + TitleName.Text + "\"");
+                Output.AppendText(Environment.NewLine);
+                Output.AppendText("title_id = \"" + TitleId.Text + "\"");
+                Output.AppendText(Environment.NewLine);
+                Output.AppendText("hash = \"" + HashKey.Text + "\"");
+                Output.AppendText(Environment.NewLine);
                 OutputConditions = false;
                 WXI.Enabled = false;
 
@@ -1094,16 +1094,16 @@ namespace XeniaPatchMaker
             }
 
             //Safe Guard For Users TO Make Sure Format Is Correct At All Times
-            if (OutPut.Text.Contains("[[patch]]") && writepatchvalue == true)
+            if (Output.Text.Contains("[[patch]]") && writepatchvalue == true)
             {
 
                 OutputConditions = true;
-                OutPut.AppendText("    [[patch." + ProvideSizeType.Text + "]]");
-                OutPut.AppendText(Environment.NewLine);
-                OutPut.AppendText("        address = " + "0x" + PatchAddress.Text.ToUpper());
-                OutPut.AppendText(Environment.NewLine);
-                OutPut.AppendText("        value = " + "0x" + PatchValue.Text.ToUpper());
-                OutPut.AppendText(Environment.NewLine);
+                Output.AppendText("    [[patch." + ProvideSizeType.Text + "]]");
+                Output.AppendText(Environment.NewLine);
+                Output.AppendText("        address = " + "0x" + PatchAddress.Text.ToUpper());
+                Output.AppendText(Environment.NewLine);
+                Output.AppendText("        value = " + "0x" + PatchValue.Text.ToUpper());
+                Output.AppendText(Environment.NewLine);
 
                 if (Properties.Settings.Default.AutoDelete == true)
                 {
@@ -1121,7 +1121,7 @@ namespace XeniaPatchMaker
                 {
                     MessageBox.Show("Incorrect Patch Length (Must Fix)");
                 }
-                else if(!OutPut.Text.Contains("[[patch]]"))
+                else if(!Output.Text.Contains("[[patch]]"))
                 {
                     MessageBox.Show("Patch Header Must Be Made First (Please Write Patch Info)");
                 }
@@ -1132,23 +1132,23 @@ namespace XeniaPatchMaker
         {
             OutputConditions = true;
             //Safe Guard For Users TO Make Sure Format Is Correct At All Times
-            if (OutPut.Text.Contains("hash = \""))
+            if (Output.Text.Contains("hash = \""))
             {
                 //Condition Checks Make Sure User At Least Writes Something
                 if (!IsNullOrEmpty(PatchName.Text) && !IsNullOrEmpty(Authors.Text))
                 {
-                    OutPut.AppendText(Environment.NewLine + "[[patch]]");
+                    Output.AppendText(Environment.NewLine + "[[patch]]");
                     //writes the line with user's input
-                    OutPut.AppendText(Environment.NewLine + "    name = \"" + PatchName.Text + "\"");
+                    Output.AppendText(Environment.NewLine + "    name = \"" + PatchName.Text + "\"");
                     if (Properties.Settings.Default.UseDefaultAuthors == true)
                     {
-                        OutPut.AppendText(Environment.NewLine + "    author = \"" + Properties.Settings.Default.DefaultAuthors + "\"");
+                        Output.AppendText(Environment.NewLine + "    author = \"" + Properties.Settings.Default.DefaultAuthors + "\"");
                     }
                     else
                     {
-                        OutPut.AppendText(Environment.NewLine + "    author = \"" + Authors.Text + "\"");
+                        Output.AppendText(Environment.NewLine + "    author = \"" + Authors.Text + "\"");
                     }
-                    OutPut.AppendText(Environment.NewLine + "    is_enabled = " + IsOn.IsOn.ToString().ToLower() + Environment.NewLine + Environment.NewLine);
+                    Output.AppendText(Environment.NewLine + "    is_enabled = " + IsOn.IsOn.ToString().ToLower() + Environment.NewLine + Environment.NewLine);
 
                     if (Properties.Settings.Default.DisableMessageBox == false)
                     {
@@ -1309,20 +1309,20 @@ namespace XeniaPatchMaker
                     if (HashKey.Text.Length > 10)
                     {
                     EmptyString:
-                        if (IsNullOrEmpty(OutPut.Text))
+                        if (IsNullOrEmpty(Output.Text))
                         {
                             OutputConditions = true;
-                            OutPut.AppendText("title_name = \"" + TitleName.Text + "\"");
-                            OutPut.AppendText(Environment.NewLine);
-                            OutPut.AppendText("title_id = \"" + TitleId.Text + "\"");
-                            OutPut.AppendText(Environment.NewLine);
-                            OutPut.AppendText("hash = \"" + HashKey.Text + "\"");
-                            OutPut.AppendText(Environment.NewLine);
+                            Output.AppendText("title_name = \"" + TitleName.Text + "\"");
+                            Output.AppendText(Environment.NewLine);
+                            Output.AppendText("title_id = \"" + TitleId.Text + "\"");
+                            Output.AppendText(Environment.NewLine);
+                            Output.AppendText("hash = \"" + HashKey.Text + "\"");
+                            Output.AppendText(Environment.NewLine);
                             return;
                         }
                         else
                         {
-                            OutPut.Text = string.Empty;
+                            Output.Text = string.Empty;
                             goto EmptyString;
                         }
                     }
@@ -1346,7 +1346,7 @@ namespace XeniaPatchMaker
                         //do something else
                     }
                 }
-                OutPut.Text = Data;
+                Output.Text = Data;
                 return;
             }
 
@@ -1396,20 +1396,20 @@ namespace XeniaPatchMaker
 
         private void ClearOutput_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (OutPut.Text == string.Empty)
+            if (Output.Text == string.Empty)
             {
                 return;
             }
             else
             {
-                OutPut.Text = string.Empty;
+                Output.Text = string.Empty;
             }
         }
 
         private void SavePatchFile_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-            if (OutPut.TextLength > 30)
+            if (Output.TextLength > 30)
             {
 
                 using (SaveFileDialog dialog = new SaveFileDialog()
@@ -1434,7 +1434,7 @@ namespace XeniaPatchMaker
                             FileStream fParameter = new FileStream(dialog.FileName, FileMode.Create, FileAccess.Write);
                             StreamWriter m_WriterParameter = new StreamWriter(fParameter);
                             m_WriterParameter.BaseStream.Seek(0, SeekOrigin.End);
-                            m_WriterParameter.Write(OutPut.Text);
+                            m_WriterParameter.Write(Output.Text);
                             m_WriterParameter.Flush();
                             m_WriterParameter.Close();
                             fParameter.Close();
@@ -1465,7 +1465,7 @@ namespace XeniaPatchMaker
                 {
 
                     OutputConditions = true;
-                    OutPut.Text = File.ReadAllText(dialog.FileName);
+                    Output.Text = File.ReadAllText(dialog.FileName);
                     OutputConditions = false;
                 }
         }
@@ -1506,15 +1506,15 @@ namespace XeniaPatchMaker
         /// <param name="e"></param>
         private void richEditControl1_ForeColorChanged(object sender, EventArgs e)
         {
-            OutPut.ForeColor = richEditControl1.Appearance.Text.ForeColor;
-            OutPut.BackColor = richEditControl1.Views.SimpleView.BackColor;
+            Output.ForeColor = richEditControl1.Appearance.Text.ForeColor;
+            Output.BackColor = richEditControl1.Views.SimpleView.BackColor;
         }
         /// <summary>
         /// We Make Sure User Is Finished.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OutPut_KeyUp(object sender, KeyEventArgs e)
+        private void Output_KeyUp(object sender, KeyEventArgs e)
         {
             OutputConditions = true;
         }
@@ -1523,16 +1523,16 @@ namespace XeniaPatchMaker
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OutPut_KeyDown(object sender, KeyEventArgs e)
+        private void Output_KeyDown(object sender, KeyEventArgs e)
         {
             OutputConditions = false;
         }
-        private void OutPut_TextChanged(object sender, EventArgs e)
+        private void Output_TextChanged(object sender, EventArgs e)
         {
             try
             {
                 //checks if string is not empty.
-                if (OutPut.Text.Equals(string.Empty))
+                if (Output.Text.Equals(string.Empty))
                 {
                     barButtonItem11.Enabled = false;
                     barButtonItem10.Enabled = false;
@@ -1550,7 +1550,7 @@ namespace XeniaPatchMaker
                     {
                         if (OutputConditions == true)
                         {
-                            foreach (string text in OutPut.Lines)
+                            foreach (string text in Output.Lines)
                             {
                                 switch (text)
                                 {
@@ -1688,11 +1688,11 @@ namespace XeniaPatchMaker
             Program.Settings.ShowDialog(this);  //Show Form assigning this form as the forms owner
 
         }
-        private void OutPut_DragDrop(object sender, DragEventArgs e)
+        private void Output_DragDrop(object sender, DragEventArgs e)
         {
             if (CurrentFullName.EndsWith(".patch"))
             {
-                OutPut.Text = File.ReadAllText(CurrentFullPath);
+                Output.Text = File.ReadAllText(CurrentFullPath);
             }
 
         }
@@ -1706,9 +1706,9 @@ namespace XeniaPatchMaker
             valueConverter.ShowDialog(this); //Show Form assigning this form as the forms owner
         }
 
-        private void OutPut_KeyPress(object sender, KeyPressEventArgs e) => OutputConditions = false;
+        private void Output_KeyPress(object sender, KeyPressEventArgs e) => OutputConditions = false;
 
-        private void OutPut_Leave(object sender, EventArgs e) => OutputConditions = true;
+        private void Output_Leave(object sender, EventArgs e) => OutputConditions = true;
 
         private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
