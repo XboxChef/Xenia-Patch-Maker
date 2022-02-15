@@ -87,16 +87,20 @@ namespace XeniaPatchMaker
             this.LoadButton = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
-            this.ClearButton = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
+            this.ClearAllData = new DevExpress.XtraBars.BarButtonItem();
+            this.ClearMainHeader = new DevExpress.XtraBars.BarButtonItem();
+            this.ClearPatchInfo = new DevExpress.XtraBars.BarButtonItem();
+            this.ClearPatchAddress = new DevExpress.XtraBars.BarButtonItem();
+            this.ClearOutput = new DevExpress.XtraBars.BarButtonItem();
+            this.SearchSubItem = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.ViewSubItem = new DevExpress.XtraBars.BarSubItem();
             this.ValueConverter = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
-            this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.SettingsButton = new DevExpress.XtraBars.BarSubItem();
+            this.HelpButton = new DevExpress.XtraBars.BarSubItem();
+            this.AboutButton = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
@@ -1190,7 +1194,7 @@ namespace XeniaPatchMaker
             this.barButtonItem5,
             this.skinDropDownButtonItem1,
             this.skinDropDownButtonItem2});
-            this.BottomManager.MaxItemId = 14;
+            this.BottomManager.MaxItemId = 15;
             this.BottomManager.StatusBar = this.bar3;
             // 
             // bar3
@@ -1270,17 +1274,15 @@ namespace XeniaPatchMaker
             // 
             // barButtonItem4
             // 
-            this.barButtonItem4.Caption = "Settings";
-            this.barButtonItem4.Id = 9;
+            this.barButtonItem4.Id = 14;
             this.barButtonItem4.Name = "barButtonItem4";
-            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BarManagerFormOpen_Click);
             // 
             // barButtonItem5
             // 
             this.barButtonItem5.Caption = "Clear";
             this.barButtonItem5.Id = 10;
             this.barButtonItem5.Name = "barButtonItem5";
-            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearOutput_Click);
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearDataTypes_ItemClick);
             // 
             // skinDropDownButtonItem1
             // 
@@ -1335,21 +1337,25 @@ namespace XeniaPatchMaker
             this.TopManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barSubItem2,
             this.barSubItem4,
-            this.barSubItem5,
-            this.barButtonItem6,
+            this.SettingsButton,
+            this.AboutButton,
             this.SaveButton,
             this.LoadButton,
-            this.ClearButton,
-            this.barSubItem1,
+            this.ClearAllData,
+            this.ViewSubItem,
             this.ValueConverter,
-            this.barSubItem3,
-            this.barSubItem6,
+            this.HelpButton,
+            this.SearchSubItem,
             this.barButtonItem9,
             this.barButtonItem10,
             this.barButtonItem11,
-            this.barSubItem7});
+            this.barSubItem7,
+            this.ClearMainHeader,
+            this.ClearPatchInfo,
+            this.ClearPatchAddress,
+            this.ClearOutput});
             this.TopManager.MainMenu = this.bar2;
-            this.TopManager.MaxItemId = 17;
+            this.TopManager.MaxItemId = 21;
             // 
             // bar2
             // 
@@ -1361,10 +1367,10 @@ namespace XeniaPatchMaker
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem2),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem4),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem6),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem5),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem3)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.SearchSubItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.ViewSubItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.SettingsButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.HelpButton)});
             this.bar2.OptionsBar.AllowQuickCustomization = false;
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -1405,26 +1411,58 @@ namespace XeniaPatchMaker
             this.barSubItem4.Caption = "Edit";
             this.barSubItem4.Id = 1;
             this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.ClearButton)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.ClearAllData),
+            new DevExpress.XtraBars.LinkPersistInfo(this.ClearMainHeader),
+            new DevExpress.XtraBars.LinkPersistInfo(this.ClearPatchInfo),
+            new DevExpress.XtraBars.LinkPersistInfo(this.ClearPatchAddress),
+            new DevExpress.XtraBars.LinkPersistInfo(this.ClearOutput)});
             this.barSubItem4.Name = "barSubItem4";
             // 
-            // ClearButton
+            // ClearAllData
             // 
-            this.ClearButton.Caption = "Clear";
-            this.ClearButton.Id = 6;
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearOutput_Click);
+            this.ClearAllData.Caption = "Clear All Data";
+            this.ClearAllData.Id = 6;
+            this.ClearAllData.Name = "ClearAllData";
+            this.ClearAllData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearDataTypes_ItemClick);
             // 
-            // barSubItem6
+            // ClearMainHeader
             // 
-            this.barSubItem6.Caption = "Search";
-            this.barSubItem6.Id = 10;
-            this.barSubItem6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.ClearMainHeader.Caption = "Clear Main Header";
+            this.ClearMainHeader.Id = 17;
+            this.ClearMainHeader.Name = "ClearMainHeader";
+            this.ClearMainHeader.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearDataTypes_ItemClick);
+            // 
+            // ClearPatchInfo
+            // 
+            this.ClearPatchInfo.Caption = "Clear Patch Info";
+            this.ClearPatchInfo.Id = 18;
+            this.ClearPatchInfo.Name = "ClearPatchInfo";
+            this.ClearPatchInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearDataTypes_ItemClick);
+            // 
+            // ClearPatchAddress
+            // 
+            this.ClearPatchAddress.Caption = "Clear Patch Address";
+            this.ClearPatchAddress.Id = 19;
+            this.ClearPatchAddress.Name = "ClearPatchAddress";
+            this.ClearPatchAddress.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearDataTypes_ItemClick);
+            // 
+            // ClearOutput
+            // 
+            this.ClearOutput.Caption = "Clear Output";
+            this.ClearOutput.Id = 20;
+            this.ClearOutput.Name = "ClearOutput";
+            this.ClearOutput.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ClearDataTypes_ItemClick);
+            // 
+            // SearchSubItem
+            // 
+            this.SearchSubItem.Caption = "Search";
+            this.SearchSubItem.Id = 10;
+            this.SearchSubItem.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem9),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem10),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem11)});
-            this.barSubItem6.Name = "barSubItem6";
-            this.barSubItem6.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.SearchSubItem.Name = "SearchSubItem";
+            this.SearchSubItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // barButtonItem9
             // 
@@ -1448,13 +1486,13 @@ namespace XeniaPatchMaker
             this.barButtonItem11.Id = 14;
             this.barButtonItem11.Name = "barButtonItem11";
             // 
-            // barSubItem1
+            // ViewSubItem
             // 
-            this.barSubItem1.Caption = "View";
-            this.barSubItem1.Id = 7;
-            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.ViewSubItem.Caption = "View";
+            this.ViewSubItem.Id = 7;
+            this.ViewSubItem.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.ValueConverter)});
-            this.barSubItem1.Name = "barSubItem1";
+            this.ViewSubItem.Name = "ViewSubItem";
             // 
             // ValueConverter
             // 
@@ -1463,27 +1501,27 @@ namespace XeniaPatchMaker
             this.ValueConverter.Name = "ValueConverter";
             this.ValueConverter.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ValueConverter_ItemClick);
             // 
-            // barSubItem5
+            // SettingsButton
             // 
-            this.barSubItem5.Caption = "Settings";
-            this.barSubItem5.Id = 2;
-            this.barSubItem5.Name = "barSubItem5";
-            this.barSubItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BarManagerFormOpen_Click);
+            this.SettingsButton.Caption = "Settings";
+            this.SettingsButton.Id = 2;
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.OpenForm_Click);
             // 
-            // barSubItem3
+            // HelpButton
             // 
-            this.barSubItem3.Caption = "Help";
-            this.barSubItem3.Id = 9;
-            this.barSubItem3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6)});
-            this.barSubItem3.Name = "barSubItem3";
+            this.HelpButton.Caption = "Help";
+            this.HelpButton.Id = 9;
+            this.HelpButton.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.AboutButton)});
+            this.HelpButton.Name = "HelpButton";
             // 
-            // barButtonItem6
+            // AboutButton
             // 
-            this.barButtonItem6.Caption = "About";
-            this.barButtonItem6.Id = 3;
-            this.barButtonItem6.Name = "barButtonItem6";
-            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
+            this.AboutButton.Caption = "About";
+            this.AboutButton.Id = 3;
+            this.AboutButton.Name = "AboutButton";
+            this.AboutButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.OpenForm_Click);
             // 
             // barDockControl3
             // 
@@ -1639,13 +1677,13 @@ namespace XeniaPatchMaker
         private DevExpress.XtraBars.BarButtonItem SaveButton;
         private DevExpress.XtraBars.BarButtonItem LoadButton;
         private DevExpress.XtraBars.BarSubItem barSubItem4;
-        private DevExpress.XtraBars.BarButtonItem ClearButton;
-        private DevExpress.XtraBars.BarSubItem barSubItem5;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.BarSubItem barSubItem1;
+        private DevExpress.XtraBars.BarButtonItem ClearAllData;
+        private DevExpress.XtraBars.BarSubItem SettingsButton;
+        private DevExpress.XtraBars.BarButtonItem AboutButton;
+        private DevExpress.XtraBars.BarSubItem ViewSubItem;
         private DevExpress.XtraBars.BarButtonItem ValueConverter;
-        private DevExpress.XtraBars.BarSubItem barSubItem3;
-        private DevExpress.XtraBars.BarSubItem barSubItem6;
+        private DevExpress.XtraBars.BarSubItem HelpButton;
+        private DevExpress.XtraBars.BarSubItem SearchSubItem;
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
@@ -1655,5 +1693,9 @@ namespace XeniaPatchMaker
         private DevExpress.XtraRichEdit.RichEditControl richEditControl1;
         private DevExpress.XtraBars.BarDockControl barDockControl1;
         private DevExpress.XtraBars.BarDockControl barDockControl2;
+        private DevExpress.XtraBars.BarButtonItem ClearMainHeader;
+        private DevExpress.XtraBars.BarButtonItem ClearPatchInfo;
+        private DevExpress.XtraBars.BarButtonItem ClearPatchAddress;
+        private DevExpress.XtraBars.BarButtonItem ClearOutput;
     }
 }

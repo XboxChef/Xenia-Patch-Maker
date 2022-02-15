@@ -1168,26 +1168,26 @@ namespace XeniaPatchMaker
         private void AddressMath_Click(object sender, EventArgs e)
         {
             // We have to make sure we separate both buttons into their own thread
-            if (sender.Equals(MinusButton))
+            switch((sender as SimpleButton).Text)
             {
-                if (!IsNullOrEmpty(PatchAddress.Text))
-                {
-                    // When minus is clicked the address is grabbed and stored
-                    // The address then uses hex math to subtract 4 bytes
-                    int decValue = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) - Properties.Settings.Default.AddressMath;
-                    PatchAddress.Text = decValue.ToString("X");
-                }
-                return;
-            }
-            else if (sender.Equals(PlusButton))
-            {
-                if (!IsNullOrEmpty(PatchAddress.Text))
-                {
-                    // When adding is clicked the address is grabbed and stored
-                    // The address than uses hex math to add 4 bytes
-                    PatchAddress.Text = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) + Properties.Settings.Default.AddressMath.ToString("X");
-                }
-                return;
+                case "-":
+                    if (PatchAddress.Text != string.Empty)
+                    {
+                        // When minus is clicked the address is grabbed and stored
+                        // The address then uses hex math to subtract 4 bytes
+                        int decValue = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) - Properties.Settings.Default.AddressMath;
+                        PatchAddress.Text = decValue.ToString("X");
+                    }
+                    break;
+                    case "+":
+                    if (PatchAddress.Text != string.Empty)
+                    {
+                        // When adding is clicked the address is grabbed and stored
+                        // The address than uses hex math to add 4 bytes
+                        int IncreaseValue = int.Parse(PatchAddress.Text, System.Globalization.NumberStyles.HexNumber) + Properties.Settings.Default.AddressMath;
+                        PatchAddress.Text = IncreaseValue.ToString("X");
+                    }
+                    break;
             }
         }
 
@@ -1197,7 +1197,7 @@ namespace XeniaPatchMaker
             {
                 if (SelectedOpcodeCheck(Types.SelectedItem.ToString()))
                 {
-                    PatchValue.Text = OpcodeType.ToUpper().Substring(2 + OpcodeType.IndexOf("0x"));
+                    PatchValue.Text = OpcodeType.ToUpper().Substring(2);
                     PatchValue.Enabled = false;
                 }
                 else
@@ -1216,18 +1216,32 @@ namespace XeniaPatchMaker
 
         #region Functions
 
-        private void BarManagerFormOpen_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void OpenForm_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (sender.GetType().FullName == "DevExpress.XtraBars.BarManager")
+            switch(e.Item.Caption)
             {
-                if (Program.Settings == null)
-                {
-                    Program.Settings = new Settings();
-                    Program.Settings.AboutTab.PageVisible = false;
-                    Program.Settings.FormClosed += FormType_FormClosed; // Add event Handler to cleanup after form closes
-                }
-                Hide();
-                Program.Settings.ShowDialog(this); // Show Form assigning this form as the forms owner
+                case "Settings":
+                    if (Program.Settings == null)
+                    {
+                        Program.Settings = new Settings();
+                        Program.Settings.AboutTab.PageVisible = false;
+                        Program.Settings.FormClosed += CloseForm_Click; // Add event Handler to cleanup after form closes
+                    }
+                    Hide();
+                    Program.Settings.ShowDialog(this); // Show Form assigning this form as the forms owner
+                    break;
+                case "About":
+                    if (Program.Settings == null)
+                    {
+                        Program.Settings = new Settings();
+                        Program.Settings.AboutTab.Show();
+                        Program.Settings.GeneralTab.PageVisible = false;
+                        Program.Settings.Text = "About Us";
+                        Program.Settings.FormClosed += CloseForm_Click; // Add event handler to cleanup after form closes
+                    }
+                    Hide();
+                    Program.Settings.ShowDialog(this); // Show Form assigning this form as the forms owner
+                    break;
             }
         }
         /// <summary>
@@ -1304,10 +1318,17 @@ namespace XeniaPatchMaker
             }
             else if (Path.GetFileName(CurrentFullName).Contains(".patch"))
             {
-                DialogResult dialogResult = MessageBox.Show("This Will Delete Any Current Unsaved Data.\r\nWould You Like To Continue?", "Load Patch File.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.Yes)
+                if(Output.Text == string.Empty && TitleName.Text == string.Empty && TitleId.Text == string.Empty && HashKey.Text == string.Empty)
                 {
                     LoadPatchData(string.Join("", CurrentFullPath));
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("This Will Delete Any Current Unsaved Data.\r\nWould You Like To Continue?", "Load Patch File.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        LoadPatchData(string.Join("", CurrentFullPath));
+                    }
                 }
                 return;
             }
@@ -1370,17 +1391,6 @@ namespace XeniaPatchMaker
 
         #region Controls
 
-        private void ClearOutput_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            if (Output.Text == string.Empty)
-            {
-                return;
-            }
-            else
-            {
-                Output.Text = string.Empty;
-            }
-        }
 
         private void SavePatchFile_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -1435,31 +1445,33 @@ namespace XeniaPatchMaker
                     OutputConditions = false;
                 }
         }
-        public void FormType_FormClosed(object sender, FormClosedEventArgs e)
+        public void CloseForm_Click(object sender, FormClosedEventArgs e)
         {
-            if (sender.GetType().FullName == "XeniaPatchMaker.ValueConverter")
+            switch(sender.GetType().FullName.Substring("XeniaPatchMaker.".Length))
             {
-                valueConverter = null;
-            }
-            else if (sender.GetType().FullName == "XeniaPatchMaker.XPM")
-            {
-                Program.Load = null;
-            }
-            else if (sender.GetType().FullName == "XeniaPatchMaker.Settings")
-            {
-                Properties.Settings.Default.Save();
-                if (Properties.Settings.Default.UseDefaultAuthors == true)
-                {
-                    Authors.Enabled = false;
-                    Authors.Text = Properties.Settings.Default.DefaultAuthors;
-                }
-                else
-                {
-                    Authors.Enabled = true;
-                    Authors.Text = string.Empty;
-                }
-                Show();
-                Program.Settings = null;
+                case "ValueConverter":
+                    valueConverter = null;
+                    break;
+                case "XPM":
+                    Program.Load = null;
+                    break;
+                case "Settings":
+                    Properties.Settings.Default.Save();
+                    if (Properties.Settings.Default.UseDefaultAuthors == true)
+                    {
+                        Authors.Enabled = false;
+                        Authors.Text = Properties.Settings.Default.DefaultAuthors;
+                    }
+                    else
+                    {
+                        Authors.Enabled = true;
+                        Authors.Text = string.Empty;
+                    }
+                    Show();
+                    Program.Settings = null;
+                    break;
+                default:
+                    return;
             }
         }
         #endregion
@@ -1615,15 +1627,6 @@ namespace XeniaPatchMaker
             }
         }
         #endregion
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == (Keys.Control | Keys.F))
-            {
-                MessageBox.Show("What the Ctrl+F?");
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
         private void XPM_Shown(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.UseDefaultAuthors == true)
@@ -1638,24 +1641,11 @@ namespace XeniaPatchMaker
             }
         }
 
-        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            if (Program.Settings == null)
-            {
-                Program.Settings = new Settings();
-                Program.Settings.AboutTab.Show();
-                Program.Settings.GeneralTab.PageVisible = false;
-                Program.Settings.Text = "About Us";
-                Program.Settings.FormClosed += FormType_FormClosed; // Add event handler to cleanup after form closes
-            }
-            Hide();
-            Program.Settings.ShowDialog(this); // Show Form assigning this form as the forms owner
-        }
         private void Output_DragDrop(object sender, DragEventArgs e)
         {
             if (CurrentFullName.EndsWith(".patch"))
             {
-                Output.Text = File.ReadAllText(CurrentFullPath);
+                LoadPatchData(CurrentFullPath);
             }
         }
         private void ValueConverter_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -1663,7 +1653,7 @@ namespace XeniaPatchMaker
             if (valueConverter == null)
             {
                 valueConverter = new ValueConverter();
-                valueConverter.FormClosed += FormType_FormClosed; // Add event Handler to cleanup after form closes
+                valueConverter.FormClosed += CloseForm_Click; // Add event Handler to cleanup after form closes
             }
             valueConverter.ShowDialog(this); // Show Form assigning this form as the forms owner
         }
@@ -1677,9 +1667,59 @@ namespace XeniaPatchMaker
             if (Finder == null)
             {
                 Finder = new Find();
-                Finder.FormClosed += FormType_FormClosed; // Add event Handler to cleanup after form closes
+                Finder.FormClosed += CloseForm_Click; // Add event Handler to cleanup after form closes
             }
             Finder.ShowDialog(this); // Show Form assigning this form as the forms owner
+        }
+
+        private void ClearDataTypes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            switch(e.Item.Caption)
+            {
+                case "Clear All Data":
+                    if (Output.Text != string.Empty)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("This Will Clear Any Current Unsaved Data.\r\nWould You Like To Continue?", "Clear Data.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            Output.Text = string.Empty;
+                            TitleId.Text = string.Empty;
+                            TitleName.Text = string.Empty;
+                            HashKey.Text = string.Empty;
+                            PatchName.Text = string.Empty;
+                            Authors.Text = string.Empty;
+                            IsOn.IsOn = false;
+                            ProvideSizeType.Text = "be32";
+                            PatchAddress.Text = string.Empty;
+                            PatchValue.Text = string.Empty;
+                            Types.Text = "ABS";
+                            UseType.Checked = false;
+                        }
+
+                    }
+                    break;
+                case "Clear Main Header":
+                    TitleId.Text = string.Empty;
+                    TitleName.Text = string.Empty;
+                    HashKey.Text = string.Empty;
+                    break;
+                case "Clear Patch Info":
+                    PatchName.Text = string.Empty;
+                    Authors.Text = string.Empty;
+                    IsOn.IsOn = false;
+                    break;
+                case "Clear Patch Address":
+                    ProvideSizeType.Text = "be32";
+                    PatchAddress.Text = string.Empty;
+                    PatchValue.Text = string.Empty;
+                    Types.Text = "ABS";
+                    UseType.Checked = false;
+                    break;
+                case "Clear Output":
+                    Output.Text = string.Empty;
+                    break;
+            }
+
         }
     }
 }
