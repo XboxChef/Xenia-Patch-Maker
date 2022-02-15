@@ -11,22 +11,18 @@ namespace XeniaPatchMaker
         public static Loading_Screen Load { get; set; }
         public static Find Finder { get; set; }
 
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main(string[] args)
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             if (MainForm == null)
             {
                 Application.Run(MainForm = new XPM(args));
             }
-
         }
-
     }
 }

@@ -1657,4 +1657,3 @@ namespace XeniaPatchMaker
         private DevExpress.XtraBars.BarDockControl barDockControl2;
     }
 }
-

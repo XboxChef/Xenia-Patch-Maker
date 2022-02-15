@@ -26,12 +26,10 @@ namespace XeniaPatchMaker
 
         private void SplashScreen1_Shown(object sender, EventArgs e)
         {
-
         }
 
         private void Loading_Screen_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

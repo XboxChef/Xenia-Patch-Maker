@@ -11,16 +11,12 @@ namespace XeniaPatchMaker
             InitializeComponent();
         }
 
-
         private void CaseSensitive_CheckedChanged(object sender, EventArgs e)
         {
-
         }
-
 
         private void OK_Click(object sender, EventArgs e)
         {
-
         }
 
         private void SearchTextbox_EditValueChanging(object sender, EventArgs e)

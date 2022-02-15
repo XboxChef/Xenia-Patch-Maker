@@ -115,12 +115,10 @@ namespace XeniaPatchMaker
             // asset.Url is some api wizardry that we'll maybe use later
             //var assets = await _releaseClient.GetAssets(RepositoryOwner, RepositoryName, LatestRelease.Id);
             //var asset = assets.First(n => n.Name == asset name);
-
-            // for now, do some ugly shit
+            // For now, do some ugly shit
             var url = string.Format("https://github.com/{0}/{1}/releases/download/{2}/{3}", RepositoryOwner, RepositoryName, LatestRelease.TagName, Assetname);
             using (var client = new WebClient())
             {
-
                 client.DownloadFile(url, "XeniaPatchMakerUpdate.exe");
             }
         }

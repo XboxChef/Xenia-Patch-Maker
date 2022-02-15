@@ -11,7 +11,6 @@ namespace XeniaPatchMaker
 
         public UpdateNotifyDialog(UpdateChecker checker)
         {
-
             _checker = checker;
 
             InitializeComponent();
@@ -20,12 +19,10 @@ namespace XeniaPatchMaker
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void UpdateNotifyDialog_Shown(object sender, EventArgs e)
         {
-
         }
 
         private void UpdateNotifyDialog_Load(object sender, EventArgs e)
@@ -36,12 +33,9 @@ namespace XeniaPatchMaker
                 this.BringToFront();
                 Focus();
                 Program.MainForm.Hide();
-
-
             }
             catch
             {
-
             }
         }
 
@@ -55,12 +49,10 @@ namespace XeniaPatchMaker
 
             Changes.Text = rs;
             _loadednotes = true;
-
         }
 
         private void buttonNo_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

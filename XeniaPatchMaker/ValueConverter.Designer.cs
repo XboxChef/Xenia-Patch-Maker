@@ -107,17 +107,17 @@ namespace XeniaPatchMaker
             // 
             this.TypeConverter.AllowHtmlTextInToolTip = DevExpress.Utils.DefaultBoolean.False;
             this.TypeConverter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.TypeConverter.EditValue = "Bytes To Hex";
+            this.TypeConverter.EditValue = "Bytes to Hex";
             this.TypeConverter.Location = new System.Drawing.Point(0, 65);
             this.TypeConverter.Name = "TypeConverter";
             this.TypeConverter.Properties.AllowFocused = false;
             this.TypeConverter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.TypeConverter.Properties.Items.AddRange(new object[] {
-            "Bytes To Hex",
-            "Double To Hex",
-            "Float To Hex",
-            "Decimal To Hex"});
+            "Bytes to Hex",
+            "Double to Hex",
+            "Float to Hex",
+            "Decimal to Hex"});
             this.TypeConverter.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.TypeConverter.Size = new System.Drawing.Size(308, 20);
             this.TypeConverter.TabIndex = 50;

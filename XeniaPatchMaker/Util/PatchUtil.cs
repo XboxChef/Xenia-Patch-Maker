@@ -3,11 +3,10 @@ using System.Linq;
 
 namespace XeniaPatchMaker.Util
 {
-
     public static class PatchUtil
     {
         /// <summary>
-        /// Condition Checker
+        /// Condition checker.
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
@@ -17,7 +16,7 @@ namespace XeniaPatchMaker.Util
         }
 
         /// <summary>
-        /// Loads Patch Data Back To Textboxes
+        /// Loads patch data back to textboxes.
         /// </summary>
         /// <param name="Placeholder"></param>
         /// <param name="Start"></param>
@@ -52,7 +51,6 @@ namespace XeniaPatchMaker.Util
             {
                 return string.Empty;
             }
-
         }
         public static string GetHashKey(string Placeholder, string Start, string End, int length)
         {
@@ -65,7 +63,6 @@ namespace XeniaPatchMaker.Util
             }
             catch
             {
-
                 return string.Empty;
             }
         }
@@ -86,6 +83,5 @@ namespace XeniaPatchMaker.Util
                 }
             }
         }
-
     }
 }
