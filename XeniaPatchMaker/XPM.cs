@@ -1041,7 +1041,7 @@ namespace XeniaPatchMaker
 
         private void AddPokeHeader_Click(object sender, EventArgs e)
         {
-            // Todo: Check For Double Or Single Float
+            // Todo: Check for Double or Single Float
             bool writepatchvalue = false;
             switch (PatchValue.Text.Length)
             {
@@ -1129,7 +1129,7 @@ namespace XeniaPatchMaker
                         Output.AppendText(Environment.NewLine + "    author = \"" + Authors.Text + "\"");
                     }
                     Output.AppendText(Environment.NewLine + "    is_enabled = " + IsOn.IsOn.ToString().ToLower() + Environment.NewLine + Environment.NewLine);
-                    // Condition checks make sure If the Current user Has the Proper Settings Applied.
+                    // Condition checks make sure the current user has the proper settings applied.
                     if (Properties.Settings.Default.DisableMessageBox == false)
                     {
                         DialogResult dialogResult = MessageBox.Show("Would you like to delete the current patch input?", "Warning", MessageBoxButtons.YesNo);
@@ -1323,7 +1323,7 @@ namespace XeniaPatchMaker
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("This Will Delete Any Current Unsaved Data.\r\nWould You Like To Continue?", "Load Patch File.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult dialogResult = MessageBox.Show("This will delete any unsaved data.\r\nWould you like to continue?", "Load Patch File.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
                         LoadPatchData(string.Join("", CurrentFullPath));
@@ -1677,7 +1677,7 @@ namespace XeniaPatchMaker
                 case "Clear All Data":
                     if (Output.Text != string.Empty)
                     {
-                        DialogResult dialogResult = MessageBox.Show("This Will Clear Any Current Unsaved Data.\r\nWould You Like To Continue?", "Clear Data.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult dialogResult = MessageBox.Show("This will clear any unsaved data.\r\nWould you like to continue?", "Clear Data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (dialogResult == DialogResult.Yes)
                         {
                             Output.Text = string.Empty;
