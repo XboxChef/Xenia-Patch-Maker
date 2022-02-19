@@ -132,7 +132,6 @@ namespace XeniaPatchMaker
             }
         }
 
-
         private void CreateDictonary()
         {
             PPCOpcodes.Add("abs",        OpcodeType = "0x7c");
@@ -1391,7 +1390,6 @@ namespace XeniaPatchMaker
 
         #region Controls
 
-
         private void SavePatchFile_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (Output.TextLength > 30)
@@ -1695,7 +1693,6 @@ namespace XeniaPatchMaker
                             Types.Text = "ABS";
                             UseType.Checked = false;
                         }
-
                     }
                     break;
                 case "Clear Main Header":
@@ -1719,7 +1716,6 @@ namespace XeniaPatchMaker
                     Output.Text = string.Empty;
                     break;
             }
-
         }
     }
 }
