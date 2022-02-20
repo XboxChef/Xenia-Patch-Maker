@@ -35,9 +35,8 @@ namespace XeniaPatchMaker
                     HideValueConverter.Checked = true;
                 }
             }
-            catch 
+            catch
             {
-
             }
         }
 
