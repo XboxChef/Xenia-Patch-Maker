@@ -36,7 +36,7 @@ namespace XeniaPatchMaker
             {
                 if (!args[0].Equals(string.Empty))
                 {
-                    if (args[0].Contains(".patch"))
+                    if (args[0].Contains(".patch.toml"))
                     {
                         LoadPatchData(args[0]);
                     }
@@ -131,7 +131,6 @@ namespace XeniaPatchMaker
                 Show();
             }
         }
-
 
         private void CreateDictonary()
         {
@@ -1042,7 +1041,7 @@ namespace XeniaPatchMaker
 
         private void AddPokeHeader_Click(object sender, EventArgs e)
         {
-            // Todo: Check For Double Or Single Float
+            // Todo: Check for Double or Single Float
             bool writepatchvalue = false;
             switch (PatchValue.Text.Length)
             {
@@ -1130,7 +1129,7 @@ namespace XeniaPatchMaker
                         Output.AppendText(Environment.NewLine + "    author = \"" + Authors.Text + "\"");
                     }
                     Output.AppendText(Environment.NewLine + "    is_enabled = " + IsOn.IsOn.ToString().ToLower() + Environment.NewLine + Environment.NewLine);
-                    // Condition checks make sure If the Current user Has the Proper Settings Applied.
+                    // Condition checks make sure the current user has the proper settings applied.
                     if (Properties.Settings.Default.DisableMessageBox == false)
                     {
                         DialogResult dialogResult = MessageBox.Show("Would you like to delete the current patch input?", "Warning", MessageBoxButtons.YesNo);
@@ -1316,7 +1315,7 @@ namespace XeniaPatchMaker
                     }
                 }
             }
-            else if (Path.GetFileName(CurrentFullName).Contains(".patch"))
+            else if (Path.GetFileName(CurrentFullName).Contains(".patch.toml"))
             {
                 if(Output.Text == string.Empty && TitleName.Text == string.Empty && TitleId.Text == string.Empty && HashKey.Text == string.Empty)
                 {
@@ -1324,7 +1323,7 @@ namespace XeniaPatchMaker
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("This Will Delete Any Current Unsaved Data.\r\nWould You Like To Continue?", "Load Patch File.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult dialogResult = MessageBox.Show("This will delete any unsaved data.\r\nWould you like to continue?", "Load Patch File.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
                         LoadPatchData(string.Join("", CurrentFullPath));
@@ -1365,7 +1364,7 @@ namespace XeniaPatchMaker
                 CurrentFullPath = Path.GetFullPath(CurrentFile[0]);
                 // Sets FullName Path
                 CurrentFullName = Path.GetFileName(CurrentFile[0]);
-                if (Path.GetFileName(CurrentFile[0]).Contains(".patch"))
+                if (Path.GetFileName(CurrentFile[0]).Contains(".patch.toml"))
                 {
                     e.Effect = DragDropEffects.Copy;
                     OutputConditions = true;
@@ -1391,14 +1390,13 @@ namespace XeniaPatchMaker
 
         #region Controls
 
-
         private void SavePatchFile_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (Output.TextLength > 30)
             {
                 using (SaveFileDialog dialog = new SaveFileDialog()
                 {
-                    Filter = "Xenia patch file(*.patch;) |*.patch;| All files(*.*) | *.*",
+                    Filter = "Xenia patch file(*.patch.toml;) |*.patch.toml;| All files(*.*) | *.*",
                     Title = "Save patch file...",
                     FileName = TitleId.Text + " - " + TitleName.Text,
                     DereferenceLinks = true,
@@ -1432,7 +1430,7 @@ namespace XeniaPatchMaker
         {
             using (OpenFileDialog dialog = new OpenFileDialog()
             {
-                Filter = "Xenia patch file(*.patch;) |*.patch;| All files(*.*) | *.*",
+                Filter = "Xenia patch file(*.patch.toml;) |*.patch.toml;| All files(*.*) | *.*",
                 Title = "Save patch file...",
                 DereferenceLinks = true,
                 CheckPathExists = true,
@@ -1643,7 +1641,7 @@ namespace XeniaPatchMaker
 
         private void Output_DragDrop(object sender, DragEventArgs e)
         {
-            if (CurrentFullName.EndsWith(".patch"))
+            if (CurrentFullName.EndsWith(".patch.toml"))
             {
                 LoadPatchData(CurrentFullPath);
             }
@@ -1679,7 +1677,7 @@ namespace XeniaPatchMaker
                 case "Clear All Data":
                     if (Output.Text != string.Empty)
                     {
-                        DialogResult dialogResult = MessageBox.Show("This Will Clear Any Current Unsaved Data.\r\nWould You Like To Continue?", "Clear Data.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult dialogResult = MessageBox.Show("This will clear any unsaved data.\r\nWould you like to continue?", "Clear Data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (dialogResult == DialogResult.Yes)
                         {
                             Output.Text = string.Empty;
@@ -1695,7 +1693,6 @@ namespace XeniaPatchMaker
                             Types.Text = "ABS";
                             UseType.Checked = false;
                         }
-
                     }
                     break;
                 case "Clear Main Header":
@@ -1719,7 +1716,6 @@ namespace XeniaPatchMaker
                     Output.Text = string.Empty;
                     break;
             }
-
         }
     }
 }

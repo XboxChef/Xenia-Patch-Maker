@@ -67,7 +67,7 @@ namespace XeniaPatchMaker
 
             Properties.Settings.Default.AddressMath = (int)AddressMath.Value;
             Properties.Settings.Default.WriteInfo = WriteInfo.Checked;
-            // if true, hide, if not leave it visible
+            // if true, hide, if not, leave it visible
             if (HideValueConverter.Checked == true)
             {
                 Properties.Settings.Default.HideValueConverter = false;

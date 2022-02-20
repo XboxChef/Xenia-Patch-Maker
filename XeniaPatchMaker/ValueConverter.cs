@@ -28,28 +28,28 @@ namespace XeniaPatchMaker
             {
                 if (TypeConverter.Text == "Bytes to Hex")
                 {
-                    // byte to hex
+                    // Byte to hex
                     string hex = BitConverter.ToString(Encoding.ASCII.GetBytes(StringValue.Text));
                     ConvertedValue.Text = hex.Replace("-", "");
                     return;
                 }
                 if (TypeConverter.Text == "Double to Hex")
                 {
-                    // double to hex
+                    // Double to hex
                     ConvertedValue.Text = BitConverter.ToInt32(BitConverter.GetBytes((float)Convert.ToDouble((float)double.Parse(StringValue.Text, System.Globalization.CultureInfo.InvariantCulture))), 0).ToString("X").ToUpper();
                     Program.MainForm.Data_Between(ConvertedValue.Text);
                     return;
                 }
                 if (TypeConverter.Text == "Float to Hex")
                 {
-                    // float to hex
+                    // Float to hex
                     ConvertedValue.Text = BitConverter.ToInt32(BitConverter.GetBytes((float)Convert.ToDouble(StringValue.Text)), 0).ToString("X").ToUpper();
                     Program.MainForm.Data_Between(ConvertedValue.Text);
                     return;
                 }
                 if (TypeConverter.Text == "Decimal to Hex")
                 {
-                    // decimal to hex
+                    // Decimal to hex
                     ConvertedValue.Text = int.Parse(StringValue.Text).ToString("x").ToUpper();
                     Program.MainForm.Data_Between(ConvertedValue.Text);
                     return;

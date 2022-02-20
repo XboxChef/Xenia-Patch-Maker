@@ -326,7 +326,7 @@ namespace XeniaPatchMaker
             this.UseDefaultAuthors.Location = new System.Drawing.Point(25, 49);
             this.UseDefaultAuthors.Name = "UseDefaultAuthors";
             this.UseDefaultAuthors.Properties.AllowFocused = false;
-            this.UseDefaultAuthors.Properties.Caption = "Use Default Author\'s";
+            this.UseDefaultAuthors.Properties.Caption = "Use Default Authors";
             this.UseDefaultAuthors.Size = new System.Drawing.Size(129, 19);
             this.UseDefaultAuthors.TabIndex = 7;
             // 
@@ -336,7 +336,7 @@ namespace XeniaPatchMaker
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(78, 13);
             this.labelControl2.TabIndex = 6;
-            this.labelControl2.Text = "Default Author\'s";
+            this.labelControl2.Text = "Default Authors";
             // 
             // DefaultAuthors
             // 
@@ -398,7 +398,7 @@ namespace XeniaPatchMaker
             this.ColorDisabled.Location = new System.Drawing.Point(6, 24);
             this.ColorDisabled.Name = "ColorDisabled";
             this.ColorDisabled.Properties.AllowFocused = false;
-            this.ColorDisabled.Properties.Caption = "Disable Output Color\'s";
+            this.ColorDisabled.Properties.Caption = "Disable Output Colors";
             this.ColorDisabled.Size = new System.Drawing.Size(129, 19);
             this.ColorDisabled.TabIndex = 2;
             // 
@@ -750,12 +750,12 @@ namespace XeniaPatchMaker
             "",
             "Billie Blueberry - Emotional support, also being a traitor! :)",
             "",
-            "Boma - Helping find more bug fixes /Feature request",
+            "Boma - Helping find more bug fixes, feature requests",
             "",
-            "Margen67 - Helping find More Bug Fixes /Feature request",
+            "Margen67 - Helping find more bug fixes, feature requests",
             "",
             "-Contributors-",
-            "IcySon55 - Fixed The Naming Process, improved the database and added XML.",
+            "IcySon55 - Fixed the naming process, improved the database and added XML.",
             "",
             "-Code Used-",
             "Ryan Gribble - Helper class https://github.com/octokit/octokit.net/blob/main/Octo" +
