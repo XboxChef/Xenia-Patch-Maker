@@ -12,25 +12,32 @@ namespace XeniaPatchMaker
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            WriteInfo.Checked = Properties.Settings.Default.WriteInfo;
-            AutoDelete.Checked = Properties.Settings.Default.AutoDelete;
-            DisableMessageBox.Checked = Properties.Settings.Default.DisableMessageBox;
-            ColorDisabled.Checked = Properties.Settings.Default.ColorDisabled;
-            DefaultAuthors.Text = Properties.Settings.Default.DefaultAuthors;
-            UseDefaultAuthors.Checked = Properties.Settings.Default.UseDefaultAuthors;
-            UseDefaultAuthors.Checked = Properties.Settings.Default.UseDefaultAuthors;
-            AddressMath.Value = Properties.Settings.Default.AddressMath;
-            DefaultSavePath.Checked = Properties.Settings.Default.SavePathBool;
-            textEdit1.Text = Properties.Settings.Default.SavedPath;
-            LoadColors();
+            try
+            {
+                WriteInfo.Checked = Properties.Settings.Default.WriteInfo;
+                AutoDelete.Checked = Properties.Settings.Default.AutoDelete;
+                DisableMessageBox.Checked = Properties.Settings.Default.DisableMessageBox;
+                ColorDisabled.Checked = Properties.Settings.Default.ColorDisabled;
+                DefaultAuthors.Text = Properties.Settings.Default.DefaultAuthors;
+                UseDefaultAuthors.Checked = Properties.Settings.Default.UseDefaultAuthors;
+                UseDefaultAuthors.Checked = Properties.Settings.Default.UseDefaultAuthors;
+                AddressMath.Value = Properties.Settings.Default.AddressMath;
+                DefaultSavePath.Checked = Properties.Settings.Default.SavePathBool;
+                textEdit1.Text = Properties.Settings.Default.SavedPath;
+                LoadColors();
 
-            if (Properties.Settings.Default.HideValueConverter == true)
-            {
-                HideValueConverter.Checked = false;
+                if (Properties.Settings.Default.HideValueConverter == true)
+                {
+                    HideValueConverter.Checked = false;
+                }
+                if (Properties.Settings.Default.HideValueConverter == false)
+                {
+                    HideValueConverter.Checked = true;
+                }
             }
-            if (Properties.Settings.Default.HideValueConverter == false)
+            catch 
             {
-                HideValueConverter.Checked = true;
+
             }
         }
 

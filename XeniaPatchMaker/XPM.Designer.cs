@@ -85,8 +85,8 @@ namespace XeniaPatchMaker
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
             this.SaveButton = new DevExpress.XtraBars.BarButtonItem();
             this.LoadButton = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.ClearAllData = new DevExpress.XtraBars.BarButtonItem();
             this.ClearMainHeader = new DevExpress.XtraBars.BarButtonItem();
             this.ClearPatchInfo = new DevExpress.XtraBars.BarButtonItem();
@@ -105,6 +105,7 @@ namespace XeniaPatchMaker
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
+            this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
             this.richEditControl1 = new DevExpress.XtraRichEdit.RichEditControl();
             ((System.ComponentModel.ISupportInitialize)(this.GameInfoHeader)).BeginInit();
             this.GameInfoHeader.SuspendLayout();
@@ -1069,7 +1070,7 @@ namespace XeniaPatchMaker
             this.UseType.Location = new System.Drawing.Point(217, 104);
             this.UseType.Name = "UseType";
             this.UseType.Properties.AllowFocused = false;
-            this.UseType.Properties.Caption = "Use Types";
+            this.UseType.Properties.Caption = "Use Opcode";
             this.UseType.Size = new System.Drawing.Size(77, 19);
             this.UseType.TabIndex = 37;
             this.UseType.CheckedChanged += new System.EventHandler(this.Types_SelectedIndexChanged);
@@ -1353,9 +1354,10 @@ namespace XeniaPatchMaker
             this.ClearMainHeader,
             this.ClearPatchInfo,
             this.ClearPatchAddress,
-            this.ClearOutput});
+            this.ClearOutput,
+            this.barSubItem1});
             this.TopManager.MainMenu = this.bar2;
-            this.TopManager.MaxItemId = 21;
+            this.TopManager.MaxItemId = 22;
             // 
             // bar2
             // 
@@ -1382,8 +1384,7 @@ namespace XeniaPatchMaker
             this.barSubItem2.Id = 0;
             this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.SaveButton),
-            new DevExpress.XtraBars.LinkPersistInfo(this.LoadButton),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem7)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.LoadButton)});
             this.barSubItem2.Name = "barSubItem2";
             // 
             // SaveButton
@@ -1400,23 +1401,25 @@ namespace XeniaPatchMaker
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.LoadPatchFile_Click);
             // 
-            // barSubItem7
-            // 
-            this.barSubItem7.Caption = "Recent Files..";
-            this.barSubItem7.Id = 15;
-            this.barSubItem7.Name = "barSubItem7";
-            // 
             // barSubItem4
             // 
             this.barSubItem4.Caption = "Edit";
             this.barSubItem4.Id = 1;
             this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem1)});
+            this.barSubItem4.Name = "barSubItem4";
+            // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "Clear Options";
+            this.barSubItem1.Id = 21;
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.ClearAllData),
             new DevExpress.XtraBars.LinkPersistInfo(this.ClearMainHeader),
             new DevExpress.XtraBars.LinkPersistInfo(this.ClearPatchInfo),
             new DevExpress.XtraBars.LinkPersistInfo(this.ClearPatchAddress),
             new DevExpress.XtraBars.LinkPersistInfo(this.ClearOutput)});
-            this.barSubItem4.Name = "barSubItem4";
+            this.barSubItem1.Name = "barSubItem1";
             // 
             // ClearAllData
             // 
@@ -1554,6 +1557,12 @@ namespace XeniaPatchMaker
             this.barDockControl2.Location = new System.Drawing.Point(816, 22);
             this.barDockControl2.Manager = this.TopManager;
             this.barDockControl2.Size = new System.Drawing.Size(0, 714);
+            // 
+            // barSubItem7
+            // 
+            this.barSubItem7.Caption = "Recent Files..";
+            this.barSubItem7.Id = 15;
+            this.barSubItem7.Name = "barSubItem7";
             // 
             // richEditControl1
             // 
@@ -1697,5 +1706,6 @@ namespace XeniaPatchMaker
         private DevExpress.XtraBars.BarButtonItem ClearPatchInfo;
         private DevExpress.XtraBars.BarButtonItem ClearPatchAddress;
         private DevExpress.XtraBars.BarButtonItem ClearOutput;
+        private DevExpress.XtraBars.BarSubItem barSubItem1;
     }
 }
