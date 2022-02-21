@@ -36,7 +36,7 @@ namespace XeniaPatchMaker
             {
                 if (!args[0].Equals(string.Empty))
                 {
-                    if (args[0].Contains(".patch"))
+                    if (args[0].Contains(".toml"))
                     {
                         LoadPatchData(args[0]);
                     }
@@ -1315,7 +1315,7 @@ namespace XeniaPatchMaker
                     }
                 }
             }
-            else if (Path.GetFileName(CurrentFullName).Contains(".patch"))
+            else if (Path.GetFileName(CurrentFullName).Contains(".toml"))
             {
                 if(Output.Text == string.Empty && TitleName.Text == string.Empty && TitleId.Text == string.Empty && HashKey.Text == string.Empty)
                 {
@@ -1364,7 +1364,7 @@ namespace XeniaPatchMaker
                 CurrentFullPath = Path.GetFullPath(CurrentFile[0]);
                 // Sets FullName Path
                 CurrentFullName = Path.GetFileName(CurrentFile[0]);
-                if (Path.GetFileName(CurrentFile[0]).Contains(".patch"))
+                if (Path.GetFileName(CurrentFile[0]).Contains(".toml"))
                 {
                     e.Effect = DragDropEffects.Copy;
                     OutputConditions = true;
@@ -1396,7 +1396,7 @@ namespace XeniaPatchMaker
             {
                 using (SaveFileDialog dialog = new SaveFileDialog()
                 {
-                    Filter = "Xenia patch file(*.patch;) |*.patch;| All files(*.*) | *.*",
+                    Filter = "Xenia patch file(*.toml;) |*.toml;| All files(*.*) | *.*",
                     Title = "Save patch file...",
                     FileName = TitleId.Text + " - " + TitleName.Text,
                     DereferenceLinks = true,
@@ -1430,7 +1430,7 @@ namespace XeniaPatchMaker
         {
             using (OpenFileDialog dialog = new OpenFileDialog()
             {
-                Filter = "Xenia patch file(*.patch;) |*.patch;| All files(*.*) | *.*",
+                Filter = "Xenia patch file(*.toml;) |*.toml;| All files(*.*) | *.*",
                 Title = "Save patch file...",
                 DereferenceLinks = true,
                 CheckPathExists = true,
@@ -1641,7 +1641,7 @@ namespace XeniaPatchMaker
 
         private void Output_DragDrop(object sender, DragEventArgs e)
         {
-            if (CurrentFullName.EndsWith(".patch"))
+            if (CurrentFullName.EndsWith(".toml"))
             {
                 LoadPatchData(CurrentFullPath);
             }
