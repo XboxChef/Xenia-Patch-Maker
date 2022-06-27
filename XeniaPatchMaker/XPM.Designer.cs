@@ -33,7 +33,6 @@ namespace XeniaPatchMaker
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraSplashScreen.SplashScreenManager LoadingSplashScreen = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::XeniaPatchMaker.Loading_Screen), true, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XPM));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -128,10 +127,6 @@ namespace XeniaPatchMaker
             ((System.ComponentModel.ISupportInitialize)(this.DropLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TopManager)).BeginInit();
             this.SuspendLayout();
-            // 
-            // LoadingSplashScreen
-            // 
-            LoadingSplashScreen.ClosingDelay = 880;
             // 
             // label1
             // 
