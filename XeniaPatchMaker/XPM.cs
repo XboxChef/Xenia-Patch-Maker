@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Tommy;
 using XeniaPatchMaker.Properties;
@@ -1453,7 +1454,7 @@ namespace XeniaPatchMaker
                             FileStream fParameter = new FileStream(dialog.FileName, FileMode.Create, FileAccess.Write);
                             StreamWriter m_WriterParameter = new StreamWriter(fParameter);
                             m_WriterParameter.BaseStream.Seek(0, SeekOrigin.End);
-                            m_WriterParameter.Write(Output.Text);
+                            m_WriterParameter.Write(new Regex("[ ]{2,}", RegexOptions.None).Replace(Output.Text, " "));
                             m_WriterParameter.Flush();
                             m_WriterParameter.Close();
                             fParameter.Close();
