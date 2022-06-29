@@ -334,7 +334,7 @@ namespace XeniaPatchMaker
             // 
             this.labelControl2.Location = new System.Drawing.Point(25, 231);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(78, 13);
+            this.labelControl2.Size = new System.Drawing.Size(76, 13);
             this.labelControl2.TabIndex = 6;
             this.labelControl2.Text = "Default Authors";
             // 
@@ -353,6 +353,7 @@ namespace XeniaPatchMaker
             this.DisableMessageBox.Properties.Caption = "Disable MessageBox";
             this.DisableMessageBox.Size = new System.Drawing.Size(129, 19);
             this.DisableMessageBox.TabIndex = 4;
+            this.DisableMessageBox.CheckedChanged += new System.EventHandler(this.DisableMessageBox_CheckedChanged);
             // 
             // groupControl1
             // 

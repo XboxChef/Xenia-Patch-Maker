@@ -42,22 +42,7 @@ namespace XeniaPatchMaker
 
         private void LoadColors()
         {
-            // Color settings
-            PatchUseColor.Checked = Properties.Settings.Default.PatchUseColor;
-            PatchInfoUseColor.Checked = Properties.Settings.Default.PatchInfoUseColor;
-            MainUseColor.Checked = Properties.Settings.Default.MainUseColor;
-            // End of color settings
-            MainColor1.Color = MainColorLabel1.ForeColor = Properties.Settings.Default.mainheadercolor1;
-            MainColor2.Color = MainColorLabel2.ForeColor = Properties.Settings.Default.mainheadercolor2;
-            MainColor3.Color = MainColorLabel3.ForeColor = Properties.Settings.Default.mainheadercolor3;
-            MainColor4.Color = MainColorLabel4.ForeColor = Properties.Settings.Default.mainheadercolor4;
-            PatchInfoColor1.Color = PatchInfoColorLabel1.ForeColor = Properties.Settings.Default.patchInfoColor1;
-            PatchInfoColor2.Color = PatchInfoColorLabel2.ForeColor = Properties.Settings.Default.patchInfoColor2;
-            PatchInfoColor3.Color = PatchInfoColorLabel3.ForeColor = Properties.Settings.Default.patchInfoColor3;
-            PatchAddressColor1.Color = PatchAddressColorlabel1.ForeColor = Properties.Settings.Default.PatchAddressColor1;
-            PatchAddressColor2.Color = PatchAddressColorlabel2.ForeColor = Properties.Settings.Default.PatchAddressColor2;
-            PatchAddressColor3.Color = PatchAddressColorlabel3.ForeColor = Properties.Settings.Default.PatchAddressColor3;
-            PatchAddressColor4.Color = PatchAddressColorlabel4.ForeColor = Properties.Settings.Default.PatchAddressColor4;
+
         }
 
         private void Settings_FormClosed(object sender, FormClosedEventArgs e)
@@ -186,6 +171,11 @@ namespace XeniaPatchMaker
             {
                 Properties.Settings.Default.SavedPath = textEdit1.Text = folderBrowser.SelectedPath;
             }
+        }
+
+        private void DisableMessageBox_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,65 +33,63 @@ namespace XeniaPatchMaker
         public XPM(string[] args)
         {
             InitializeComponent();
+            string[] data = args;
             // If a file was dropped..
-            if (args.Length > 0)
+            if (data.Contains(".log"))
             {
-                if (!args[0].Equals(string.Empty))
+                Data = File.ReadAllText(args[0]);
+                GetAllTypes(Data.Substring(0, Data.IndexOf("Savegame ID:") + "Savegame ID:".Length));
+                if (Properties.Settings.Default.WriteInfo == true)
                 {
-                    if (args[0].Contains(".toml"))
+                    if (HashKey.Text.Length > 10)
                     {
-                        LoadPatchData(args[0]);
-                    }
-                    else if (args[0].Contains(".log"))
-                    {
-                        Data = File.ReadAllText(args[0]);
-                        GetAllTypes(Data.Substring(0, Data.IndexOf("Savegame ID:") + "Savegame ID:".Length));
-                        if (Properties.Settings.Default.WriteInfo == true)
+                    EmptyString:
+                        if (IsNullOrEmpty(Output.Text))
                         {
-                            if (HashKey.Text.Length > 10)
-                            {
-                            EmptyString:
-                                if (IsNullOrEmpty(Output.Text))
-                                {
-                                    OutputConditions = true;
-                                    Output.AppendText("title_name = \"" + TitleName.Text + "\"");
-                                    Output.AppendText(Environment.NewLine);
-                                    Output.AppendText("title_id = \"" + TitleId.Text + "\"");
-                                    Output.AppendText(Environment.NewLine);
-                                    Output.AppendText("hash = \"" + HashKey.Text + "\"");
-                                    Output.AppendText(Environment.NewLine);
-                                    return;
-                                }
-                                else
-                                {
-                                    Output.Text = string.Empty;
-                                    goto EmptyString;
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Must be a log file.");
-                            }
+                            OutputConditions = true;
+                            Output.AppendText("title_name = \"" + TitleName.Text + "\"");
+                            Output.AppendText(Environment.NewLine);
+                            Output.AppendText("title_id = \"" + TitleId.Text + "\"");
+                            Output.AppendText(Environment.NewLine);
+                            Output.AppendText("hash = \"" + HashKey.Text + "\"");
+                            Output.AppendText(Environment.NewLine);
+                            return;
+                        }
+                        else
+                        {
+                            Output.Text = string.Empty;
+                            goto EmptyString;
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Must be a log file.");
+                    }
                 }
+
+
+            }
+            if (data.Contains(".toml") | data.Contains("patch.toml") | data.Contains("patch"))
+            {
+                LoadPatchData(Data);
             }
         }
         private void XPM_Load(object sender, EventArgs e)
         {
+
             OutputConditions = true;
             try
             {
                 Hide();
                 CreateDictonary();
-                if (!File.Exists(Path.Combine(Application.StartupPath, "DB.xml")))
+                if (!File.Exists("Config.toml") | !File.Exists("DB.xml"))
                 {
-                    // Create a new file
-                    using (FileStream fs = File.Create(Path.Combine(Application.StartupPath, "DB.xml")))
-                    {
-                        byte[] author = new UTF8Encoding(true).GetBytes(@Resources.DB);
-                        fs.Write(author, 0, author.Length);
-                    }
+                    MyTomlConfig.CreateConfigFile();
+                    CreateDatabase();
+                }
+                else
+                {
+                    MyTomlConfig.ReadConfigFile();
                 }
                 IsOn.ForeColor = Color.Red;
                 Version.Caption = "Version: " + Application.ProductVersion;
@@ -133,6 +131,20 @@ namespace XeniaPatchMaker
                 Show();
             }
         }
+
+
+
+        private void CreateDatabase(string Filename = "DB.xml")
+        {
+            // Create a new file
+            using (FileStream fs = File.Create(Filename))
+            {
+                byte[] author = new UTF8Encoding(true).GetBytes(@Resources.DB);
+                fs.Write(author, 0, author.Length);
+            }
+        }
+
+        
 
         private void CreateDictonary()
         {
@@ -1015,16 +1027,22 @@ namespace XeniaPatchMaker
         {
             if (Output.Text == string.Empty)
             {
-            // Generate a TOML
-            TomlTable toml = new TomlTable
-            {
-                // You don't need to specify a type for tables or arrays -- Tommy will figure that out for you
-                ["title_name"] = TitleName.Text,
-                ["title_id"] = TitleId.Text,
-                ["hash"] = HashKey.Text
-                //,
-                //["owner"] = { ["name"] = "Tom Preston-Werner",["dob"] = DateTime.Now }
-            };
+                // Generate a TOML
+                TomlTable toml = new TomlTable
+                {
+                    // You don't need to specify a type for tables or arrays -- Tommy will figure that out for you
+                    ["title_name"] = TitleName.Text,
+                    ["title_id"] = TitleId.Text,
+                    ["hash"] = HashKey.Text
+                    //,
+                    //["owner"] = { ["name"] = "Tom Preston-Werner",["dob"] = DateTime.Now }
+                };
+                using (StreamWriter writer = new StreamWriter(GenerateStreamFromString(Output.Text)))
+                {
+                    toml.WriteTo(writer);
+                    // Remember to flush the data if needed!
+                    writer.Flush();
+                }
                 foreach (string item in toml.AsTable.ToString().Replace("{", "").Replace("}", "").Split(','))
                 {
                     Output.AppendText(item);
@@ -1091,9 +1109,9 @@ namespace XeniaPatchMaker
                 OutputConditions = true;
                 Output.AppendText("    [[patch." + ProvideSizeType.Text + "]]");
                 Output.AppendText(Environment.NewLine);
-                Output.AppendText("        address = " + "0x" + PatchAddress.Text.ToUpper());
+                Output.AppendText("        address = " + "0x" + PatchAddress.Text.ToLower());
                 Output.AppendText(Environment.NewLine);
-                Output.AppendText("        value = " + "0x" + PatchValue.Text.ToUpper());
+                Output.AppendText("        value = " + "0x" + PatchValue.Text.ToLower());
                 Output.AppendText(Environment.NewLine);
 
                 if (Properties.Settings.Default.AutoDelete == true)
@@ -1150,15 +1168,15 @@ namespace XeniaPatchMaker
                     }
                     foreach (string item in File.ReadLines("temp.toml"))
                     {
-                        if(item.Equals("[patch]"))
+                        if (item.Equals("[patch]"))
                         {
                             Output.AppendText(item.Replace("[patch]", "[[patch]]"));
                             Output.AppendText(Environment.NewLine);
-                        } 
+                        }
                         else
                         {
-                        Output.AppendText("    " + item);
-                        Output.AppendText(Environment.NewLine);
+                            Output.AppendText("    " + item);
+                            Output.AppendText(Environment.NewLine);
                         }
                     }
                     Output.AppendText(Environment.NewLine);
@@ -1195,7 +1213,7 @@ namespace XeniaPatchMaker
             }
             else
             {
-               return Authors.Text;
+                return Authors.Text;
             }
         }
 
@@ -1451,6 +1469,7 @@ namespace XeniaPatchMaker
                         // If the file name is not an empty string open it for saving.
                         if (dialog.FileName != string.Empty)
                         {
+                            TOML.Parse(new StreamReader(GenerateStreamFromString(Output.Text)));
                             FileStream fParameter = new FileStream(dialog.FileName, FileMode.Create, FileAccess.Write);
                             StreamWriter m_WriterParameter = new StreamWriter(fParameter);
                             m_WriterParameter.BaseStream.Seek(0, SeekOrigin.End);
@@ -1467,7 +1486,15 @@ namespace XeniaPatchMaker
                 MessageBox.Show("Must have something to be saved.");
             }
         }
-
+        public static Stream GenerateStreamFromString(string s)
+        {
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+            writer.Write(s);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
+        }
         private void LoadPatchFile_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             using (OpenFileDialog dialog = new OpenFileDialog()
@@ -1683,7 +1710,7 @@ namespace XeniaPatchMaker
 
         private void Output_DragDrop(object sender, DragEventArgs e)
         {
-            if (CurrentFullName.EndsWith(".toml"))
+            if (CurrentFullName.EndsWith(".toml") | CurrentFullName.EndsWith("patch.toml") | CurrentFullName.EndsWith(".patch"))
             {
                 LoadPatchData(CurrentFullPath);
             }

@@ -276,6 +276,7 @@
       <DependentUpon>Loading Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Helper.cs" />
+    <Compile Include="Util\MyTomlConfig.cs" />
     <Compile Include="Util\UpdateChecker.cs" />
     <Compile Include="Util\UpdateNotifyDialog.cs">
       <SubType>Form</SubType>
